@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="AxaFailProofContext-Web.config Connection String" description="AxaFailProofContext Connection String used in web.config by the application to access the database." defaultvalue="Data Source=tcp:s05.winhost.com;Initial Catalog=DB_69490_axafailproof;User ID=DB_69490_axafailproof_user;Password=omgph@2014;Integrated Security=False;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\DOTNET_PROJECT\\AxaFailProof\\AxaFailProof\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AxaFailProofContext']/@connectionString" />
+  </parameter>
+</parameters>

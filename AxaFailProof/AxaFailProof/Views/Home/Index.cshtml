@@ -1,0 +1,35 @@
+﻿@model AxaFailProof.Models.AxaViewModel
+<!-- Section post -->
+<section class="section ">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="row-fluid ">
+        <div class="span4">
+          <div class="inner-content vertical-padding-large">
+              @Html.Raw(Model.Mushroom1.Body)
+        	</div>
+		<!-- end -->
+		<!-- start -->
+        <div class="span4">
+          <div class="inner-content  vertical-padding-large">
+              @Html.Raw(Model.Mushroom2.Body)
+        </div>
+		<!-- end -->
+		<!-- start -->
+        <div class="span4">
+          <div class="inner-content  vertical-padding-large">
+              <h3>USER SUBMISSIONS<br/>
+              <h7>YOUR STORIES</h7></h3>
+              @foreach(var item in Model.FeaturedStory){
+                string teaser = "";
+                teaser = System.Text.RegularExpressions.Regex.Replace(item.Body.Replace("&nbsp;", ""), "<.*?>", string.Empty);
+                teaser = teaser.Substring(0, 250);
+                  <p><img src="@Url.Content("~/UserFiles/images/"+item.Image+"")"></p>
+                  <p><h8>@item.Title</h8><br>@teaser <a href="@Url.Action("Story", "Home", new { id = item.StoryID })">Read more</a></p>
+              }
+           </div>
+		<!-- end -->
+      </div>
+    </div>
+  </div>
+</section>

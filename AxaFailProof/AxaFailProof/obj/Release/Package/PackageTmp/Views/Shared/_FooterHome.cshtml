@@ -1,0 +1,64 @@
+﻿@model AxaFailProof.Models.AxaViewModel
+<!-- strip with buttons -->
+<section id="bluestrip_floating">
+  <div class="bluestrip"><!-- container -->
+    <div class="row-fluid"><!-- row-fluid -->
+      <div class="row-fluid"><!-- row-fluid -->
+      @Html.Raw(Model.Mushroom3.Body)
+      </div><!-- end -->
+    </div><!-- end -->
+  </div><!-- end -->
+</section><!-- end -->
+<!-- end -->
+
+<!-- footer -->
+<footer id="footer"><!-- footer -->
+  <div class="container"><!-- container -->
+    <div class="row-fluid"><!-- row-fluid -->
+    <div id="recent-posts-3" class="widget widget_meta widget_recent_entries span13">
+        @foreach (var item in Model.FotterBanner)
+        { 
+        	<img src="@Url.Content("~/UserFiles/images/"+item.Image)" />
+        }
+    </div>
+      
+      <div id="nav_menu-2" class="widget widget_meta widget_twitter span3">
+        <p><h8>AXA Tweets</h8></p><!-- title -->
+        <div class="recent-tweets">
+            <!-- twitter widget -->
+            <a class="twitter-timeline"  href="https://twitter.com/search?q=%23AXA"  data-widget-id="418038847994216448">Tweets about "#AXA"</a>
+            <script>                !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + "://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } } (document, "script", "twitter-wjs");</script>
+            <!-- end twitter widget -->
+        </div>
+      </div>
+	  <!-- end -->
+    </div><!-- end -->
+  </div><!-- end -->
+</footer><!-- end -->
+
+<!-- copyright -->
+<section id="copyright">
+  <div class="container"><!-- container -->
+    <div class="row-fluid"><!-- row-fluid -->
+      <div class="row-fluid"><!-- row-fluid -->
+        <div class="copyright-text span4 pull-left"> AXA FAIL PROOF 2013. All rights Reserved.</div><!-- copyright-text span4 pull-left -->
+        <div class="textright span8 clearfix">
+          <ul class="social-icons clearfix">
+          AXA PHILIPPINES	|	TERMS & CONDITIONS	|	PRIVACY POLICY	|	CONTACT US
+          </ul><!-- end -->
+        </div><!-- end -->
+      </div><!-- end -->
+    </div><!-- end -->
+  </div><!-- end -->
+</section><!-- end -->
+<!-- end -->
+
+<script type="text/javascript">
+    $(window).scroll(function () {
+        if ($(this).scrollTop()) {
+            $('#bluestrip_floating').fadeIn();
+        } else {
+            $('#bluestrip_floating').fadeOut();
+        }
+    });
+</script>

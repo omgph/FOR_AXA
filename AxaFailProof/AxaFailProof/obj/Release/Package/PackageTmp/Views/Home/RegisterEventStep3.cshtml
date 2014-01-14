@@ -1,0 +1,212 @@
+﻿@model AxaFailProof.Models.AxaViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+    ViewBag.Title = "RegisterEvent";
+    ReCaptcha.PublicKey = @"6Ldg9N0SAAAAAIikWed-vcJuNc8-EZ7NZqeazjDW";
+}
+
+<!-- rev  slider -->
+<div id="rev_slider_3_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container">
+  <div id="rev_slider_3_1" class="rev_slider fullwidthabanner" >
+    <ul>
+       @foreach (var item in Model.MainBanner)
+       { 
+          <li data-transition="fade" data-masterspeed="300" > <img src="@Url.Content("~/Content/images/slide-bg0.jpg")" data-fullwidthcentering="on">
+            <div class="tp-caption fade" data-x="0" data-y="0" data-speed="500" data-start="500" data-easing="easeOutExpo"  ><img src="@Url.Content("~/UserFiles/images/" + item.Image)" alt="@item.Position"> </div>
+          </li>
+       }
+      <!-- end li-->
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+    function checkuncheck() {
+        if ($("#checkbox1Terms").is(':checked')) {
+            $("#EventsRegistered_Terms").val(true);
+        } else {
+            $("#EventsRegistered_Terms").val(false);
+        }
+    }
+
+    var revapi3;
+
+    jQuery(document).ready(function () {
+
+        if (jQuery.fn.cssOriginal != undefined)
+            jQuery.fn.css = jQuery.fn.cssOriginal;
+
+        if (jQuery('#rev_slider_3_1').revolution == undefined)
+            revslider_showDoubleJqueryError('#rev_slider_3_1');
+        else {
+            revapi3 = jQuery('#rev_slider_3_1').show().revolution(
+					{
+					    delay: 9000,
+					    startwidth: 1140,
+					    startheight: 500,
+					    hideThumbs: 200,
+
+					    thumbWidth: 100,
+					    thumbHeight: 50,
+					    thumbAmount: 3,
+
+					    navigationType: "bullet",
+					    navigationArrows: "solo",
+					    navigationStyle: "round",
+
+					    touchenabled: "on",
+					    onHoverStop: "on",
+
+					    navigationHAlign: "center",
+					    navigationVAlign: "bottom",
+					    navigationHOffset: 0,
+					    navigationVOffset: 30,
+
+					    soloArrowLeftHalign: "left",
+					    soloArrowLeftValign: "center",
+					    soloArrowLeftHOffset: 10,
+					    soloArrowLeftVOffset: 0,
+
+					    soloArrowRightHalign: "right",
+					    soloArrowRightValign: "center",
+					    soloArrowRightHOffset: 10,
+					    soloArrowRightVOffset: 0,
+
+					    shadow: 0,
+					    fullWidth: "on",
+					    fullScreen: "off",
+
+					    stopLoop: "off",
+					    stopAfterLoops: -1,
+					    stopAtSlide: -1,
+
+					    shuffle: "off",
+
+					    hideSliderAtLimit: 0,
+					    hideCaptionAtLimit: 0,
+					    hideAllCaptionAtLilmit: 0,
+					    startWithSlide: 0,
+					    videoJsPath: "revslider/videojs/",
+					    fullScreenOffsetContainer: ""
+					});
+
+            revapi3.revnext(function () { alert(0) });
+        }
+    }); //ready
+				
+				
+			</script> 
+
+<!-- END REVOLUTION SLIDER --> 
+
+<!-- Section post -->
+<section class="section">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="portfolio">
+        <ul  class="portfolio-items portfolio-style1 filterable-items row-fluid style2" data-columns="4">
+          <li class="portfolio-item pocketevent active first-row span12">
+            <div class="inner-content">
+              <div class="post-info-container">
+                <p class="failproof-header4">Register for an Event</p>
+              </div>
+              <div class="post-info-container">
+                <div class="row-fluid">
+                  <div class="stunning_text">
+                    <div class="big-title  extra-large-text"></div>
+                  </div>
+                  <div class="wpcf7" id="wpcf7-f2370-p20-o1">
+                    @using (Html.BeginForm("RegisterEventStep3", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(model => model.EventsRegistered.RegEventID)
+                        @Html.HiddenFor(model => model.EventsRegistered.DateCreated)
+                        @Html.HiddenFor(model => model.EventsRegistered.Status)
+                        @Html.HiddenFor(model => model.EventsRegistered.LocationID)
+                        @Html.HiddenFor(model => model.EventsRegistered.EventDate)
+                        @Html.HiddenFor(model => model.EventsRegistered.Terms)
+                     <div class="comment-form">
+                      <div class="row-fluid">
+                        <div class="span4">
+                          <div class="control-wrap"> <span class="icon"><i class="icon-fixed-user"></i></span>
+                            @Html.TextBoxFor(model => model.EventsRegistered.FirstName, new { placeholder = "First Name" })
+                            @Html.ValidationMessageFor(model => model.EventsRegistered.FirstName)
+                          </div>
+                        </div>
+                        <div class="span4">
+                          <div class="control-wrap"> <span class="icon"><i class="icon-fixed-user"></i></span>
+                            @Html.TextBoxFor(model => model.EventsRegistered.MiddleName, new { placeholder = "Middle Initial" })
+                            @Html.ValidationMessageFor(model => model.EventsRegistered.MiddleName)
+                          </div>
+                        </div>
+                        <div class="span4">
+                          <div class="control-wrap"> <span class="icon"><i class="icon-fixed-user"></i></span>
+                            @Html.TextBoxFor(model => model.EventsRegistered.LastName, new { placeholder = "Last Name" })
+                            @Html.ValidationMessageFor(model => model.EventsRegistered.LastName)
+                          </div>
+                        </div>
+                        <div class="span4">
+                          <div class="control-wrap"> <span class="icon"><i class="icon-fixed-phone"></i></span>
+                            @Html.TextBoxFor(model => model.EventsRegistered.ContactNumber, new { placeholder = "Contact Number" })
+                            @Html.ValidationMessageFor(model => model.EventsRegistered.ContactNumber)
+                          </div>
+                        </div>
+                        <div class="span4">
+                          <div class="control-wrap"> <span class="icon"><i class="icon-fixed-mail"></i></span>
+                            @Html.TextBoxFor(model => model.EventsRegistered.Email, new { placeholder = "Email Address" })
+                            @Html.ValidationMessageFor(model => model.EventsRegistered.Email)
+                          </div>
+                        </div>
+                      </div>
+                      <!--/row-->
+                      
+                      <div class="post-info-container">
+                        <table width="429" border="0" cellpadding="0" cellspacing="0" class="joinapocketevent_text1">
+                          <tr>
+                            <td width="429" height="51" class="joinapocketevent_text1">Are you a Metrobank Card Holder?</td>
+                          </tr>
+                          <tr>
+                            <td height="67"><span id="spryradio1">
+                              <label>
+                                @Html.RadioButtonFor(model => model.EventsRegistered.CardHolder, "true")
+                                Yes</label>
+                              <br>
+                              <label>
+                                @Html.RadioButtonFor(model => model.EventsRegistered.CardHolder, "false")
+                                No</label>
+                              <br>
+                              <span class="radioRequiredMsg">Please make a selection.</span></span></td>
+                          </tr>
+                          <tr>
+                            <td height="25" class="joinapocketevent_text3"><span id="sprycheckbox1">
+
+                                <input type="checkbox" name="checkbox1Terms" id="checkbox1Terms" onchange="checkuncheck()">
+                              <span class="checkboxRequiredMsg">Please make a selection.</span></span><span class="joinapocketevent_text3">I agree to the site's Terms and Conditions</span></td>
+                          </tr>
+                          <tr>
+                            <td height="140" class="joinapocketevent_text2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</td>
+                          </tr>
+                          <tr>
+                            <td height="140">@ReCaptcha.GetHtml(theme: "clean")</td>
+                          </tr>
+                          <tr>
+                            <td height="45"><input name="submit" type="submit" id="submit" class="button.blue img" tabindex="5" value="Submit" /></td>
+                          </tr>
+                        </table>
+                      </div>
+                  </div>
+                    }
+                  <div class="gap" style="height:50px"></div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+    if (document.location.hash == "#c") {
+        alert("Invalid Captcha. Please try again.");
+    }
+</script>

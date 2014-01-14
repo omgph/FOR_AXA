@@ -1,0 +1,232 @@
+﻿@model AxaFailProof.Models.AxaViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutMain.cshtml"; 
+    ViewBag.Title = "Search";
+}
+<!-- rev  slider -->
+<div id="rev_slider_3_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container">
+  <div id="rev_slider_3_1" class="rev_slider fullwidthabanner" >
+    <ul>
+       @foreach (var item in Model.MainBanner) { 
+          <li data-transition="fade" data-masterspeed="300" > <img src="@Url.Content("~/Content/images/slide-bg0.jpg")" data-fullwidthcentering="on">
+            <div class="tp-caption fade" data-x="0" data-y="0" data-speed="500" data-start="500" data-easing="easeOutExpo"  ><img src="@Url.Content("~/UserFiles/images/"+item.Image)" alt="@item.Position"> </div>
+          </li>
+       }
+      <!-- end li-->
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+
+
+    var revapi3;
+
+    jQuery(document).ready(function () {
+
+        if (jQuery.fn.cssOriginal != undefined)
+            jQuery.fn.css = jQuery.fn.cssOriginal;
+
+        if (jQuery('#rev_slider_3_1').revolution == undefined)
+            revslider_showDoubleJqueryError('#rev_slider_3_1');
+        else {
+            revapi3 = jQuery('#rev_slider_3_1').show().revolution(
+					{
+					    delay: 9000,
+					    startwidth: 1140,
+					    startheight: 500,
+					    hideThumbs: 200,
+
+					    thumbWidth: 100,
+					    thumbHeight: 50,
+					    thumbAmount: 3,
+
+					    navigationType: "bullet",
+					    navigationArrows: "solo",
+					    navigationStyle: "round",
+
+					    touchenabled: "on",
+					    onHoverStop: "on",
+
+					    navigationHAlign: "center",
+					    navigationVAlign: "bottom",
+					    navigationHOffset: 0,
+					    navigationVOffset: 30,
+
+					    soloArrowLeftHalign: "left",
+					    soloArrowLeftValign: "center",
+					    soloArrowLeftHOffset: 10,
+					    soloArrowLeftVOffset: 0,
+
+					    soloArrowRightHalign: "right",
+					    soloArrowRightValign: "center",
+					    soloArrowRightHOffset: 10,
+					    soloArrowRightVOffset: 0,
+
+					    shadow: 0,
+					    fullWidth: "on",
+					    fullScreen: "off",
+
+					    stopLoop: "off",
+					    stopAfterLoops: -1,
+					    stopAtSlide: -1,
+
+					    shuffle: "off",
+
+					    hideSliderAtLimit: 0,
+					    hideCaptionAtLimit: 0,
+					    hideAllCaptionAtLilmit: 0,
+					    startWithSlide: 0,
+					    videoJsPath: "revslider/videojs/",
+					    fullScreenOffsetContainer: ""
+					});
+
+            revapi3.revnext(function () { alert(0) });
+        }
+    }); //ready
+				
+				
+			</script> 
+
+<!-- END REVOLUTION SLIDER -->
+
+<section id="titlebar" class="titlebar">
+  <div class="container">
+    <div class="row-fluid">
+      <h1 class="">Stories</h1>
+    </div>
+  </div>
+</section>
+
+<!-- section post -->
+<section class="section">
+<div class="container">
+  <div class="row-fluid">
+    <div class="portfolio-tabs clearfix"> </div>
+    <div class="portfolio">
+      <ul  class="portfolio-items portfolio-style1 filterable-items three-columns row-fluid " data-columns="3">
+        <li class="portfolio-item searchbytopic ">
+          <div class="inner-content">
+            <div class="container"></div>
+          </div>
+        </li>
+        <li class="portfolio-item searchbytopic first-row ">
+          <div class="inner-content">
+            <div class="row-fluid">
+              <div  class="content span9">
+                <div class="inner-content">
+                  <div class="post post-standard clearfix">
+                    <div class="post-left-container">
+                      <div class="post-date-container">
+                        <div class="date"> <span class="day"><span>25<span class="th">th</span></span></span> <span class="month">Sep</span> </div>
+                      </div>
+                      <div class="post-meta-container">
+                        <div><span class="label">Posted By</span><span><a class="" href="#">MS Team</a></span></div>
+                        <div><span>In</span><span><a href="#" rel="category">Animation</a> , <a href="#" rel="category">Latest</a></span></div>
+                      </div>
+                      <div class="post-comment-info"> <a class="commnets" href="#"><i class="icon-fixed-bubble"></i>32</a> </div>
+                    </div>
+                    <div class="post-right-container">
+                      <div class="image hoverlay"> <img  src="images/postwide3.jpg" class="attachment-blog-large wp-post-image" />
+                        <div class="overlay"> <a class="icon prettyPhoto" href="images/postwide3.jpg"><i class="icon-fixed-search"></i></a> </div>
+                      </div>
+                      <div class="post-info-container">
+                        <h2><a href="#">Lorem ipsum dolor sit amet</a></h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere, leo sed consectetur vehicula, nisi arcu ultrices eros, nec dignissim leo sem vel lectus. In massa turpis, ornare nec commodo non, auctor vel felis. Etiam pharetra, turpis nec sollicitudin cursus, [...]</p>
+                        <a href="story_sample01.html" class="readmore"> Read More<i class="icon-arrow-right8"></i> </a> </div>
+                    </div>
+                  </div>
+                  <div class="post post-standard clearfix">
+                    <div class="post-left-container">
+                      <div class="post-date-container">
+                        <div class="date"> <span class="day"><span>25<span class="th">th</span></span></span> <span class="month">Sep</span> </div>
+                      </div>
+                      <div class="post-meta-container">
+                        <div><span class="label">Posted By</span><span><a class="" href="#">MS Team</a></span></div>
+                        <div><span>In</span><span><a href="#" rel="category">Animation</a> , <a href="#" rel="category">Latest</a></span></div>
+                      </div>
+                      <div class="post-comment-info"> <a class="commnets" href="#"><i class="icon-fixed-bubble"></i>32</a> </div>
+                    </div>
+                    <div class="post-right-container">
+                      <div class="image hoverlay"> <img  src="images/postwide4.jpg" class="attachment-blog-large wp-post-image" />
+                        <div class="overlay"> <a class="icon prettyPhoto" href="images/postwide4.jpg"><i class="icon-fixed-search"></i></a> </div>
+                      </div>
+                      <div class="post-info-container">
+                        <h2><a href="#">Lorem ipsum dolor sit amet</a></h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere, leo sed consectetur vehicula, nisi arcu ultrices eros, nec dignissim leo sem vel lectus. In massa turpis, ornare nec commodo non, auctor vel felis. Etiam pharetra, turpis nec sollicitudin cursus, [...]</p>
+                        <a href="#" class="readmore"> Read More<i class="icon-arrow-right8"></i> </a> </div>
+                    </div>
+                  </div>
+                  <div class="post post-standard clearfix">
+                    <div class="post-left-container">
+                      <div class="post-date-container">
+                        <div class="date"> <span class="day"><span>25<span class="th">th</span></span></span> <span class="month">Sep</span> </div>
+                      </div>
+                      <div class="post-meta-container">
+                        <div><span class="label">Posted By</span><span><a class="" href="#">MS Team</a></span></div>
+                        <div><span>In</span><span><a href="#" rel="category">Animation</a> , <a href="#" rel="category">Latest</a></span></div>
+                      </div>
+                      <div class="post-comment-info"> <a class="commnets" href="#"><i class="icon-fixed-bubble"></i>32</a> </div>
+                    </div>
+                    <div class="post-right-container">
+                      <div class="image hoverlay"> <img  src="images/postwide5.jpg" class="attachment-blog-large wp-post-image" />
+                        <div class="overlay"> <a class="icon prettyPhoto" href="images/postwide5.jpg"><i class="icon-fixed-search"></i></a> </div>
+                      </div>
+                      <div class="post-info-container">
+                        <h2><a href="#">Lorem ipsum dolor sit amet</a></h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere, leo sed consectetur vehicula, nisi arcu ultrices eros, nec dignissim leo sem vel lectus. In massa turpis, ornare nec commodo non, auctor vel felis. Etiam pharetra, turpis nec sollicitudin cursus, [...]</p>
+                        <a href="#" class="readmore"> Read More<i class="icon-arrow-right8"></i> </a> </div>
+                    </div>
+                  </div>
+                  <div class="row-fluid page-nav-container">
+                    <div class="span8">
+                      <div class="page-nav"><span class="active">1</span><span><a href="#">2</a></span><span><a href="#">3</a></span><span><a href="#">4</a></span></div>
+                    </div>
+                    <div class="span4">
+                      <div class="page-nav-info">Page 1 of 4</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sidebar span3">
+                <div class="inner-content">
+                  <div id="search-2" class="widget widget_meta widget_search">
+                    <form action="#" id="searchform" class="search-form" method="get">
+                      <div>
+                        <input type="text" id="s" name="s" value="Search..." onFocus="if(this.value=='Search...')this.value='';" onBlur="if(this.value=='')this.value='Search...';" autocomplete="off" />
+                        <input type="submit" value="search"  class="hidden" />
+                      </div>
+                    </form>
+                  </div>
+                  <div id="archives-2" class="widget widget_meta widget_archive">
+                    <h3>Topics</h3>
+                    <ul>
+                      <li><a href='#' title='Sep 2013'>Sample Topic 1</a></li>
+                      <li><a href='#' title='April 2013'>Sample Topic 2</a></li>
+                    </ul>
+                  </div>
+                  <div class="widget clearfix">
+                    <h3>Recent posts</h3>
+                    <ul class="widget-posts">
+                      <li class="widget-post"> <img width="80" height="80" src="images/post_thumb1.jpg" class="attachment-mini wp-post-image"/>
+                        <h6><a class="" href="#">In massa turpis ornare necd crn ltepio dnyui tesi </a></h6>
+                        <p class="date">Sep 01 , 2013 at 4:50 pm</p>
+                      </li>
+                      <li class="widget-post"> <img width="80" height="80" src="images/post_thumb2.jpg" class="attachment-mini wp-post-image" />
+                        <h6> <a class="" href="#">Mauris vestibulum neque</a></h6>
+                        <p class="date">Sep 01 , 2013 at 4:50 pm</p>
+                      </li>
+                      <li class="widget-post"> <img width="80" height="80" src="images/post_thumb3.jpg" class="attachment-mini wp-post-image" />
+                        <h6><a class="" href="#">sed aliquam justo dolor</a></h6>
+                        <p class="date">Sep 01 , 2013 at 4:50 pm </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,251 @@
+﻿@model AxaFailProof.Models.AxaViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutMain.cshtml"; 
+    ViewBag.Title = "Story";
+}
+<!-- rev  slider -->
+<div id="rev_slider_3_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container">
+  <div id="rev_slider_3_1" class="rev_slider fullwidthabanner" >
+    <ul>
+       @foreach (var item in Model.MainBanner) { 
+          <li data-transition="fade" data-masterspeed="300" > <img src="@Url.Content("~/Content/images/slide-bg0.jpg")" data-fullwidthcentering="on">
+            <div class="tp-caption fade" data-x="0" data-y="0" data-speed="500" data-start="500" data-easing="easeOutExpo"  ><img src="@Url.Content("~/UserFiles/images/"+item.Image)" alt="@item.Position"> </div>
+          </li>
+       }
+      <!-- end li-->
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+    var revapi3;
+
+    jQuery(document).ready(function () {
+
+        if (jQuery.fn.cssOriginal != undefined)
+            jQuery.fn.css = jQuery.fn.cssOriginal;
+
+        if (jQuery('#rev_slider_3_1').revolution == undefined)
+            revslider_showDoubleJqueryError('#rev_slider_3_1');
+        else {
+            revapi3 = jQuery('#rev_slider_3_1').show().revolution(
+					{
+					    delay: 9000,
+					    startwidth: 1140,
+					    startheight: 500,
+					    hideThumbs: 200,
+
+					    thumbWidth: 100,
+					    thumbHeight: 50,
+					    thumbAmount: 3,
+
+					    navigationType: "bullet",
+					    navigationArrows: "solo",
+					    navigationStyle: "round",
+
+					    touchenabled: "on",
+					    onHoverStop: "on",
+
+					    navigationHAlign: "center",
+					    navigationVAlign: "bottom",
+					    navigationHOffset: 0,
+					    navigationVOffset: 30,
+
+					    soloArrowLeftHalign: "left",
+					    soloArrowLeftValign: "center",
+					    soloArrowLeftHOffset: 10,
+					    soloArrowLeftVOffset: 0,
+
+					    soloArrowRightHalign: "right",
+					    soloArrowRightValign: "center",
+					    soloArrowRightHOffset: 10,
+					    soloArrowRightVOffset: 0,
+
+					    shadow: 0,
+					    fullWidth: "on",
+					    fullScreen: "off",
+
+					    stopLoop: "off",
+					    stopAfterLoops: -1,
+					    stopAtSlide: -1,
+
+					    shuffle: "off",
+
+					    hideSliderAtLimit: 0,
+					    hideCaptionAtLimit: 0,
+					    hideAllCaptionAtLilmit: 0,
+					    startWithSlide: 0,
+					    videoJsPath: "revslider/videojs/",
+					    fullScreenOffsetContainer: ""
+					});
+
+            revapi3.revnext(function () { alert(0) });
+        }
+    }); //ready
+				
+				
+			</script> 
+
+<!-- END REVOLUTION SLIDER -->
+@{
+    DateTime dt = DateTime.Parse(Model.Story.DateCreated.ToString());    
+}
+<section id="titlebar" class="titlebar">
+  <div class="container">
+    <div class="row-fluid">
+      <h1 class="">Stories</h1>
+    </div>
+  </div>
+</section>
+<section class="section-with-sidebar">
+  <div class="container">
+    <div class="row-fluid">
+      <div  class="content span9">
+        <div class="inner-content">
+          <div id="post-2355" class="post post-standard post-single  clearfix">
+            <div class="post-left-container">
+              <div class="post-date-container">
+                <div class="date"> <span class="day">@dt.ToString("dd")</span> <span class="month">@dt.ToString("MMM")</span> </div>
+              </div>
+              <div class="post-meta-container">
+                <div> <span class="label">Posted By</span> <span><a class="">@Model.Story.Author</a></span> </div>
+                <div> <span>Topic</span> <span><a>@Model.Story.Topics.Title</a> ,<span>Tags</span> <a>@Model.Story.Tags</a></span> </div>
+              </div>
+              <div class="post-comment-info"> <a class="commnets" href="#"><i class="icon-fixed-bubble"></i>@Model.Story.CommnetsCount</a> </div>
+            </div>
+            <div class="post-right-container">
+              <div class="image hoverlay"> <img  src="@Url.Content("~/UserFiles/image_thumb/" + @Model.Story.Image)" class="attachment-blog-large wp-post-image" alt="Workplace" />
+                <div class="overlay"> <a class="icon prettyPhoto" href="@Url.Content("~/UserFiles/images/" + @Model.Story.Image)"><i class="icon-fixed-search"></i></a> </div>
+              </div>
+              <div class="post-info-container">
+                <h2><a href="#"> @Model.Story.Title</a></h2>
+                <div class="excerpt">
+                  @Html.Raw(Model.Story.Body) 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="post-extra-box clearfix">
+            <div class="post-extra-left-content">
+              <h4 class="textuppercase">Share this</h4>
+            </div>
+            <div class="post-extra-right-content">
+              <div class=" post-share"> <span><a href="#"><i class="icon-twitter"></i></a></span> <span><a href="#"><i class="icon-facebook"></i></a></span></div>
+            </div>
+          </div>
+          <div id="comments">
+            <h4 class="textuppercase">@Model.Story.CommnetsCount Comments</h4>
+            <ol class="commentlist">
+            @foreach (var item in Model.Comments)
+               {
+                   DateTime commentdt = DateTime.Parse(item.DateCreated.ToString());
+              <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1 parent" id="comment-11">
+                <div id="div-comment-11" class="comment-body">
+                  <div class="comment-author vcard"> <img alt='' src='@Url.Content("~/Content/images/admin.png")' class='avatar avatar-60 photo' height='60' width='60' />
+                    <h4>@item.Name says:</h4>
+                  </div>
+                  <div class="comment-meta commentmetadata"><a href="#"> @commentdt.ToString("MMM dd, yyyy at hh:mm tt")</a> </div>
+                  <p>@item.Comments</p>
+                </div>
+              </li>
+               } 
+            </ol>
+            <div class="comments-navigation">
+              <div class="alignleft"></div>
+              <div class="alignright"></div>
+            </div>
+          </div>
+          <div id="respond">
+            <h4 class="textuppercase">Leave a comment</h4>
+            <span class="cancel-comment-reply"><small><a rel="nofollow" id="cancel-comment-reply-link" href="#" style="display:none;">Cancel reply</a></small></span>
+            <p>Your email address will not be published. All fields are marked. </p>
+            @using (Html.BeginForm("Story", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.Comment.StoryID)
+              <div class="comment-form">
+                <div class="row-fluid">
+                  <div class="span4">
+                    <div class="control-wrap"> <span class="icon"> <i class="icon-fixed-user"></i></span>
+                          @Html.TextBoxFor(model => model.Comment.Name, new { size = "22", tabindex = "1", placeholder = "Your Name" })
+                          @Html.ValidationMessageFor(model => model.Comment.Name, "", new { style = "color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;" })
+                    </div>
+                  </div>
+                  <div class="span4">
+                    <div class="control-wrap"> <span class="icon"> <i class="icon-fixed-mail"></i></span>
+                          @Html.TextBoxFor(model => model.Comment.Email, new { size = "22", tabindex = "1", placeholder = "Email" })
+                          @Html.ValidationMessageFor(model => model.Comment.Email, "", new { style = "color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;" })
+                    </div>
+                  </div>
+                  <div class="span4">
+                    <div class="control-wrap"> <span class="icon"> <i class="icon-fixed-world"></i></span>
+                          @Html.TextBoxFor(model => model.Comment.Website, new { size = "22", tabindex = "1", placeholder = "Website" })
+                          @Html.ValidationMessageFor(model => model.Comment.Website, "", new { style = "color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;" })
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--/row-->
+              
+              <div class="comment-form">
+                <div class="row-fluid">
+                  <div class="span12">
+                        @Html.TextAreaFor(model => model.Comment.Comments, new { rows = "10", cols = "58", placeholder = "Your Message" })<br />
+                        @Html.ValidationMessageFor(model => model.Comment.Comments, "", new { style = "color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;" })
+                  </div>
+                </div>
+              </div>
+              <input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit" />
+            }
+          </div>
+        </div>
+      </div>
+      <div class="sidebar span3">
+        <div class="inner-content">
+          <div id="search-2" class="widget widget_meta widget_search">
+            <form action="#" id="searchform" class="search-form" method="get">
+              <div>
+                <input type="text" id="s" name="s" value="Search..." onFocus="if(this.value=='Search...')this.value='';" onBlur="if(this.value=='')this.value='Search...';" autocomplete="off" />
+                <input type="submit" value="search"  class="hidden" />
+              </div>
+            </form>
+          </div>
+          <div id="archives-2" class="widget widget_meta widget_archive">
+            <h3>Archives</h3>
+            <ul>
+              <li><a href='#' title='Sep 2013'>Sep 2013</a></li>
+              <li><a href='#' title='April 2013'>April 2013</a></li>
+            </ul>
+          </div>
+          <div class="widget clearfix">
+              <h3>Recent posts</h3>
+              <ul class="widget-posts">
+                <li class="widget-post"> <img width="80" height="80" src="@Url.Content("~/Content/images/post_thumb1.jpg")" class="attachment-mini wp-post-image"/>
+                  <h6><a class="" href="#">In massa turpis ornare necd crn ltepio dnyui tesi </a></h6>
+                  <p class="date">Sep 01 , 2013 at 4:50 pm</p>
+                </li>
+                <li class="widget-post"> <img width="80" height="80" src="@Url.Content("~/Content/images/post_thumb2.jpg")" class="attachment-mini wp-post-image" />
+                  <h6> <a class="" href="#">Mauris vestibulum neque</a></h6>
+                  <p class="date">Sep 01 , 2013 at 4:50 pm</p>
+                </li>
+                <li class="widget-post"> <img width="80" height="80" src="@Url.Content("~/Content/images/post_thumb3.jpg")" class="attachment-mini wp-post-image" />
+                  <h6><a class="" href="#">sed aliquam justo dolor</a></h6>
+                  <p class="date">Sep 01 , 2013 at 4:50 pm </p>
+                </li>
+              </ul>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section  section-padding-zero" style="background-color:#f6f6f6">
+  <div class="single-page-nav">
+    <div class="page-nav-prev clearfix"> <a href="#"> <i class="icon-arrow-left8"></i> Previous Post</a> </div>
+    <div class="page-nav-center clearfix"> <a href="#"><i class="icon-fixed-back-to-all"></i> </a></div>
+    <div class="page-nav-next clearfix"> <a href="#">Next Post <i class="icon-arrow-right7"></i></a> </div>
+  </div>
+</section>
+<script>
+    $("#UserComment_StoryID").val('@Model.Story.StoryID')
+</script>

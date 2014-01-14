@@ -1,0 +1,105 @@
+﻿<!-- mobile menu Starts Here-->
+<div id="mobile_navigation"><!-- mobile_navigation-->
+  <ul id="mobile_menu" class="mobile_menu"><!-- mobile_menu-->
+    <!-- start li-->
+	<li class="menu-item"><a href="/">Home</a></li>
+	<!-- end li-->
+	<!-- start li-->
+    <li class="menu-item"><a href="#">Fail Proof Your Health</a>
+        <ul class="sub-menu">
+            <li>@Html.ActionLink("Why Focus on Health", "FailProofYourHealth", new { id = 7})</li>
+            <li>@Html.ActionLink("Statistics", "FailProofYourHealth", new { id = 4 })</li>
+            <li><a href="http://www.axa.com.ph/life-insurance-products" target="_blank">AXA Products</a></li>
+            <li>@Html.ActionLink("Join a Pocket Event", "RegisterEvent")</li>
+	    </ul>
+    </li>
+	<!-- end li-->
+	<!-- start li-->
+    <li class="menu-item">@Html.ActionLink("What is Fail Proof", "WhatIsFailProof", new { id = 3 })</li>
+	<!-- end li-->
+	<!-- start li-->
+    <li class="menu-item"><a href="#">Stories</a>
+    	<ul class="sub-menu">
+        	<li>@Html.ActionLink("Archive", "Archive")</li>
+        	<li>@Html.ActionLink("Submit your Story", "SubmitStory")</li>
+        	<li>@Html.ActionLink("Search by Topic", "Search")<a href="search_by_topic.html"></a></li>
+		</ul>
+    </li>
+	<!-- end li-->
+	<!-- start li-->
+    <li class="menu-item">@Html.ActionLink("Contact Us", "ContactUs")</li>
+	<!-- end li-->
+  </ul>
+</div>
+
+<!-- End Mobile Navigation -->
+
+<div id="header_space"></div><!-- header_space -->
+<header id="header"><!-- header -->
+  <section id="main_header_container"><!-- main_header_container -->
+    <div id="main_navigation"><!-- main_navigation -->
+      <div class="container"><!-- container -->
+        <div class="row-fluid"><!-- row-fluid -->
+          <div class="row-fluid"><!-- row-fluid -->
+            <div class="span12"> <!-- span12 -->
+              <div class="logo-container"> <a href="#" id="logo" class="clearfix"><img src="@Url.Content("~/Content/images/logo.png")"/></a> </div><!-- logo -->
+              <div id="toggle-menu"> <a class="toggle-menu" href="#"><i class="icon-list2"></i></a><!-- toggle-menu -->
+                <div class="clear"></div><!-- clear -->
+              </div>
+              <div id="header-search-button"><a href="#"  class="search-button"><i class="icon-fixed-search"></i></a></div><!-- search -->
+              <ul id="main_menu" class="main_menu"><!-- main_menu -->
+               <li class="menu-item @ViewBag.Hselected"><a href="/">Home</a></li>
+				<!-- end li-->
+				<!-- start li-->
+                <li class="menu-item @ViewBag.Fselected"><a href="#">Fail Proof your Health</a>
+                	 <ul class="sub-menu">
+        				<li>@Html.ActionLink("Why Focus on Health", "FailProofYourHealth", new { id = 7})</li>
+        				<li>@Html.ActionLink("Statistics", "FailProofYourHealth", new { id = 4 })</li>
+        				<li><a href="http://www.axa.com.ph/life-insurance-products" target="_blank">AXA Products</a></li>
+        				<li>@Html.ActionLink("Join a Pocket Event", "RegisterEvent")</li>
+      				</ul>
+                </li>
+				<!-- end li-->
+				<!-- start li-->
+                <li class="menu-item @ViewBag.Wselected">@Html.ActionLink("What is Fail Proof", "WhatIsFailProof", new { id = 3 })</li>
+				<!-- end li-->
+				<!-- start li-->
+                <li class="menu-item @ViewBag.Sselected"><a href="#">Stories</a>
+                	<ul class="sub-menu">
+        				<li>@Html.ActionLink("Archive", "Archive")</li>
+        				<li>@Html.ActionLink("Submit your Story", "SubmitStory")</li>
+        				<li>@Html.ActionLink("Search by Topic", "Search")<a href="search_by_topic.html"></a></li>
+      				</ul>
+                </li>
+				<!-- end li-->
+				<!-- start li-->
+                <li class="menu-item @ViewBag.Cselected">@Html.ActionLink("Contact Us", "ContactUs")</li>
+				<!-- end li-->
+              </ul>
+            </div><!-- end -->
+          </div><!-- end -->
+        </div><!-- end -->
+      </div><!-- end -->
+    </div><!-- end -->
+  </section><!-- end -->
+  
+  <!-- section search -->
+  <section id="header-search-panel"><!-- header-search-panel -->
+    <div class="container"><!-- container -->
+      <div class="row-fluid"><!-- row-fluid -->
+        <div class="search"><!-- search -->
+          <div>
+            <!-- form -->
+			<form action="#" id="header-search-form" method="get">
+              <a class="close" href="#"><i class="icon-fixed-remove"></i></a><!-- icon-fixed-remove -->
+              <input type="text"  id="header-search" name="s" value="Search" autocomplete="off" />
+              <span class="fake-submit-button"><i class="icon-fixed-search"></i><!-- icon-fixed-search -->
+              <input type="submit"  name="submit" value="submit" /><!-- submit -->
+              </span>
+            </form><!-- end -->
+          </div><!-- end -->
+        </div><!-- end -->
+      </div><!-- end -->
+    </div><!-- end -->
+  </section><!-- end -->
+</header><!-- end header -->
