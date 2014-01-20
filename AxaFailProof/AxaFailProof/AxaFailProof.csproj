@@ -61,6 +61,7 @@
       <HintPath>..\..\TicketNet\TicketNet\bin\SecurityGuard.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Providers">
       <HintPath>..\..\TicketNet\TicketNet\bin\System.Web.Providers.dll</HintPath>
@@ -99,11 +100,14 @@
     <Compile Include="Areas\Admin\Controllers\ContactUsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\EventsRegisteredController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FailProofingController.cs" />
     <Compile Include="Areas\Admin\Controllers\FileViewController.cs" />
     <Compile Include="Areas\Admin\Controllers\LocationController.cs" />
     <Compile Include="Areas\Admin\Controllers\MembershipController.cs" />
     <Compile Include="Areas\Admin\Controllers\MushroomController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuizController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SocialMediaUserController.cs" />
     <Compile Include="Areas\Admin\Controllers\StaticPageController.cs" />
     <Compile Include="Areas\Admin\Controllers\StoriesController.cs" />
     <Compile Include="Areas\Admin\Controllers\TopicController.cs" />
@@ -131,6 +135,10 @@
     <Compile Include="Models\Banner.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\ContactU.cs" />
+    <Compile Include="Models\FailProofing.cs" />
+    <Compile Include="Models\Mapping\FailProofingMap.cs" />
+    <Compile Include="Models\Mapping\QuizMap.cs" />
+    <Compile Include="Models\Quiz.cs" />
     <Compile Include="Models\EventsRegistered.cs" />
     <Compile Include="Models\FileItemView.cs" />
     <Compile Include="Models\Location.cs" />
@@ -154,6 +162,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\AxaViewModel.cs" />
     <Compile Include="ViewModel\FileSystemView.cs" />
+    <Compile Include="ViewModel\Yahoo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\ckeditor\adapters\jquery.js" />
@@ -1256,13 +1265,22 @@
     <Content Include="Views\Shared\_CopyRight.cshtml" />
     <Content Include="Views\Shared\_ArchiveList.cshtml" />
     <Content Include="Views\Home\GoogleSearch.cshtml" />
-    <Content Include="Views\Home\Statistics.cshtml" />
+    <Content Include="Views\Home\HealthFactsFigures.cshtml" />
     <Content Include="Views\Shared\_LayoutSearch.cshtml" />
     <Content Include="Views\Shared\_Navigator2.cshtml" />
     <Content Include="Views\Home\NotFound.cshtml" />
     <Content Include="Views\Shared\_SearchByTopicForm.cshtml" />
     <Content Include="Views\Home\SearchTags.cshtml" />
     <Content Include="Views\Home\ArchiveByDate.cshtml" />
+    <Content Include="Views\Home\Quiz.cshtml" />
+    <Content Include="Views\Home\QuizRegistration.cshtml" />
+    <Content Include="Views\Home\Results.cshtml" />
+    <Content Include="Areas\Admin\Views\Quiz\Index.cshtml" />
+    <Content Include="Views\Home\NoRecordFound.cshtml" />
+    <Content Include="Areas\Admin\Views\SocialMediaUser\Index.cshtml" />
+    <Content Include="Views\Home\RegFailProofing.cshtml" />
+    <Content Include="Views\Home\FailProofingThankyou.cshtml" />
+    <Content Include="Areas\Admin\Views\FailProofing\Index.cshtml" />
     <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.xml" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.dll" />

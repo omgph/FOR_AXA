@@ -2,6 +2,87 @@
 @{
     Layout = "~/Views/Shared/_LayoutMain.cshtml"; 
 }
+<!-- Place this asynchronous JavaScript just before your </body> tag -->
+<script type="text/javascript">
+
+    var profile, email;
+
+    (function () {
+        var po = document.createElement('script');
+        po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/client:plusone.js?onload=render';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(po, s);
+    })();
+
+    function render() {
+        gapi.signin.render('customBtn', {
+            'callback': 'loginFinishedCallback',
+            'clientid': '336953771052-su67dbef5hs582a4eo4ulj4uno3ocbje.apps.googleusercontent.com',
+            'cookiepolicy': 'single_host_origin',
+            'requestvisibleactions': 'http://schemas.google.com/AddActivity',
+            'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
+        });
+    }
+
+    /*
+    * Triggered when the user accepts the sign in, cancels, or closes the
+    * authorization dialog.
+    */
+    function loginFinishedCallback(authResult) {
+        if (authResult) {
+            if (authResult['error'] == undefined) {
+                gapi.client.load('plus', 'v1', loadProfile);  // Trigger request to get the email address.
+            } else {
+                console.log('An error occurred');
+            } //end if (authResult['error'] == undefined)
+        } else {
+            console.log('Empty authResult');  // Something went wrong
+        } //end if (authResult)
+    } //end function loginFinishedCallback(authResult)
+
+    /**
+    * Uses the JavaScript API to request the user's profile, which includes
+    * their basic information. When the plus.profile.emails.read scope is
+    * requested, the response will also include the user's primary email address
+    * and any other email addresses that the user made public.
+    */
+    function loadProfile() {
+        var request = gapi.client.plus.people.get({ 'userId': 'me' });
+        request.execute(loadProfileCallback);
+    }
+
+    /**
+    * Callback for the asynchronous request to the people.get method. The profile
+    * and email are set to global variables. Triggers the user's basic profile
+    * to display when called.
+    */
+    function loadProfileCallback(obj) {
+        profile = obj;
+        // Filter the emails object to find the user's primary account, which might
+        // not always be the first in the array. The filter() method supports IE9+.
+        email = obj['emails'].filter(function (v) {
+            return v.type === 'account'; // Filter out the primary email
+        })[0].value; // get the email from the filtered results, should always be defined.
+        displayProfile(profile);
+    }
+
+    /**
+    * Display the user's basic profile information from the profile object.
+    */
+    function displayProfile(profile) {
+        saveUserDetails(profile['id'], profile['displayName'], email,"Google");
+    }
+
+    function saveUserDetails(id,uname,uemail,socialmedia) {
+        $.post('/SaveSocialMedia', { userid: id, name: uname, email: uemail, mediatype: socialmedia }, function (data) {
+            if (data == "Save" || data == "Exist") {
+                setCookie('username', uname, 1);
+                location = '/SubmitStory';
+            }
+        });
+    } //end function saveUserDetails(id,name,email)
+</script>
 
 <section id="titlebar" class="titlebar">
   <div class="container">
@@ -13,51 +94,57 @@
 
 <!-- section post -->
 <section class="section">
-<div class="container">
-  <div class="row-fluid">
-    <div class="portfolio-tabs clearfix"> </div>
-    <div class="portfolio">
-      <ul  class="portfolio-items portfolio-style1 filterable-items three-columns row-fluid " data-columns="3">
-        <li class="portfolio-item submitstory first-row ">
-          <div class="inner-content">
-            <div class="container">
-              <div class="row-fluid">
-                <div  class="content span9">
-                  <div class="inner-content">
-                    <div id="post-2355" class="post post-standard post-single  clearfix">
-                      <div class="post-right-container">
-                        <div class="post-info-container">
-                          <p class="failproof-text1">Sign in using your account to submit story.</p>
-                          <div class="excerpt">
-                            <input name="submit" type="image" class="btn-fb" value="Submit" src="@Url.Content("~/Content/images/btn_fb.png")" border="0" onclick="fblogin();" />
-                            <input name="submit" type="image" class="btn-twitter" value="Submit" src="@Url.Content("~/Content/images/btn_twitter.png")" border="0" />
-                            <input name="submit" type="image" class="btn-google" value="Submit" src="@Url.Content("~/Content/images/btn_google.png")" border="0" />
-                            <input name="submit" type="image" class="btn-yahoo" value="Submit" src="@Url.Content("~/Content/images/btn_yahoo.png")" border="0" />
+	<div class="container">
+   	  <div class="row-fluid">
+   		<div class="portfolio-tabs clearfix"> </div>
+            <div class="portfolio">
+            	<div class="container">
+					<div class="row-fluid">
+						<div class="content span9">
+        					<h11>Sign in using your account to submit story.</h11>
+                            <div class="excerpt">
+                            <div style="width:150px; float:left; margin-left:5px;">
+                                <input name="submit" type="image" class="btn-fb" value="Submit" src="@Url.Content("~/Content/images/btn_fb.png")" border="0" onclick="fblogin();" />
+                            </div>
+                            <div id="customBtn" style="width:150px; float:left; margin-left:5px;">
+	                            <input name="submit"  type="image" class="btn-google" value="Submit" src="@Url.Content("~/Content/images/btn_google.png")" border="0" />
+                            </div>
+                            <div style="width:150px; float:left; margin-left:5px;">
+                                <input name="submit" type="image" class="btn-yahoo" value="Submit" src="@Url.Content("~/Content/images/btn_yahoo.png")" border="0" />
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sidebar span3">
-                  <div class="inner-content">
-                    <div id="search-2" class="widget widget_meta widget_search">
-                      @Html.Action("SearchByTopicForm", "Home")
-                    </div>
-                    @Html.Action("ArchiveList", "Home")
-                    @Html.Action("ResentPosts", "Home")
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+      				</div>
+     				<div class="sidebar span3">
+        				<div class="inner-content">
+         					<div id="search-2" class="widget widget_meta widget_search">
+            				@Html.Action("SearchByTopicForm", "Home")
+              				</div>
+            			</div>
+          				@Html.Action("ArchiveList", "Home")
+                        @Html.Action("ResentPosts", "Home")
+     				</div>
+ 		 		</div>
+			</div>
+   		</div>
+   	  </div>
+	</div>
+</section>
 <script>
     if (getCookie('username')) {
         location = '/SubmitStory';
     }
+
+    function fblogin() {
+        FB.login(function (response) {
+            if (response.authResponse) {
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function (response) {
+                    saveUserDetails(response.id, response.name, response.email, "Facebook")
+                });
+            } else {
+                alert("User cancelled login or did not fully authorize.");
+            }
+        });
+    }
+
 </script>

@@ -23,15 +23,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Admin/Comments/Details/5
-
-        public ViewResult Details(int id)
-        {
-            Comment comment = db.Comments.Find(id);
-            return View(comment);
-        }
-
-        //
         // GET: /Admin/Comments/Create
 
         public ActionResult Create()
@@ -76,15 +67,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(comment);
-        }
-
-        //
-        // GET: /Admin/Comments/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            Comment comment = db.Comments.Find(id);
             return View(comment);
         }
 

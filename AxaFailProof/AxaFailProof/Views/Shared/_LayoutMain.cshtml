@@ -47,6 +47,59 @@
 		margin-left:10px;
         cursor:pointer;
     } 
+
+    #pagerlist {}
+	#pagerlist ul {}
+	.pagination a {}
+	#pagerlist ul li {
+		list-style:none;	
+		width: 35px;
+		height: 35px;
+		text-align: center;
+		line-height: 35px;
+		background: transparent;
+		box-shadow: 0 1px 1px 0 rgba(180,180,180,0.1);
+		color: #999;
+		border: 1px solid #eee;
+		margin-left: -1px;
+		background: transparent;
+		overflow: hidden;
+		float: left;	
+	}
+	#pagerlist ul li:hover {
+		background-color:#eee;
+		color: #fff;
+		border-color: #eee;
+	}
+	#pagerlist ul li a {
+		display: block;
+		color: #444;
+	}
+	#pagerlist ul li:first-child {
+		border-top-left-radius: 6px;
+		border-bottom-left-radius: 6px;
+	}
+	#pagerlist ul li:last-child {
+		border-top-right-radius: 6px;
+		border-bottom-right-radius: 6px;
+	}
+	#pagerlist ul li.active {
+		background-color: #f65152;
+		color: #fff;
+		border-color: #f65152;		
+	}
+	#pagerlist ul li.active a {
+		color: #fff;
+	}
+	
+	#pagerlist ul li.active:hover { 
+		background-color: #fff;
+		color: #fff;
+		border-color: #f65152;	
+	}
+	#pagerlist ul li.active a:hover { 
+		color: #444;
+	}
 </style>
 <script>
     function setCookie(cname, cvalue, exdays) {
@@ -73,8 +126,6 @@
 @RenderBody()
 @Html.Action("FooterMain", "Home")
 <script>
-    $("#Story_Author").val(getCookie('username'));
-
     window.fbAsyncInit = function () {
         // init the FB JS SDK
         FB.init({
@@ -85,20 +136,6 @@
 
         // Additional initialization code such as adding Event Listeners goes here
     };
-
-    function fblogin() {
-        FB.login(function (response) {
-            if (response.authResponse) {
-                console.log('Welcome!  Fetching your information.... ');
-                FB.api('/me', function (response) {
-                    setCookie('username', response.name, 1);
-                    location = '/SubmitStory';
-                });
-            } else {
-                alert("User cancelled login or did not fully authorize.");
-            }
-        });
-    }
 
     // Load the SDK asynchronously
     (function (d, s, id) {

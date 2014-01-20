@@ -27,6 +27,8 @@ namespace AxaFailProof.Models
         public DbSet<Story> Stories { get; set; }
         public DbSet<sysdiagram> sysdiagrams { get; set; }
         public DbSet<Topic> Topics { get; set; }
+        public DbSet<Quiz> Quiz { get; set; }
+        public DbSet<FailProofing> FailProofing { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -41,6 +43,8 @@ namespace AxaFailProof.Models
             modelBuilder.Configurations.Add(new StoryMap());
             modelBuilder.Configurations.Add(new sysdiagramMap());
             modelBuilder.Configurations.Add(new TopicMap());
+            modelBuilder.Configurations.Add(new QuizMap());
+            modelBuilder.Configurations.Add(new FailProofingMap());
         }
     }
 }

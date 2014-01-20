@@ -107,7 +107,6 @@
             $("#EventsRegistered_Email_Error").html("");
         }
         if (isValidUSPhoneFormat(contact) == false) {
-            alert(isValidUSPhoneFormat(contact));
             $("#EventsRegistered_ContactNumber_Error").html("Please enter valid contact number.");
         } else {
             $("#EventsRegistered_ContactNumber_Error").html("");
@@ -126,24 +125,22 @@
     });
 </script> 
 
-<!-- Section post -->
+
+<!-- END REVOLUTION SLIDER -->
 <section class="section">
   <div class="container">
     <div class="row-fluid">
-      <div class="portfolio">
-        <ul  class="portfolio-items portfolio-style1 filterable-items row-fluid style2" data-columns="4">
-          <li class="portfolio-item pocketevent active first-row span12">
-            <div class="inner-content">
-              <div class="post-info-container">
-                <p class="failproof-header4">Register for an Event</p>
-              </div>
-              <div class="post-info-container">
-                <div class="row-fluid">
-                  <div class="stunning_text">
-                    <div class="big-title  extra-large-text"></div>
-                  </div>
-                  <div class="wpcf7" id="wpcf7-f2370-p20-o1">
-                     <div class="comment-form">
+      <div class="inner-content portfolio-items pocketevent active first-row span12">
+        <div class="post-info-container">
+          <p class="failproof-header4">Register for an Event</p>
+        </div>
+        <div class="post-info-container">
+          <div class="row-fluid">
+            <div class="stunning_text">
+              <div class="big-title  extra-large-text"></div>
+            </div>
+            <div class="wpcf7" id="wpcf7-f2370-p20-o1">
+                <div class="comment-form">
                     @using (Html.BeginForm("RegisterEventStep3", "Home", FormMethod.Post, new { enctype = "multipart/form-data", id="frmEvent" }))
                     {
                         @Html.ValidationSummary(true)
@@ -186,7 +183,7 @@
                         </div>
                         <div class="span4">
                           <div class="control-wrap"> <span class="icon"><i class="icon-fixed-user"></i></span>
-                            <input data-val="true" data-val-required="The BirthDate field is required." id="EventsRegistered_BirthDate" name="EventsRegistered.BirthDate" placeholder="yyyy-mm-dd" type="text" value="" /><br />
+                            <input data-val="true" data-val-required="The BirthDate field is required." id="EventsRegistered_BirthDate" name="EventsRegistered.BirthDate" placeholder="yyyy-mm-dd" type="text" value="" />
                             <span id="EventsRegistered_BirthDate_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
                           </div>
                         </div>
@@ -213,7 +210,7 @@
                           <tr>
                             <td height="25" class="joinapocketevent_text3"><span id="sprycheckbox1">
                                 <input type="checkbox" name="checkbox1Terms" id="checkbox1Terms" onchange="checkuncheck()">
-                                </span><span class="joinapocketevent_text3">I agree to the site's <span onclick="window.open('http://axa.com.ph/terms-and-conditions','_newtab');" style="cursor:pointer;"><u>Terms and Conditions</u></span></span><br />
+                               </span><span class="joinapocketevent_text3">I agree to the site's <span style="cursor:pointer;"><u>Terms and Conditions</u></span></span><br />
                                 <span id="EventsRegistered_checkbox1Terms_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
                                 </td>
                           </tr>
@@ -225,20 +222,18 @@
                         </table>
                       </div>
                     }
-                      <div class="post-info-container">
-                        <table width="429" border="0" cellpadding="0" cellspacing="0" class="joinapocketevent_text1">
-                          <tr>
-                            <td height="45"><input name="submit" type="submit" id="submit" class="button.blue img" tabindex="5" value="Submit" onclick="validateForm();" /></td>
-                          </tr>
-                        </table>
-                      </div>
+                  <div class="post-info-container">
+                    <table width="429" border="0" cellpadding="0" cellspacing="0" class="joinapocketevent_text1">
+                        <tr>
+                        <td height="45"><input name="submit" type="submit" id="submit" class="button.blue img" tabindex="5" value="Submit" onclick="validateForm();" /></td>
+                        </tr>
+                    </table>                    
                   </div>
-                  <div class="gap" style="height:50px"></div>
                 </div>
-              </div>
             </div>
-          </li>
-        </ul>
+            <div class="gap" style="height:50px"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

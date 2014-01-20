@@ -23,15 +23,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Admin/StaticPage/Details/5
-
-        public ViewResult Details(int id)
-        {
-            StaticPage staticpage = db.StaticPages.Find(id);
-            return View(staticpage);
-        }
-
-        //
         // GET: /Admin/StaticPage/Create
 
         public ActionResult Create()
@@ -78,15 +69,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(staticpage);
-        }
-
-        //
-        // GET: /Admin/StaticPage/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            StaticPage staticpage = db.StaticPages.Find(id);
             return View(staticpage);
         }
 

@@ -26,15 +26,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Admin/Stories/Details/5
-
-        public ViewResult Details(int id)
-        {
-            Story story = db.Stories.Find(id);
-            return View(story);
-        }
-
-        //
         // GET: /Admin/Stories/Create
 
         public ActionResult Create()
@@ -118,15 +109,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.TopicID = new SelectList(db.Topics, "TopicID", "Title", story.TopicID);
-            return View(story);
-        }
-
-        //
-        // GET: /Admin/Stories/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            Story story = db.Stories.Find(id);
             return View(story);
         }
 

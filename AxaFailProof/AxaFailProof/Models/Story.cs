@@ -12,7 +12,7 @@ namespace AxaFailProof.Models
         [Required(ErrorMessage = "Please enter title.")]
         public string Title { get; set; }
         public string Image { get; set; }
-        [Required(ErrorMessage = "Please enter write your story.")]
+        [Required(ErrorMessage = "Please enter your story.")]
         public string Body { get; set; }
         public int CommnetsCount { get; set; }
         public string Tags { get; set; }

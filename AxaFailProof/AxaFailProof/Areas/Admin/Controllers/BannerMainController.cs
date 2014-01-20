@@ -12,7 +12,7 @@ using System.Web.Helpers;
 namespace AxaFailProof.Areas.Admin.Controllers
 {
     [Authorize]
-    public class BannerMainController : Controller
+    public class BannerMainConroller : Controller
     {
         private AxaFailProofContext db = new AxaFailProofContext();
 
@@ -22,15 +22,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
         public ViewResult Index()
         {
             return View(db.Banners.Where(b => b.Position != "Home" && b.Position != "Footer").OrderByDescending(b => b.DateCreated).ToList());
-        }
-
-        //
-        // GET: /Admin/BannerMain/Details/5
-
-        public ViewResult Details(int id)
-        {
-            Banner banner = db.Banners.Find(id);
-            return View(banner);
         }
 
         //
@@ -110,15 +101,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(banner);
-        }
-
-        //
-        // GET: /Admin/BannerMain/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            Banner banner = db.Banners.Find(id);
             return View(banner);
         }
 

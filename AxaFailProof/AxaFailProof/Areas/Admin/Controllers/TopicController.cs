@@ -23,15 +23,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Admin/Topic/Details/5
-
-        public ViewResult Details(int id)
-        {
-            Topic topic = db.Topics.Find(id);
-            return View(topic);
-        }
-
-        //
         // GET: /Admin/Topic/Create
 
         public ActionResult Create()
@@ -78,15 +69,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(topic);
-        }
-
-        //
-        // GET: /Admin/Topic/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            Topic topic = db.Topics.Find(id);
             return View(topic);
         }
 

@@ -15,6 +15,7 @@ using AxaFailProof.Models;
 using System.Web.Helpers;
 using System.Data;
 using PagedList;
+using Utils;
 
 namespace AxaFailProof.Controllers
 {
@@ -263,7 +264,7 @@ namespace AxaFailProof.Controllers
 
         public ActionResult SubmitStoryLogin()
         {
-            ViewBag.MetaTitle = "Submit your Story";
+            ViewBag.MetaTitle = "Share your Story";
             ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
             ViewBag.MetaDescription = "";
             ViewBag.OgImage = ogimagepath + "axa_og_image.png";
@@ -325,57 +326,75 @@ namespace AxaFailProof.Controllers
             return View();
         }
 
-        //public ActionResult Search(int? page)
-        //{
-        //    var pageNumber = page ?? 1;
-        //    int pageSize = 3;
-
-        //    ViewBag.MetaTitle = "Search by Topic";
-        //    ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
-        //    ViewBag.MetaDescription = "";
-        //    ViewBag.OgImage = ogimagepath + "axa_og_image.png";
-
-        //    AxaViewModel model = new AxaViewModel();
-        //    model.SearchResults = db.Stories.Where(s => s.Status == true && s.TopicID > 0 && s.TopicID != 11).OrderByDescending(s => s.DateCreated).ToPagedList(pageNumber, pageSize);
-        //    return View(model);
-        //}
-
-        public ActionResult Search()
+        public ActionResult Search(int? page)
         {
+            var pageNumber = page ?? 1;
+            int pageSize = 3;
+
             ViewBag.MetaTitle = "Search by Topic";
             ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
             ViewBag.MetaDescription = "";
             ViewBag.OgImage = ogimagepath + "axa_og_image.png";
 
             AxaViewModel model = new AxaViewModel();
-            model.StoryDetail = db.Stories.Where(s => s.Status == true && s.TopicID > 0 && s.TopicID != 11).OrderByDescending(s => s.DateCreated).ToList();
+            var count = db.Stories.Where(s => s.Status == true && s.TopicID > 0 && s.TopicID != 11).Count();
+            if (count == 0)
+            {
+                return RedirectToAction("NoRecordFound");
+            }
+            model.SearchResults = db.Stories.Where(s => s.Status == true && s.TopicID > 0 && s.TopicID != 11).OrderByDescending(s => s.DateCreated).ToPagedList(pageNumber, pageSize);
             return View(model);
         }
 
 
-        public ActionResult SearchTopic(int id)
+        public ActionResult SearchTopic(int id, int? page)
         {
+            var pageNumber = page ?? 1;
+            int pageSize = 3;
+
             ViewBag.MetaTitle = "Search by Topic";
             ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
             ViewBag.MetaDescription = "";
             ViewBag.OgImage = ogimagepath + "axa_og_image.png";
 
             AxaViewModel model = new AxaViewModel();
-            model.Stories = db.Stories.Where(s => s.Status == true && s.TopicID == id).OrderByDescending(s => s.DateCreated).ToList();
+            var count = db.Stories.Where(s => s.Status == true && s.TopicID == id).Count();
+            if (count == 0)
+            {
+                return RedirectToAction("NoRecordFound");
+            }
+            model.SearchResults = db.Stories.Where(s => s.Status == true && s.TopicID == id).OrderByDescending(s => s.DateCreated).ToPagedList(pageNumber, pageSize);
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult SearchTags(string SearchTags)
+        public ActionResult SearchTags(string SearchTags, int? page)
         {
+            var pageNumber = page ?? 1;
+            int pageSize = 3;
+
             ViewBag.MetaTitle = "Search by Tags";
             ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
             ViewBag.MetaDescription = "";
             ViewBag.OgImage = ogimagepath + "axa_og_image.png";
 
             AxaViewModel model = new AxaViewModel();
-            model.Stories = db.Stories.Where(s => s.Status == true && s.Tags.Contains(SearchTags)).OrderByDescending(s => s.DateCreated).ToList();
+            var count = db.Stories.Where(s => s.Status == true && s.Tags.Contains(SearchTags)).Count();
+            if (count == 0) {
+                return RedirectToAction("NoRecordFound");
+            }
+            model.SearchResults = db.Stories.Where(s => s.Status == true && s.Tags.Contains(SearchTags)).OrderByDescending(s => s.DateCreated).ToPagedList(pageNumber, pageSize);
             return View(model);
+        }
+
+        public ActionResult NoRecordFound()
+        {
+            ViewBag.MetaTitle = "No Record Found";
+            ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
+            ViewBag.MetaDescription = "";
+            ViewBag.OgImage = ogimagepath + "axa_og_image.png";
+
+            return View();
         }
 
         // Contact Us
@@ -427,15 +446,25 @@ namespace AxaFailProof.Controllers
             return View();
         }
 
-        public ActionResult Statistics()
+        public ActionResult HealthFactsFigures(int? page)
         {
-            ViewBag.MetaTitle = "Statistics";
+            var pageNumber = page ?? 1;
+            int pageSize = 3;
+
+            ViewBag.MetaTitle = "Health Facts & Figures";
             ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
             ViewBag.MetaDescription = "";
             ViewBag.OgImage = ogimagepath + "axa_og_image.png";
 
             AxaViewModel model = new AxaViewModel();
-            model.Stories = db.Stories.Where(s => s.Status == true && s.TopicID == 11).ToList();
+            var count = db.Stories.Where(s => s.Status == true && s.TopicID == 11).Count();
+            if (count == 0)
+            {
+                return RedirectToAction("NoRecordFound");
+            }
+
+
+            model.SearchResults = db.Stories.Where(s => s.Status == true && s.TopicID == 11).OrderByDescending(s => s.DateCreated).ToPagedList(pageNumber, pageSize);
             return View(model);
         }
 
@@ -470,6 +499,191 @@ namespace AxaFailProof.Controllers
             return View();
         }
 
+        public ActionResult Quiz()
+        {
+            ViewBag.MetaTitle = "Offbeat Death Quiz";
+            ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
+            ViewBag.MetaDescription = "";
+            ViewBag.OgImage = ogimagepath + "axa_og_image.png";
+
+            AxaViewModel model = new AxaViewModel();
+            model.Mushroom4 = db.Mushrooms.Find(6);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Quiz(Quiz quiz)
+        {
+            ViewBag.MetaTitle = "Offbeat Death Quiz";
+            ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
+            ViewBag.MetaDescription = "";
+            ViewBag.OgImage = ogimagepath + "axa_og_image.png";
+
+            if (ModelState.IsValid)
+            {
+                quiz.DateCreated = DateTime.Now;
+                quiz.Status = true;
+                db.Quiz.Add(quiz);
+                db.SaveChanges();
+
+                return RedirectToAction("QuizRegistration", new { id = quiz.QuizID });
+            }
+            AxaViewModel model = new AxaViewModel();
+            model.Mushroom4 = db.Mushrooms.Find(6);
+            return View(model);
+        }
+
+        public ActionResult QuizRegistration(int id) 
+        {
+            ViewBag.MetaTitle = "Registration";
+            ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
+            ViewBag.MetaDescription = "";
+            ViewBag.OgImage = ogimagepath + "axa_og_image.png";
+
+            AxaViewModel model = new AxaViewModel();
+            model.Quiz = db.Quiz.Find(id);
+            return View(model);
+        }
+
+        public string SaveSocialMedia(string userid, string name, string email, string mediatype, SocialUser socialuser)
+        {
+            var usercount = db.SocialUsers.Where( s => s.SocialID == userid).Count();
+            if (usercount == 0)
+            {
+                socialuser.SocialID = userid;
+                socialuser.FullName = name;
+                socialuser.Email = email;
+                socialuser.SocialMedia = mediatype;
+                socialuser.DateCreated = DateTime.Now;
+                db.SocialUsers.Add(socialuser);
+                db.SaveChanges();
+                return "Save";
+            }
+            else {
+                return "Exist";
+            }
+        }
+
+        [HttpPost]
+        public ActionResult QuizRegistration(int id, Quiz quiz)
+        {
+            ViewBag.MetaTitle = "Registration";
+            ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
+            ViewBag.MetaDescription = "";
+            ViewBag.OgImage = ogimagepath + "axa_og_image.png";
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(quiz).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Results", new {id = id});
+            }
+
+            AxaViewModel model = new AxaViewModel();
+            model.Quiz = db.Quiz.Find(id);
+            return View(model);            
+        }
+
+        public ActionResult Results(int id)
+        {
+            ViewBag.MetaTitle = "Result";
+            ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
+            ViewBag.MetaDescription = "";
+            ViewBag.OgImage = ogimagepath + "axa_og_image.png";
+
+            AxaViewModel model = new AxaViewModel();
+            model.Quiz = db.Quiz.Find(id);
+            if (Convert.ToInt32(model.Quiz.Score) >= 8)
+            {
+                ViewBag.ResultsTitle = "Death by paper cut";
+                ViewBag.ResultsDescription = "Your boss asks you to accomplish a mountain of paper work. While sorting the printed copies alone in the office late one night, a crisp A4 sized sheet of paper gives your thumb a papercut.You bleed uncontrollably. You are too week to reach for the phone to call the paramedics. You are found on the floor the next morning, lifeless, surrounded by a pool of your own blood.";
+            }
+            if (Convert.ToInt32(model.Quiz.Score) >= 11)
+            {
+                ViewBag.ResultsTitle = "Die as an alien sacrifice";
+                ViewBag.ResultsDescription = "While watching TV alone at home one night, you hear a faint knock on the door. You look through the peephole but see nothing but an empty lawn. As you start to head back to the living room, you hear the doorbell again. You hesitantly turn around and open the front door. A blinding light beams your spirit up to Zultan, the alien king of Planet Zhor. Your body is left lifeless on your front porch.";
+            }
+            if (Convert.ToInt32(model.Quiz.Score) >= 14)
+            {
+                ViewBag.ResultsTitle = "Death in the hands of Chuck Norris";
+                ViewBag.ResultsDescription = "You manage to piss off Chuck Norris by making fun of his chest hair. Unfortunately, your self defense skills are no match to  his killer roundhouse.";
+            }
+            if (Convert.ToInt32(model.Quiz.Score) >= 17)
+            {
+                ViewBag.ResultsTitle = "A horde of buckethead zombies invade your house and eat your brains";
+                ViewBag.ResultsDescription = "You procrastinate all weekend and don't manage to tend to your garden. One eerily quiet Sunday afternoon, you hear the front door of your house creak open, and a deep, throaty voice groans,  BRAAAIIIINSSS Before you know it, you are surrounded by a horde of buckethead zombies, and the potted house plant you desperately clutch to is devoured in seconds, along with your brains.";
+            }
+            if (Convert.ToInt32(model.Quiz.Score) >= 20)
+            {
+                ViewBag.ResultsTitle = "Death by elephant stampede";
+                ViewBag.ResultsDescription = "You go on an African safari. While riding through a vast patch of land somewhere in Kenya, your vehicle conks out, so the driver has no choice but to pop the hood and figure out how to get the engine running again. You step out of the vehicle to stretch your legs. You feel your stomach grumble, when remember that you saved the airline peanuts they distributed on the flight to Kenya. You reach inside your pocket to fish out the tiny foil packet. The sound of foil ripping echoes through the desert, and a few seconds later, you are trampled to death by a herd of elephants fighting over the peanuts in your hand.";
+            }
+            if (Convert.ToInt32(model.Quiz.Score) >= 23)
+            {
+                ViewBag.ResultsTitle = "Death by hotdog eating contest";
+                ViewBag.ResultsDescription = "At the town fair, you join a hotdog eating contest, in the attempt to win a weekend trip to Bangladesh. You are on your 64th hotdog when a stray piece of processed meat accidentally gets lodged in your trachea, cutting off oxygen from your lungs. You wave your hands frantically to ask for help, but the crowd mistakes it for extreme enthusiasm. You eventually pass out and no one is able to revive you.";
+            }
+            if (Convert.ToInt32(model.Quiz.Score) >= 26)
+            {
+                ViewBag.ResultsTitle = "Death by poisonous apple";
+                ViewBag.ResultsDescription = "A vain old woman has a magic mirror hidden in her dark, eerie castle. She asks he mirror on the wall, who is the fairest one of all? Your face appears in the mirror. The old woman is furious. She is so enraged that she locates your house, tricks you into taking a bite out of a poisonous apple, and leaves your lifeless body strewn across the floor while she bellows in evil laughter all the way back to her castle.";
+            }
+            if (Convert.ToInt32(model.Quiz.Score) >= 29)
+            {
+                ViewBag.ResultsTitle = "Death by selfie";
+                ViewBag.ResultsDescription = "You love selfies, and you love taking them against historical landmarks. While giving peace signs. While exploring a heritage district up north, you stumble upon a 16th century church, with a façade that took your breath away. You take out your iPhone, and prepare to take a selfie with the church visible in the background, when a speeding car suddently turns the corner at full speed and runs you over.";
+            }
+            if (Convert.ToInt32(model.Quiz.Score) >= 32)
+            {
+                ViewBag.ResultsTitle = "Death by Candy Crush";
+                ViewBag.ResultsDescription = "You cannot get past Level 231. You spend every waking minute on your smart phone, trying to beat the timer on those pesky bombs. You are so consumed by the game, that you don't eat, sleep, or bathe. You become severely malnourished and dehydrated, and eventually die of organ failure.";
+            }
+            if (Convert.ToInt32(model.Quiz.Score) >= 35)
+            {
+                ViewBag.ResultsTitle = "Death by piranha attack";
+                ViewBag.ResultsDescription = "You and a friend decide to explore the Amazon. While enjoying a boat ride along the Orinoco River, your friend invites you to take a dip. You think it's a fabulous idea. You jump in the river simultaneously, and in the process, give about 80 piranhas their dinner for the day.";
+            }
+
+            return View(model);
+        }
+
+        public ActionResult RegFailProofing()
+        {
+            ViewBag.MetaTitle = "Registration";
+            ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
+            ViewBag.MetaDescription = "";
+            ViewBag.OgImage = ogimagepath + "axa_og_image.png";
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RegFailProofing(FailProofing failproofing)
+        {
+            ViewBag.MetaTitle = "Registration";
+            ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
+            ViewBag.MetaDescription = "";
+            ViewBag.OgImage = ogimagepath + "axa_og_image.png";
+
+            if (ModelState.IsValid)
+            {
+                failproofing.DateCreated = DateTime.Now;
+                failproofing.Status = true;
+                db.FailProofing.Add(failproofing);
+                db.SaveChanges();
+                return RedirectToAction("FailProofingThankyou");
+            }
+            return View();
+        }
+
+        public ActionResult FailProofingThankyou()
+        {
+            ViewBag.MetaTitle = "Thank you";
+            ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
+            ViewBag.MetaDescription = "";
+            ViewBag.OgImage = ogimagepath + "axa_og_image.png";
+            return View();
+        }
+
 
         [ChildActionOnly]
         public ActionResult Navigator() 
@@ -479,6 +693,14 @@ namespace AxaFailProof.Controllers
             string _Action = ControllerContext.ParentActionViewContext.RouteData.GetRequiredString("action");
             switch (_Action) { 
                 case "Index":
+                    model.Banner = db.Banners.Where(b => b.Position == "Home" && b.Status == true).OrderByDescending(b => b.DateCreated).ToList();
+                    ViewBag.Hselected = "current-menu-item";
+                    break;
+                case "RegFailProofing":
+                    model.Banner = db.Banners.Where(b => b.Position == "Home" && b.Status == true).OrderByDescending(b => b.DateCreated).ToList();
+                    ViewBag.Hselected = "current-menu-item";
+                    break;
+                case "FailProofingThankyou":
                     model.Banner = db.Banners.Where(b => b.Position == "Home" && b.Status == true).OrderByDescending(b => b.DateCreated).ToList();
                     ViewBag.Hselected = "current-menu-item";
                     break;
@@ -542,6 +764,10 @@ namespace AxaFailProof.Controllers
                     model.Banner = db.Banners.Where(b => b.Position == "Stories" && b.Status == true).Take(1);
                     ViewBag.Sselected = "current-menu-item";
                     break;
+                case "NoRecordFound":
+                    model.Banner = db.Banners.Where(b => b.Position == "Stories" && b.Status == true).Take(1);
+                    ViewBag.Sselected = "current-menu-item";
+                    break;
                 case "ContactUs":
                     model.Banner = db.Banners.Where(b => b.Position == "Contact Us" && b.Status == true).Take(1);
                     ViewBag.Cselected = "current-menu-item";
@@ -554,12 +780,24 @@ namespace AxaFailProof.Controllers
                     model.Banner = db.Banners.Where(b => b.Position == "Home" && b.Status == true).Take(1);
                     ViewBag.Hselected = "current-menu-item";
                     break;
-                case "Statistics":
+                case "HealthFactsFigures":
                     model.Banner = db.Banners.Where(b => b.Position == "Fail Proof your Health" && b.Status == true).Take(1);
                     ViewBag.Fselected = "current-menu-item";
                     break;
                 case "NotFound":
                     model.Banner = db.Banners.Where(b => b.Position == "Home" && b.Status == true).Take(1);
+                    ViewBag.Hselected = "current-menu-item";
+                    break;
+                case "Quiz":
+                    model.Banner = db.Banners.Where(b => b.Position == "Quiz" && b.Status == true).Take(1);
+                    ViewBag.Hselected = "current-menu-item";
+                    break;
+                case "QuizRegistration":
+                    model.Banner = db.Banners.Where(b => b.Position == "Quiz" && b.Status == true).Take(1);
+                    ViewBag.Hselected = "current-menu-item";
+                    break;
+                case "Results":
+                    model.Banner = db.Banners.Where(b => b.Position == "Quiz" && b.Status == true).Take(1);
                     ViewBag.Hselected = "current-menu-item";
                     break;
             }
@@ -626,6 +864,11 @@ namespace AxaFailProof.Controllers
         {
             return PartialView("_SearchByTopicForm");
         }
+
+        //public ActionResult YahooLogin()
+        //{ 
+            
+        //}
 
     }
 }

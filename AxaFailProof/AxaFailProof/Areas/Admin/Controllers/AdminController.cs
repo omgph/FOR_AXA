@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace AxaFailProof.Areas.Admin.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AdminController : Controller
     {
         //

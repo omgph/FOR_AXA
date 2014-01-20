@@ -26,15 +26,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Admin/EventsRegistered/Details/5
-
-        public ViewResult Details(int id)
-        {
-            EventsRegistered eventsregistered = db.EventsRegistereds.Find(id);
-            return View(eventsregistered);
-        }
-
-        //
         // GET: /Admin/EventsRegistered/Create
 
         public ActionResult Create()
@@ -88,15 +79,7 @@ namespace AxaFailProof.Areas.Admin.Controllers
             return View(eventsregistered);
         }
 
-        //
-        // GET: /Admin/EventsRegistered/Delete/5
  
-        public ActionResult Delete(int id)
-        {
-            EventsRegistered eventsregistered = db.EventsRegistereds.Find(id);
-            return View(eventsregistered);
-        }
-
         //
         // POST: /Admin/EventsRegistered/Delete/5
 

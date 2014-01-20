@@ -23,15 +23,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Admin/Mushroom/Details/5
-
-        public ViewResult Details(int id)
-        {
-            Mushroom mushroom = db.Mushrooms.Find(id);
-            return View(mushroom);
-        }
-
-        //
         // GET: /Admin/Mushroom/Create
 
         public ActionResult Create()
@@ -78,15 +69,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(mushroom);
-        }
-
-        //
-        // GET: /Admin/Mushroom/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            Mushroom mushroom = db.Mushrooms.Find(id);
             return View(mushroom);
         }
 

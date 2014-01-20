@@ -26,15 +26,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Admin/Banner/Details/5
-
-        public ViewResult Details(int id)
-        {
-            Banner banner = db.Banners.Find(id);
-            return View(banner);
-        }
-
-        //
         // GET: /Admin/Banner/Create
 
         public ActionResult Create()
@@ -112,15 +103,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(banner);
-        }
-
-        //
-        // GET: /Admin/Banner/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            Banner banner = db.Banners.Find(id);
             return View(banner);
         }
 

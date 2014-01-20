@@ -23,15 +23,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Admin/Location/Details/5
-
-        public ViewResult Details(int id)
-        {
-            Location location = db.Locations.Find(id);
-            return View(location);
-        }
-
-        //
         // GET: /Admin/Location/Create
 
         public ActionResult Create()
@@ -78,15 +69,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(location);
-        }
-
-        //
-        // GET: /Admin/Location/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            Location location = db.Locations.Find(id);
             return View(location);
         }
 

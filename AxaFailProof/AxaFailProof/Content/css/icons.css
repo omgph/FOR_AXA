@@ -1028,7 +1028,16 @@
 
 /*=====================Extended icons set */
 @font-face { font-family: 'icomoon'; src: url('../font/icomoon.eot'); src: url('../font/icomoond41d.eot?#iefix') format('embedded-opentype'),  url('../font/icomoon.woff') format('woff'),  url('../font/icomoon.ttf') format('truetype'),  url('../font/icomoon.svg#icomoon') format('svg'); font-weight: normal; font-style: normal; }
-.icon-fixed-search, .icon-fixed-right-arrow, .icon-fixed-left-arrow, .icon-fixed-right-line, .icon-fixed-back-to-all, .icon-fixed-left-arrow-thin, .icon-fixed-right-arrow-thin, .icon-fixed-down-arrow-thin, .icon-fixed-down-arrow, .icon-fixed-remove, .icon-fixed-plus, .icon-fixed-heart, .icon-fixed-cloud, .icon-fixed-star, .icon-fixed-tv, .icon-fixed-sound, .icon-fixed-video, .icon-fixed-trash, .icon-fixed-user, .icon-fixed-key, .icon-fixed-search, .icon-fixed-settings, .icon-fixed-camera, .icon-fixed-tag, .icon-fixed-lock, .icon-fixed-bulb, .icon-fixed-pen, .icon-fixed-diamond, .icon-fixed-display, .icon-fixed-location, .icon-fixed-eye, .icon-fixed-bubble, .icon-fixed-stack, .icon-fixed-cup, .icon-fixed-phone, .icon-fixed-news, .icon-fixed-mail, .icon-fixed-like, .icon-fixed-photo, .icon-fixed-note, .icon-fixed-clock, .icon-fixed-paperplane, .icon-fixed-params, .icon-fixed-banknote, .icon-fixed-data, .icon-fixed-music, .icon-fixed-megaphone, .icon-fixed-study, .icon-fixed-lab, .icon-fixed-food, .icon-fixed-t-shirt, .icon-fixed-fire, .icon-fixed-clip, .icon-fixed-shop, .icon-fixed-calendar, .icon-fixed-wallet, .icon-fixed-vynil, .icon-fixed-truck, .icon-fixed-world, .icon-fixed-quote-left, .icon-fixed-quote-right, .icon-fixed-arrow { font-family: 'icomoon'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; }
+.icon-fixed-search, .icon-fixed-right-arrow, .icon-fixed-left-arrow, .icon-fixed-right-line, .icon-fixed-back-to-all, .icon-fixed-left-arrow-thin, .icon-fixed-right-arrow-thin, .icon-fixed-down-arrow-thin, .icon-fixed-down-arrow, .icon-fixed-remove, .icon-fixed-plus, .icon-fixed-heart, .icon-fixed-cloud, .icon-fixed-star, .icon-fixed-tv, .icon-fixed-sound, .icon-fixed-video, .icon-fixed-trash, .icon-fixed-user, .icon-fixed-key, .icon-fixed-search, .icon-fixed-settings, .icon-fixed-camera, .icon-fixed-tag, .icon-fixed-lock, .icon-fixed-bulb, .icon-fixed-pen, .icon-fixed-diamond, .icon-fixed-display, .icon-fixed-location, .icon-fixed-eye, .icon-fixed-bubble, .icon-fixed-stack, .icon-fixed-cup, .icon-fixed-phone, .icon-fixed-news, .icon-fixed-mail, .icon-fixed-like, .icon-fixed-photo, .icon-fixed-note, .icon-fixed-clock, .icon-fixed-paperplane, .icon-fixed-params, .icon-fixed-banknote, .icon-fixed-data, .icon-fixed-music, .icon-fixed-megaphone, .icon-fixed-study, .icon-fixed-lab, .icon-fixed-food, .icon-fixed-t-shirt, .icon-fixed-fire, .icon-fixed-clip, .icon-fixed-shop, .icon-fixed-calendar, .icon-fixed-wallet, .icon-fixed-vynil, .icon-fixed-truck, .icon-fixed-world, .icon-fixed-quote-left, .icon-fixed-quote-right, .icon-fixed-arrow {
+	font-family: icomoon;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	-webkit-font-smoothing: antialiased;
+	font-size: 16px;
+}
 .icon-fixed-search:before { content: "\0030"; }
 .icon-fixed-arrow:before { content: "\e035"; }
 .icon-fixed-quote-left:before { content: "\e002"; }

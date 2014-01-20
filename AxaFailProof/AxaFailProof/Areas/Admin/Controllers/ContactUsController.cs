@@ -25,15 +25,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
         }
 
         //
-        // GET: /Admin/ContactUs/Details/5
-
-        public ViewResult Details(int id)
-        {
-            ContactU contactu = db.ContactUs.Find(id);
-            return View(contactu);
-        }
-
-        //
         // GET: /Admin/ContactUs/Create
 
         public ActionResult Create()
@@ -79,15 +70,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(contactu);
-        }
-
-        //
-        // GET: /Admin/ContactUs/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            ContactU contactu = db.ContactUs.Find(id);
             return View(contactu);
         }
 

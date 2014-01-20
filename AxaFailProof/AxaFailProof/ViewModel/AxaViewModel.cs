@@ -29,12 +29,16 @@ namespace AxaFailProof.Models
         public Mushroom Mushroom1 { get; set; }
         public Mushroom Mushroom2 { get; set; }
         public Mushroom Mushroom3 { get; set; }
+        public Mushroom Mushroom4 { get; set; }
 
         public StaticPage StaticPage { get; set; }
         public EventsRegistered EventsRegistered { get; set; }
         public ContactU ContactUs { get; set; }
         public Story Story { get; set; }
         public Comment Comment { get; set; }
+        public Quiz Quiz { get; set; }
+        public SocialUser SocialUser { get; set; }
+        public FailProofing FailProofing { get; set; }
 
         public int StoryID { get; set; }
         public string SearchBox { get; set; }

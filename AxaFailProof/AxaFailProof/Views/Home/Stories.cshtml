@@ -1,0 +1,351 @@
+﻿@{
+    ViewBag.Title = "Stories";
+}
+<!-- rev  slider -->
+<div id="rev_slider_3_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container">
+  <div id="rev_slider_3_1" class="rev_slider fullwidthabanner" >
+    <ul>
+      <li data-transition="fade" data-masterspeed="300" > <img src="@Url.Content("~/Content/images/slide-bg0.jpg")" data-fullwidthcentering="on">
+        <div class="tp-caption fade" data-x="0" data-y="0" data-speed="500" data-start="500" data-easing="easeOutExpo"  ><img src="@Url.Content("~/Content/images/slide03.png")" alt="Image 2"> </div>
+      </li>
+	  <!-- end li-->
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+
+
+    var revapi3;
+
+    jQuery(document).ready(function () {
+
+        if (jQuery.fn.cssOriginal != undefined)
+            jQuery.fn.css = jQuery.fn.cssOriginal;
+
+        if (jQuery('#rev_slider_3_1').revolution == undefined)
+            revslider_showDoubleJqueryError('#rev_slider_3_1');
+        else {
+            revapi3 = jQuery('#rev_slider_3_1').show().revolution(
+					{
+					    delay: 9000,
+					    startwidth: 1140,
+					    startheight: 500,
+					    hideThumbs: 200,
+
+					    thumbWidth: 100,
+					    thumbHeight: 50,
+					    thumbAmount: 3,
+
+					    navigationType: "bullet",
+					    navigationArrows: "solo",
+					    navigationStyle: "round",
+
+					    touchenabled: "on",
+					    onHoverStop: "on",
+
+					    navigationHAlign: "center",
+					    navigationVAlign: "bottom",
+					    navigationHOffset: 0,
+					    navigationVOffset: 30,
+
+					    soloArrowLeftHalign: "left",
+					    soloArrowLeftValign: "center",
+					    soloArrowLeftHOffset: 10,
+					    soloArrowLeftVOffset: 0,
+
+					    soloArrowRightHalign: "right",
+					    soloArrowRightValign: "center",
+					    soloArrowRightHOffset: 10,
+					    soloArrowRightVOffset: 0,
+
+					    shadow: 0,
+					    fullWidth: "on",
+					    fullScreen: "off",
+
+					    stopLoop: "off",
+					    stopAfterLoops: -1,
+					    stopAtSlide: -1,
+
+					    shuffle: "off",
+
+					    hideSliderAtLimit: 0,
+					    hideCaptionAtLimit: 0,
+					    hideAllCaptionAtLilmit: 0,
+					    startWithSlide: 0,
+					    videoJsPath: "revslider/videojs/",
+					    fullScreenOffsetContainer: ""
+					});
+
+            revapi3.revnext(function () { alert(0) });
+        }
+    }); //ready
+				
+				
+			</script> 
+
+<!-- END REVOLUTION SLIDER --> 
+
+<!-- section post -->
+<section class="section">
+<div class="container">
+   	  <div class="row-fluid">
+   		<div class="portfolio-tabs clearfix">
+        		<ul class="clearfix">
+          		<li class="active"><a data-filter=".archive" href="#">Archive</a></li>
+          		<li><a data-filter=".submitstory" href="#">Submit your Story</a></li>
+          		<li><a data-filter=".searchbytopic" href="#">Search by Topic</a></li>
+        		</ul>
+   		</div>
+            <div class="portfolio">
+        	<ul  class="portfolio-items portfolio-style1 filterable-items three-columns row-fluid " data-columns="3">
+          	<li class="portfolio-item span4 archive first-row ">
+          	<div class="inner-content">
+                 <div class="post-grid-item-wrap">
+                <div class="hoverlay"> 
+                <a href="#" class="block">
+                  <div class="image"><img  src="@Url.Content("~/Content/images/postgrid1.jpg")" alt="" >
+                    <div class="overlay"> <span class="icon"><i class="icon-fixed-plus"></i></span>
+                      <div class="overlay-content"> </div>
+                    </div>
+                  </div>
+                  <div class="post-text-wrap-container">
+                    <div class="post-text-wrap">
+                      <div class="post-meta">
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <div class="post-meta-info"><span>MS Team</span><span class="divider">/</span><span>September 7 , 2013</span></div>
+                        <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae cursus urna, eget condimentum magna...</p>
+                      </div>
+                    </div>
+                  </div>
+                  </a>
+                  
+                  <div class="post-text-bottom">
+                    <div><a href="#" class="readmore">Read More<i class="icon-arrow-right8"></i></a> <a href="#" class="comments-info"><i class="icon-fixed-bubble"></i>10</a></div>
+                  </div>
+                </div>
+                </div>
+              </div> 
+            <div class="inner-content"></div>
+          </li>
+          
+          <li class="portfolio-item span4 archive first-row ">
+          	<div class="inner-content">
+                 <div class="post-grid-item-wrap">
+                <div class="hoverlay"> 
+                <a href="#" class="block">
+                  <div class="image"><img  src="@Url.Content("~/Content/images/postgrid2.jpg")" alt="" >
+                    <div class="overlay"> <span class="icon"><i class="icon-fixed-plus"></i></span>
+                      <div class="overlay-content"> </div>
+                    </div>
+                  </div>
+                  <div class="post-text-wrap-container">
+                    <div class="post-text-wrap">
+                      <div class="post-meta">
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <div class="post-meta-info"><span>MS Team</span><span class="divider">/</span><span>September 7 , 2013</span></div>
+                        <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae cursus urna, eget condimentum magna...</p>
+                      </div>
+                    </div>
+                  </div>
+                  </a>
+                  
+                  <div class="post-text-bottom">
+                    <div><a href="#" class="readmore">Read More<i class="icon-arrow-right8"></i></a> <a href="#" class="comments-info"><i class="icon-fixed-bubble"></i>10</a></div>
+                  </div>
+                </div>
+                </div>
+            </div> 
+            <div class="inner-content"></div>
+          </li>
+          
+          <li class="portfolio-item span4 archive first-row ">
+          	<div class="inner-content">
+                 <div class="post-grid-item-wrap">
+                <div class="hoverlay"> 
+                <a href="#" class="block">
+                  <div class="image"><img  src="@Url.Content("~/Content/images/postgrid3.jpg")" alt="" >
+                    <div class="overlay"> <span class="icon"><i class="icon-fixed-plus"></i></span>
+                      <div class="overlay-content"> </div>
+                    </div>
+                  </div>
+                  <div class="post-text-wrap-container">
+                    <div class="post-text-wrap">
+                      <div class="post-meta">
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <div class="post-meta-info"><span>MS Team</span><span class="divider">/</span><span>September 7 , 2013</span></div>
+                        <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae cursus urna, eget condimentum magna...</p>
+                      </div>
+                    </div>
+                  </div>
+                  </a>
+                  
+                  <div class="post-text-bottom">
+                    <div><a href="#" class="readmore">Read More<i class="icon-arrow-right8"></i></a> <a href="#" class="comments-info"><i class="icon-fixed-bubble"></i>10</a></div>
+                  </div>
+                </div>
+                </div>
+            </div> 
+            <div class="inner-content"></div>
+          </li>
+          
+          <li class="portfolio-item span4 archive first-row ">
+          	<div class="inner-content">
+                 <div class="post-grid-item-wrap">
+                <div class="hoverlay"> 
+                <a href="#" class="block">
+                  <div class="image"><img  src="@Url.Content("~/Content/images/postgrid4.jpg")" alt="" >
+                    <div class="overlay"> <span class="icon"><i class="icon-fixed-plus"></i></span>
+                      <div class="overlay-content"> </div>
+                    </div>
+                  </div>
+                  <div class="post-text-wrap-container">
+                    <div class="post-text-wrap">
+                      <div class="post-meta">
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <div class="post-meta-info"><span>MS Team</span><span class="divider">/</span><span>September 7 , 2013</span></div>
+                        <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae cursus urna, eget condimentum magna...</p>
+                      </div>
+                    </div>
+                  </div>
+                  </a>
+                  
+                  <div class="post-text-bottom">
+                    <div><a href="#" class="readmore">Read More<i class="icon-arrow-right8"></i></a> <a href="#" class="comments-info"><i class="icon-fixed-bubble"></i>10</a></div>
+                  </div>
+                </div>
+                </div>
+            </div> 
+            <div class="inner-content"></div>
+          </li>
+          
+          <li class="portfolio-item span4 archive first-row ">
+          	<div class="inner-content">
+                 <div class="post-grid-item-wrap">
+                <div class="hoverlay"> 
+                <a href="#" class="block">
+                  <div class="image"><img  src="@Url.Content("~/Content/images/postgrid5.jpg")" alt="" >
+                    <div class="overlay"> <span class="icon"><i class="icon-fixed-plus"></i></span>
+                      <div class="overlay-content"> </div>
+                    </div>
+                  </div>
+                  <div class="post-text-wrap-container">
+                    <div class="post-text-wrap">
+                      <div class="post-meta">
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <div class="post-meta-info"><span>MS Team</span><span class="divider">/</span><span>September 7 , 2013</span></div>
+                        <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae cursus urna, eget condimentum magna...</p>
+                      </div>
+                    </div>
+                  </div>
+                  </a>
+                  
+                  <div class="post-text-bottom">
+                    <div><a href="#" class="readmore">Read More<i class="icon-arrow-right8"></i></a> <a href="#" class="comments-info"><i class="icon-fixed-bubble"></i>10</a></div>
+                  </div>
+                </div>
+                </div>
+            </div> 
+            <div class="inner-content"></div>
+          </li>
+          
+          <li class="portfolio-item span4 archive first-row ">
+          	<div class="inner-content">
+                 <div class="post-grid-item-wrap">
+                <div class="hoverlay"> 
+                <a href="#" class="block">
+                  <div class="image"><img  src="@Url.Content("~/Content/images/postgrid6.jpg")" alt="" >
+                    <div class="overlay"> <span class="icon"><i class="icon-fixed-plus"></i></span>
+                      <div class="overlay-content"> </div>
+                    </div>
+                  </div>
+                  <div class="post-text-wrap-container">
+                    <div class="post-text-wrap">
+                      <div class="post-meta">
+                        <h3>Lorem ipsum dolor sit amet</h3>
+                        <div class="post-meta-info"><span>MS Team</span><span class="divider">/</span><span>September 7 , 2013</span></div>
+                        <p class="excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae cursus urna, eget condimentum magna...</p>
+                      </div>
+                    </div>
+                  </div>
+                  </a>
+                  
+                  <div class="post-text-bottom">
+                    <div><a href="#" class="readmore">Read More<i class="icon-arrow-right8"></i></a> <a href="#" class="comments-info"><i class="icon-fixed-bubble"></i>10</a></div>
+                  </div>
+                </div>
+                </div>
+            </div> 
+            <div class="inner-content"></div>
+          </li>
+         
+         <li class="portfolio-item submitstory first-row ">
+          	<div class="inner-content">
+                
+  <div class="container">
+    <div class="row-fluid">
+      <div  class="content span9">
+        <div class="inner-content">
+          <div id="post-2355" class="post post-standard post-single  clearfix">
+            <div class="post-right-container">
+              <div class="post-info-container">
+                <p class="failproof-text1">Sign in using your account to submit story.</p>
+                <div class="excerpt">
+                <input name="submit" type="image" class="btn-fb" value="Submit" src="@Url.Content("~/Content/images/btn_fb.png")" border="0" />
+      			<input name="submit" type="image" class="btn-twitter" value="Submit" src="@Url.Content("~/Content/images/btn_twitter.png")" border="0" />
+      			<input name="submit" type="image" class="btn-google" value="Submit" src="@Url.Content("~/Content/images/btn_google.png")" border="0" />
+                <input name="submit" type="image" class="btn-yahoo" value="Submit" src="@Url.Content("~/Content/images/btn_yahoo.png")" border="0" />
+                
+				</div>
+             </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar span3">
+        <div class="inner-content">
+          <div id="search-2" class="widget widget_meta widget_search">
+            <form action="#" id="searchform" class="search-form" method="get">
+              <div>
+                <input type="text" id="s" name="s" value="Search..." onFocus="if(this.value=='Search...')this.value='';" onBlur="if(this.value=='')this.value='Search...';" autocomplete="off" />
+                <input type="submit" value="search"  class="hidden" />
+              </div>
+            </form>
+          </div>
+          <div id="categories-2" class="widget widget_meta widget_categories">
+            <h3>Categories</h3>
+            <ul>
+              <li class="cat-item cat-item-2"><a href="#">Archive (10)</a> </li>
+              <li class="cat-item cat-item-3"><a href="#">Submit your Story (5)</a></li>
+            </ul>
+          </div>
+          <div id="archives-2" class="widget widget_meta widget_archive">
+            <h3>Archives</h3>
+            <ul>
+              <li><a href='#' title='Sep 2013'>Sep 2013</a></li>
+              <li><a href='#' title='April 2013'>April 2013</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  </div>
+  <section class="section  section-padding-zero" style="background-color:#f6f6f6">
+  <div class="single-page-nav">
+    <div class="page-nav-center clearfix"> <a href="#"><i class="icon-fixed-back-to-all"></i> </a></div>
+  </div>
+                
+              	</div>
+            </div>
+         </li>
+         
+         <li class="portfolio-item searchbytopic ">
+          	<div class="inner-content">    
+  <div class="container"></div>
+            
+            </div>
+         </li>
+         
+          
+        </ul>
+      </div>
+	  </div>
+	</div>
