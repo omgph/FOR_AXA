@@ -36,7 +36,7 @@
 <section class="section">
   <div class="row-fluid">
     <div class="takethequiz-header">
-      <p class="takethequiz-text3">Offbeat Death Quiz | <span class="takethequiz-text2">Unpopular Ways To Die Like A Popular Person</span></p>
+      <p class="takethequiz-text3">Offbeat Death Quiz</p>
       </p>
       <p class="takethequiz-text4">Find out how you will die based on your lifestyle </p>
     </div>
@@ -47,7 +47,7 @@
         <div class="red-line"></div>
         <p class="takethequiz-text7">@ViewBag.ResultsDescription</p>
         <a href="/Quiz" style="float:left; margin-right:5px;"><img src="@Url.Content("~/Content/images/btn_retakequiz.png")" class="sociallinks-align" border="0" ></a> <a onclick="shareApp();" style="cursor:pointer; float:left; margin-right:5px;"><img src="@Url.Content("~/Content/images/btn_fb2.png")" class="sociallinks-align" border="0" ></a> <a onclick="shareTW();" style="cursor:pointer; float:left;"><img src="@Url.Content("~/Content/images/btn_twitter2.png")" class="sociallinks-align" border="0" ></a> </div>
-      <div id="quiz-img"><img class="centeredImage" src="/UserFiles/images/quiz1-img.png" /></div>
+      <div id="quiz-img"><img class="centeredImage" src="/UserFiles/images/@ViewBag.ImageResults" /></div>
     </div>
   </div>
 </section>

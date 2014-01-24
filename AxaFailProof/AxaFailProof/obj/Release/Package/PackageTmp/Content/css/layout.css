@@ -21,7 +21,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     display: block;
 }
 body {
-    line-height: 1;
+	line-height: 1;
+    padding-bottom: 100px;
 }
 ol, ul {
     list-style: none;
@@ -52,7 +53,6 @@ table {
     width: 100%;
     max-width: 1140px;
 }
-
 .grid-940 .container{ max-width:980px}
 .grid-740 .container{ max-width:780px}
 
@@ -63,6 +63,7 @@ table {
 	margin-right: auto;
 	margin-bottom: 0;
 	margin-left: auto;
+	padding-left: 15px;
 }
 .row-fluid .row-fluid {
     width: auto;
@@ -72,11 +73,9 @@ table {
 }
 .row-fluid [class*="span"], .one_fifth {
 	float: left;
-	position: relative;
-	padding-top: 0;
-	padding-right: 10px;
-	padding-bottom: 0;
-	padding-left: 10px;
+    padding: 0 15px;
+    position: relative;
+
 }
 .row-fluid:before, .row-fluid:after {
     display: table;
@@ -93,14 +92,15 @@ table {
     width: 16.667%;
 }
 .row-fluid .span3 {
-	width: 25%;
+	width: 28%;
 }
 .row-fluid .span4 {
-    width: 33.333%;
+	width: 33.33%;
 }
 .row-fluid .span5 {
-    width: 41.667%;
+    width: 42%;
 }
+
 .row-fluid .span6 {
     width: 50%;
 }
@@ -108,10 +108,10 @@ table {
     width: 58.333%;
 }
 .row-fluid .span8 {
-    width: 66.667%;
+    width: 66.66%;
 }
 .row-fluid .span9 {
-    width: 75%;
+    width: 70%;
 }
 .row-fluid .span10 {
     width: 83.333%;
@@ -123,13 +123,31 @@ table {
     width: 100%;
 }
 .row-fluid .span13 {
-    width: 75%;
+    width: 65%;
 }
 .row-fluid .span14 {
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
 	display: block;
+}
+.row-fluid .span15 {
+	width: 20%;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+}
+.row-fluid .span16 {
+	width: 16%;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+}
+.row-fluid .span17 {
+    width: 18.88%;
+}
+.row-fluid .span18 {
+    width: 25%;
 }
 .row-fluid .spanone_fifth {
     width: 20%;
@@ -146,7 +164,7 @@ object, embed {
     max-width: 100%;
 }
 .row-fluid .inner-content {
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
 .row-fluid.style2 {
 	margin-top: 0;
@@ -161,7 +179,7 @@ object, embed {
     position: relative;
 }
 .row-fluid.style2 [class*="span"] .inner-content {
-    padding: 30px
+    padding: 30px;
 }
 .row-fluid.style2 [class*="span"] .inner-content.vertical-padding-small {
     padding-top: 5px;

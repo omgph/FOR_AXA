@@ -6,13 +6,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AxaFailProof.Models;
-using System.IO;
 using System.Web.Helpers;
+using System.IO;
 
 namespace AxaFailProof.Areas.Admin.Controllers
 {
     [Authorize]
-    public class BannerMainConroller : Controller
+    public class BannerMainController : Controller
     {
         private AxaFailProofContext db = new AxaFailProofContext();
 
@@ -25,12 +25,21 @@ namespace AxaFailProof.Areas.Admin.Controllers
         }
 
         //
+        // GET: /Admin/BannerMain/Details/5
+
+        public ViewResult Details(int id)
+        {
+            Banner banner = db.Banners.Find(id);
+            return View(banner);
+        }
+
+        //
         // GET: /Admin/BannerMain/Create
 
         public ActionResult Create()
         {
             return View();
-        } 
+        }
 
         //
         // POST: /Admin/BannerMain/Create
@@ -59,7 +68,7 @@ namespace AxaFailProof.Areas.Admin.Controllers
                 }
                 db.Banners.Add(banner);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
 
             return View(banner);
@@ -112,21 +121,6 @@ namespace AxaFailProof.Areas.Admin.Controllers
         {            
             Banner banner = db.Banners.Find(id);
             db.Banners.Remove(banner);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        public ActionResult Status(int id)
-        {
-            Banner banner = db.Banners.Find(id);
-            if (banner.Status == false)
-            {
-                banner.Status = true;
-            }
-            else
-            {
-                banner.Status = false;
-            }
             db.SaveChanges();
             return RedirectToAction("Index");
         }

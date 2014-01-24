@@ -11,6 +11,8 @@
             $("#Quiz_Score").val(totalquiz);
             $(".quiz-num1").hide();
             $(".quiz-num2").show();
+            $(".imagequestion1").hide();
+            $(".imagequestion2").show();
         } else {
         $("#error1").show();
         }
@@ -22,6 +24,8 @@
             $("#Quiz_Score").val(totalquiz);
             $(".quiz-num2").hide();
             $(".quiz-num3").show();
+            $(".imagequestion2").hide();
+            $(".imagequestion3").show();
         } else {
             $("#error2").show();
         }
@@ -33,6 +37,8 @@
             $("#Quiz_Score").val(totalquiz);
             $(".quiz-num3").hide();
             $(".quiz-num4").show();
+            $(".imagequestion3").hide();
+            $(".imagequestion4").show();
         } else {
             $("#error3").show();
         }
@@ -44,6 +50,8 @@
             $("#Quiz_Score").val(totalquiz);
             $(".quiz-num4").hide();
             $(".quiz-num5").show();
+            $(".imagequestion4").hide();
+            $(".imagequestion5").show();
         } else {
             $("#error4").show();
         }
@@ -55,6 +63,8 @@
             $("#Quiz_Score").val(totalquiz);
             $(".quiz-num5").hide();
             $(".quiz-num6").show();
+            $(".imagequestion5").hide();
+            $(".imagequestion6").show();
         } else {
             $("#error5").show();
         }
@@ -75,7 +85,7 @@
 <section class="section">
   <div class="row-fluid">
     <div class="takethequiz-header">
-      <p class="takethequiz-text3">Offbeat Death Quiz | <span class="takethequiz-text2">Unpopular Ways To Die Like A Popular Person</span></p>
+      <p class="takethequiz-text3">Offbeat Death Quiz</p>
       </p>
       <p class="takethequiz-text4">Find out how you will die based on your lifestyle </p>
     </div>
@@ -258,7 +268,12 @@
             <input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Continue" onclick="question6();" />
           </p>
       </div>
-      <div id="quiz-img"><img class="centeredImage" src="/UserFiles/images/quiz1-img.png" /></div>
+      <div id="quiz-img" class="imagequestion1">@Html.Raw(Model.Question1.Body)</div>
+      <div id="quiz-img" class="imagequestion2" style="display:none;">@Html.Raw(Model.Question2.Body)</div>
+      <div id="quiz-img" class="imagequestion3" style="display:none;">@Html.Raw(Model.Question3.Body)</div>
+      <div id="quiz-img" class="imagequestion4" style="display:none;">@Html.Raw(Model.Question4.Body)</div>
+      <div id="quiz-img" class="imagequestion5" style="display:none;">@Html.Raw(Model.Question5.Body)</div>
+      <div id="quiz-img" class="imagequestion6" style="display:none;">@Html.Raw(Model.Question6.Body)</div>
     </div>
   </div>
 </section>

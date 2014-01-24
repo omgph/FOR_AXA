@@ -5,6 +5,7 @@ using System.Web;
 using AxaFailProof.Models;
 using System.Collections;
 using PagedList;
+using Utils;
 
 namespace AxaFailProof.Models
 {
@@ -31,6 +32,13 @@ namespace AxaFailProof.Models
         public Mushroom Mushroom3 { get; set; }
         public Mushroom Mushroom4 { get; set; }
 
+        public Mushroom Question1 { get; set; }
+        public Mushroom Question2 { get; set; }
+        public Mushroom Question3 { get; set; }
+        public Mushroom Question4 { get; set; }
+        public Mushroom Question5 { get; set; }
+        public Mushroom Question6 { get; set; }
+
         public StaticPage StaticPage { get; set; }
         public EventsRegistered EventsRegistered { get; set; }
         public ContactU ContactUs { get; set; }
@@ -39,6 +47,7 @@ namespace AxaFailProof.Models
         public Quiz Quiz { get; set; }
         public SocialUser SocialUser { get; set; }
         public FailProofing FailProofing { get; set; }
+        public YahooProfile Profile { get; set; }
 
         public int StoryID { get; set; }
         public string SearchBox { get; set; }

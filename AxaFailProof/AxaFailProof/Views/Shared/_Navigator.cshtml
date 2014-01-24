@@ -116,14 +116,14 @@
         @foreach (var item in Model.Banner)
         { 
           <li data-transition="fade" data-slotamount="7" data-masterspeed="300" > <img src="@Url.Content("~/Content/images/slide-bg0.jpg")"  alt="slide-bg1"  data-fullwidthcentering="on">
-            <div class="tp-caption fade" data-x="-60" data-y="0" data-speed="500" data-start="500" data-easing="easeOutExpo"><img src="@Url.Content("~/UserFiles/images/" + item.Image + "")" alt="Banner"> </div>
+            <div class="tp-caption fade" data-x="0" data-y="0" data-speed="500" data-start="500" data-easing="easeOutExpo"><img src="@Url.Content("~/UserFiles/images/" + item.Image + "")" alt="Banner"> </div>
             @{
                 if (item.Label != "") { 
-                    <div class="tp-caption bg-title sfb" data-x="-70" data-y="130" data-speed="400" data-start="800" data-easing="easeOutExpo">@Html.Raw(item.Label)</div>
+                    <div class="tp-caption bg-title sfb" data-x="0" data-y="80" data-speed="400" data-start="800" data-easing="easeOutExpo">@Html.Raw(item.Label)</div>
                 }
                 if (item.Button != null)
                 { 
-                    <div class="tp-caption fade bg-buttons"data-x="-100" data-y="200" data-speed="250" data-start="1200" data-easing="easeOutExpo" ><a href='@item.Link' class='button'>@item.Button</a></div>
+                    <div class="tp-caption fade bg-buttons"data-x="-20" data-y="160" data-speed="250" data-start="1200" data-easing="easeOutExpo" ><a href='@item.Link' class='button'>@item.Button</a></div>
                 }
             }
           </li>
@@ -145,7 +145,7 @@
 					{
 					    delay: 9000,
 					    startwidth: 1140,
-					    startheight: 500,
+					    startheight: 400,
 					    hideThumbs: 200,
 
 					    thumbWidth: 100,

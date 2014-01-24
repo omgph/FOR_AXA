@@ -16,8 +16,9 @@ namespace Utils
     {
         private const string requestTokenURL = "https://api.login.yahoo.com/oauth/v2/get_request_token";
         private const string getTokenURL = "https://api.login.yahoo.com/oauth/v2/get_token";
-        private const string calbackURL = "... your callback ...";
+        private const string calbackURL = "http://omgph.net/YahooCallBack/";
         private const String unreservedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~";
+        private const int timeadded = +8;
 
         private static String urlEncode(String value)
         {
@@ -38,7 +39,7 @@ namespace Utils
             HMACSHA1 hmacsha1 = new HMACSHA1();
             hmacsha1.Key = Encoding.ASCII.GetBytes(
                 String.Concat(
-                    urlEncode(ConfigurationManager.AppSettings.Get("YahooConsumerSecret")),
+                    urlEncode(ConfigurationManager.AppSettings.Get("YahooConsumerSecret")) ,
                     "&",
                     urlEncode(tokenSecret)
                 )
@@ -52,7 +53,7 @@ namespace Utils
                 urlEncode(calbackURL),
                 urlEncode(ConfigurationManager.AppSettings.Get("YahooConsumerKey")),
                 Convert.ToBase64String(new ASCIIEncoding().GetBytes(Guid.NewGuid().ToString())),
-                Convert.ToInt64((DateTime.Now.AddHours(-1) - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds).ToString()
+                Convert.ToInt64((DateTime.Now.AddHours(timeadded) - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds).ToString()
             );
 
             HttpWebRequest webRequest = (HttpWebRequest)System.Net.WebRequest.Create(
@@ -128,7 +129,7 @@ namespace Utils
                 "oauth_consumer_key={0}&oauth_nonce={1}&oauth_signature_method=HMAC-SHA1&oauth_timestamp={2}&oauth_token={3}&oauth_verifier={4}&oauth_version=1.0",
                 urlEncode(ConfigurationManager.AppSettings.Get("YahooConsumerKey")),
                 Convert.ToBase64String(new ASCIIEncoding().GetBytes(Guid.NewGuid().ToString())),
-                Convert.ToInt64((DateTime.Now.AddHours(-1) - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds).ToString(),
+                Convert.ToInt64((DateTime.Now.AddHours(timeadded) - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds).ToString(),
                 oauth_token,
                 oauth_verifier
             );
@@ -194,7 +195,7 @@ namespace Utils
                 "Authorization=OAuth&format=json&oauth_consumer_key={0}&oauth_nonce={1}&oauth_signature_method=HMAC-SHA1&oauth_timestamp={2}&oauth_token={3}&oauth_version=1.0&realm=yahooapis.com",
                 urlEncode(ConfigurationManager.AppSettings.Get("YahooConsumerKey")),
                 Convert.ToBase64String(new ASCIIEncoding().GetBytes(Guid.NewGuid().ToString())),
-                Convert.ToInt64((DateTime.Now.AddHours(-1) - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds).ToString(),
+                Convert.ToInt64((DateTime.Now.AddHours(timeadded) - new DateTime(1970, 1, 1, 0, 0, 0, 0)).TotalSeconds).ToString(),
                 urlEncode(token)
             );
 

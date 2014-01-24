@@ -62,7 +62,6 @@ Screen Stylesheet
 .rev_slider{
 	position: relative;
 	overflow: visible;
-	margin-top: 10px;
 	border-top-width: thin;
 	border-top-style: solid;
 	border-top-color: #CCC;
@@ -535,5 +534,5 @@ Screen Stylesheet
 			}
 
 /* Custome rev slider styles for blandes */
-.rev_slider_wrapper {margin:0px auto;background-color:#E9E9E9;padding:0px;margin-top:0px;margin-bottom:0px;max-height:500px;}
-.rev_slider {display:none;max-height:500px;height:500; }
+.rev_slider_wrapper {margin:0px auto;background-color:#E9E9E9;padding:0px;margin-top:0px;margin-bottom:0px;max-height:400px;}
+.rev_slider {display:none;max-height:400px;height:400; }

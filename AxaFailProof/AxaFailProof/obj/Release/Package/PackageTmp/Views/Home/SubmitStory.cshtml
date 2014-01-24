@@ -1,94 +1,7 @@
 ﻿@model AxaFailProof.Models.AxaViewModel
 @{
     Layout = "~/Views/Shared/_LayoutMain.cshtml"; 
-    ViewBag.Title = "SubmitStory";
 }
-<!-- rev  slider -->
-<div id="rev_slider_3_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container">
-  <div id="rev_slider_3_1" class="rev_slider fullwidthabanner" >
-    <ul>
-       @foreach (var item in Model.MainBanner) { 
-          <li data-transition="fade" data-masterspeed="300" > <img src="@Url.Content("~/Content/images/slide-bg0.jpg")" data-fullwidthcentering="on">
-            <div class="tp-caption fade" data-x="0" data-y="0" data-speed="500" data-start="500" data-easing="easeOutExpo"  ><img src="@Url.Content("~/UserFiles/images/"+item.Image)" alt="@item.Position"> </div>
-          </li>
-       }
-      <!-- end li-->
-    </ul>
-  </div>
-</div>
-<script type="text/javascript">
-
-
-    var revapi3;
-
-    jQuery(document).ready(function () {
-
-        if (jQuery.fn.cssOriginal != undefined)
-            jQuery.fn.css = jQuery.fn.cssOriginal;
-
-        if (jQuery('#rev_slider_3_1').revolution == undefined)
-            revslider_showDoubleJqueryError('#rev_slider_3_1');
-        else {
-            revapi3 = jQuery('#rev_slider_3_1').show().revolution(
-					{
-					    delay: 9000,
-					    startwidth: 1140,
-					    startheight: 500,
-					    hideThumbs: 200,
-
-					    thumbWidth: 100,
-					    thumbHeight: 50,
-					    thumbAmount: 3,
-
-					    navigationType: "bullet",
-					    navigationArrows: "solo",
-					    navigationStyle: "round",
-
-					    touchenabled: "on",
-					    onHoverStop: "on",
-
-					    navigationHAlign: "center",
-					    navigationVAlign: "bottom",
-					    navigationHOffset: 0,
-					    navigationVOffset: 30,
-
-					    soloArrowLeftHalign: "left",
-					    soloArrowLeftValign: "center",
-					    soloArrowLeftHOffset: 10,
-					    soloArrowLeftVOffset: 0,
-
-					    soloArrowRightHalign: "right",
-					    soloArrowRightValign: "center",
-					    soloArrowRightHOffset: 10,
-					    soloArrowRightVOffset: 0,
-
-					    shadow: 0,
-					    fullWidth: "on",
-					    fullScreen: "off",
-
-					    stopLoop: "off",
-					    stopAfterLoops: -1,
-					    stopAtSlide: -1,
-
-					    shuffle: "off",
-
-					    hideSliderAtLimit: 0,
-					    hideCaptionAtLimit: 0,
-					    hideAllCaptionAtLilmit: 0,
-					    startWithSlide: 0,
-					    videoJsPath: "revslider/videojs/",
-					    fullScreenOffsetContainer: ""
-					});
-
-            revapi3.revnext(function () { alert(0) });
-        }
-    }); //ready
-				
-				
-			</script> 
-
-<!-- END REVOLUTION SLIDER -->
-
 <section id="titlebar" class="titlebar">
   <div class="container">
     <div class="row-fluid">
@@ -105,47 +18,54 @@
         <div class="post post-standard clearfix span9">
           <div class="post post-full-width-alternate clearfix">
             <h2>Write your own story</h2>
-            <textarea name="comment" cols="58" rows="10" class="span11" id="comment" tabindex="4">Your Message</textarea>
-            <input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit" />
+            @using (Html.BeginForm("SubmitStory", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.ValidationSummary(true)
+                @Html.HiddenFor(model => model.Story.Author)
+                @ViewBag.name
+                <div class="comment-form">
+                    <div class="row-fluid">
+                      <div class="span14">
+                        <div class="control-wrap"> <span class="icon"><i class="icon-fixed-user"></i></span>
+                          @Html.TextBoxFor(model => model.Story.Title, new { size = "22", tabindex = "1", placeholder = "Story Title" })
+                          @Html.ValidationMessageFor(model => model.Story.Title, "", new { style = "color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;" })
+                        </div>
+                      </div>
+                      <div class="span14">
+                        <div class="control-wrap">
+                          @FileUpload.GetHtml(initialNumberOfFiles: 1, allowMoreFilesToBeAdded: false, includeFormTag: false)
+                          @Html.ValidationMessageFor(model => model.Story.Image)
+                        </div>
+                      </div>
+                      <div class="span4"></div>
+                    </div>
+                  </div>
+                  <!--/row-->
+                  <div class="comment-form">
+                    <div class="row-fluid">
+                      <div class="span14">
+                        @Html.TextAreaFor(model => model.Story.Body, new { rows = "10", cols = "58", placeholder = "Your Story" })
+                        @Html.ValidationMessageFor(model => model.Story.Body, "", new { style = "color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;" })
+                      </div>
+                    </div>
+                  </div>
+                  <input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit" />
+            }
           </div>
         </div>
         <div class="sidebar span3">
           <div class="inner-content">
             <div id="search-2" class="widget widget_meta widget_search">
-              <form action="#" id="searchform" class="search-form" method="get">
-                <div> <br>
-                  <input type="text" id="s" name="s" value="Search..." onFocus="if(this.value=='Search...')this.value='';" onBlur="if(this.value=='')this.value='Search...';" autocomplete="off" />
-                  <input type="submit" value="search"  class="hidden" />
-                </div>
-              </form>
+            @Html.Action("SearchByTopicForm", "Home")
             </div>
-            <div id="archives-2" class="widget widget_meta widget_archive">
-              <h3>Archives</h3>
-              <ul>
-                <li><a href='#' title='Sep 2013'>Sep 2013</a></li>
-                <li><a href='#' title='April 2013'>April 2013</a></li>
-              </ul>
-            </div>
-            <div class="widget clearfix">
-              <h3>Recent posts</h3>
-              <ul class="widget-posts">
-                <li class="widget-post"> <img width="80" height="80" src="@Url.Content("~/Content/images/post_thumb1.jpg")" class="attachment-mini wp-post-image"/>
-                  <h6><a class="" href="#">In massa turpis ornare necd crn ltepio dnyui tesi </a></h6>
-                  <p class="date">Sep 01 , 2013 at 4:50 pm</p>
-                </li>
-                <li class="widget-post"> <img width="80" height="80" src="@Url.Content("~/Content/images/post_thumb2.jpg")" class="attachment-mini wp-post-image" />
-                  <h6> <a class="" href="#">Mauris vestibulum neque</a></h6>
-                  <p class="date">Sep 01 , 2013 at 4:50 pm</p>
-                </li>
-                <li class="widget-post"> <img width="80" height="80" src="@Url.Content("~/Content/images/post_thumb3.jpg")" class="attachment-mini wp-post-image" />
-                  <h6><a class="" href="#">sed aliquam justo dolor</a></h6>
-                  <p class="date">Sep 01 , 2013 at 4:50 pm </p>
-                </li>
-              </ul>
-            </div>
+            @Html.Action("ArchiveList", "Home")
+            @Html.Action("ResentPosts", "Home")
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<script>
+    $("#Story_Author").val(getCookie('username'));
+</script>

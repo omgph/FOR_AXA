@@ -2,7 +2,7 @@
 /* CSS Document */
 
 body, a, img					{ outline:none; border:0; margin:0; padding:0; }
-body							{ background:url(../images/main-bg.png) repeat; width:100%; color:#333333; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+body							{ background-color:#333; width:100%; color:#333333; font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
 input							{ -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; }
 input:focus						{ border-color:rgba(82, 168, 236, 0.8);outline:0;outline:thin dotted \9;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);-moz-box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6); }
 fieldset						{ margin:0; padding:0; border:0; }

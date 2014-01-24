@@ -1,36 +1,17 @@
 ﻿<!-- strip with buttons -->
-<section id="bluestrip_floating">
-  <div class="bluestrip"><!-- container -->
+<section id="stripwithbtns">
+  <div class="container"><!-- container -->
     <div class="row-fluid"><!-- row-fluid -->
-      <div class="row-fluid"><!-- row-fluid -->
-          @Html.Raw(Model.Mushroom3.Body)
+      <div class="row-fluid"><!-- row-fluid --> 
+      @Html.Raw(Model.Mushroom3.Body)
       </div><!-- end -->
     </div><!-- end -->
   </div><!-- end -->
 </section><!-- end -->
-<!-- end -->
-
 <!-- footer -->
 <footer id="footer"><!-- footer --><!-- end -->
 </footer><!-- end -->
-
-<!-- copyright -->
-<section id="copyright">
-  <div class="container"><!-- container -->
-    <div class="row-fluid"><!-- row-fluid -->
-      <div class="row-fluid"><!-- row-fluid -->
-        <div class="copyright-text span4 pull-left"> AXA FAIL PROOF 2013. All rights Reserved.</div><!-- copyright-text span4 pull-left -->
-        <div class="textright span8 clearfix">
-          <ul class="social-icons clearfix">
-          AXA PHILIPPINES	|	TERMS & CONDITIONS	|	PRIVACY POLICY	|	CONTACT US
-          </ul><!-- end -->
-        </div><!-- end -->
-      </div><!-- end -->
-    </div><!-- end -->
-  </div><!-- end -->
-</section><!-- end -->
-<!-- end -->
-
+@Html.Action("CopyRight", "Home")
 <script type="text/javascript">
     $(window).scroll(function () {
         if ($(this).scrollTop()) {

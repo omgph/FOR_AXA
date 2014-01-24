@@ -1,132 +1,36 @@
-﻿@model AxaFailProof.Models.AxaViewModel
-@{
-    ViewBag.Title = "Home Page";
-}
-<!-- rev  slider -->
-<div id="rev_slider_3_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container">
-  <div id="rev_slider_3_1" class="rev_slider fullwidthabanner" >
-    <ul>
-        @foreach (var item in Model.HomeBanners)
-        { 
-          <li data-transition="fade" data-masterspeed="300" > <img src="@Url.Content("~/Content/images/slide-bg0.jpg")"  alt="slide-bg1"  data-fullwidthcentering="on">
-            <div class="tp-caption fade" data-x="0" data-y="0" data-speed="500" data-start="500" data-easing="easeOutExpo"  ><img src="@Url.Content("~/UserFiles/images/" + item.Image + "")" alt="Home Banner"> </div>
-            @{
-                if (item.Label != "") { 
-                    <div class="tp-caption bg-title sfb" data-x="-20" data-y="100" data-speed="400" data-start="800" data-easing="easeOutExpo">@Html.Raw(item.Label)</div>
-                }
-                if (item.Button != null)
-                { 
-                    <div class="tp-caption fade bg-buttons"data-x="-50" data-y="200" data-speed="250" data-start="1200" data-easing="easeOutExpo"  ><a href='@item.Link' class='button'>@item.Button</a></div>
-                }
-            }
-          </li>
-        }
-	  <!-- end li-->
-    </ul>
-  </div>
-</div>
-<script type="text/javascript">
-    var revapi3;
-
-    jQuery(document).ready(function () {
-
-        if (jQuery.fn.cssOriginal != undefined)
-            jQuery.fn.css = jQuery.fn.cssOriginal;
-
-        if (jQuery('#rev_slider_3_1').revolution == undefined)
-            revslider_showDoubleJqueryError('#rev_slider_3_1');
-        else {
-            revapi3 = jQuery('#rev_slider_3_1').show().revolution(
-					{
-					    delay: 9000,
-					    startwidth: 1140,
-					    startheight: 500,
-					    hideThumbs: 200,
-
-					    thumbWidth: 100,
-					    thumbHeight: 50,
-					    thumbAmount: 3,
-
-					    navigationType: "bullet",
-					    navigationArrows: "solo",
-					    navigationStyle: "round",
-
-					    touchenabled: "on",
-					    onHoverStop: "on",
-
-					    navigationHAlign: "center",
-					    navigationVAlign: "bottom",
-					    navigationHOffset: 0,
-					    navigationVOffset: 30,
-
-					    soloArrowLeftHalign: "left",
-					    soloArrowLeftValign: "center",
-					    soloArrowLeftHOffset: 10,
-					    soloArrowLeftVOffset: 0,
-
-					    soloArrowRightHalign: "right",
-					    soloArrowRightValign: "center",
-					    soloArrowRightHOffset: 10,
-					    soloArrowRightVOffset: 0,
-
-					    shadow: 0,
-					    fullWidth: "on",
-					    fullScreen: "off",
-
-					    stopLoop: "off",
-					    stopAfterLoops: -1,
-					    stopAtSlide: -1,
-
-					    shuffle: "off",
-
-					    hideSliderAtLimit: 0,
-					    hideCaptionAtLimit: 0,
-					    hideAllCaptionAtLilmit: 0,
-					    startWithSlide: 0,
-					    videoJsPath: "revslider/videojs/",
-					    fullScreenOffsetContainer: ""
-					});
-
-            revapi3.revnext(function () { alert(0) });
-        }
-    }); //ready
-				
-				
-			</script> 
-
-<!-- END REVOLUTION SLIDER --> 
-
+﻿@model AxaFailProof.Models.AxaViewModel 
 <!-- Section post -->
-
 <section class="section ">
   <div class="container">
     <div class="row-fluid">
       <div class="row-fluid ">
         <div class="span4">
-          <div class="inner-content vertical-padding-large">
-              @Html.Raw(Model.Mushroom1.Body)
-        	</div>
-		<!-- end -->
-		<!-- start -->
-        <div class="span4">
-          <div class="inner-content  vertical-padding-large">
-              @Html.Raw(Model.Mushroom2.Body)
+          <div class="inner-content vertical-padding-large"> @Html.Raw(Model.Mushroom1.Body) </div>
         </div>
-		<!-- end -->
-		<!-- start -->
+        <!-- end --> 
+        <!-- start -->
+        <div class="span4">
+          <div class="inner-content  vertical-padding-large"> @Html.Raw(Model.Mushroom2.Body) </div>
+        </div>
+        <!-- end --> 
+        <!-- start -->
         <div class="span4">
           <div class="inner-content  vertical-padding-large">
-              <h3>USER SUBMISSIONS<br/>
-              <h7>YOUR STORIES</h7></h3>
-              @foreach(var item in Model.FeaturedStory){
-                string teaser = "";
-                teaser = System.Text.RegularExpressions.Regex.Replace(item.Body.Replace("&nbsp;", ""), "<.*?>", string.Empty);
-                teaser = teaser.Substring(0, 250);
-                  <p><img src="@Url.Content("~/UserFiles/images/"+item.Image+"")"></p>
-                  <p><h8>@item.Title</h8><br>@teaser</p>
-              }
-           </div>
-		<!-- end -->
+            <h3>Health Stories of<br/>
+              <h7>Hope and Struggle</h7>
+            </h3>
+            @foreach(var item in Model.FeaturedStory){
+            string teaser = "";
+            teaser = System.Text.RegularExpressions.Regex.Replace(item.Body.Replace("&nbsp;", ""), "<.*?>", string.Empty);
+            teaser = teaser.Substring(0, 250);
+            <p><img src="@Url.Content("~/UserFiles/image_thumb/" + item.Image + "")"></p>
+            <p>
+              <h8>@item.Title</h8>
+              <br>
+              @teaser <a href="@Url.Action("Story", "Home", new { id = item.StoryID })">Read more</a></p>
+            } </div>
+          <!-- end --> 
+        </div>
       </div>
     </div>
   </div>
