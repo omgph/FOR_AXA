@@ -23,7 +23,7 @@
             string teaser = "";
             teaser = System.Text.RegularExpressions.Regex.Replace(item.Body.Replace("&nbsp;", ""), "<.*?>", string.Empty);
             teaser = teaser.Substring(0, 250);
-            <p><img src="@Url.Content("~/UserFiles/image_thumb/" + item.Image + "")"></p>
+            <p><a href="@Url.Action("Story", "Home", new { id = item.StoryID })"><img src="@Url.Content("~/UserFiles/image_thumb/" + item.Image + "")"></a></p>
             <p>
               <h8>@item.Title</h8>
               <br>

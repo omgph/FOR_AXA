@@ -717,6 +717,12 @@ namespace AxaFailProof.Controllers
             ViewBag.MetaDescription = "";
             ViewBag.OgImage = ogimagepath + "axa_og_image.png";
 
+            if (!ReCaptcha.Validate(privateKey: "6Ldg9N0SAAAAAKcadBDB7nP7vH0iBprFdJgRmZ5I"))
+            {
+                return new RedirectResult(Url.Action("RegFailProofing")+"#c");
+            }
+
+
             if (ModelState.IsValid)
             {
                 failproofing.DateCreated = DateTime.Now;
