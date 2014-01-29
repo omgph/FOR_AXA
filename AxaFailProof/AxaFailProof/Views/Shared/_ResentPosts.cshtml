@@ -7,7 +7,16 @@
         DateTime commentdt = DateTime.Parse(item.DateCreated.ToString()); 
                         
     <li>
-    <a class="" href="@Url.Action("Story", "Home", new { id = item.StoryID })">@item.Title</a>
+    @{
+        if (item.TopicID == 11)
+        {
+            <a class="" href="@Url.Action("HealthDetail", "Home", new { id = item.StoryID })">@item.Title</a>
+        }
+        else
+        { 
+            <a class="" href="@Url.Action("Story", "Home", new { id = item.StoryID })">@item.Title</a>
+        }
+    }
     <p class="date">@commentdt.ToString("MMM dd, yyyy") at @commentdt.ToString("hh:mm tt")</p>
     </li>
     }

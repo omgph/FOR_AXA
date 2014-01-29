@@ -1152,6 +1152,14 @@
     <Content Include="Content\images\teaser_large2.jpg" />
     <Content Include="Content\js\caroufred.js" />
     <Content Include="Content\js\flexslider.js" />
+    <Content Include="Content\js\ie6\background_browser.gif" />
+    <Content Include="Content\js\ie6\browser_chrome.gif" />
+    <Content Include="Content\js\ie6\browser_firefox.gif" />
+    <Content Include="Content\js\ie6\browser_ie.gif" />
+    <Content Include="Content\js\ie6\browser_opera.gif" />
+    <Content Include="Content\js\ie6\browser_safari.gif" />
+    <Content Include="Content\js\ie6\index.html" />
+    <Content Include="Content\js\ie6\warning.js" />
     <Content Include="Content\js\isotope.js" />
     <Content Include="Content\js\jquery.js" />
     <Content Include="Content\js\jquery.themepunch.revolution.min.js" />
@@ -1284,6 +1292,24 @@
     <Content Include="Views\Home\YahooCallBack.cshtml" />
     <Content Include="Views\Shared\_LayoutDefault.cshtml" />
     <Content Include="Views\Home\HealthDetail.cshtml" />
+    <None Include="Content\js\ie6\.svn\all-wcprops" />
+    <None Include="Content\js\ie6\.svn\entries" />
+    <None Include="Content\js\ie6\.svn\format" />
+    <None Include="Content\js\ie6\.svn\prop-base\background_browser.gif.svn-base" />
+    <None Include="Content\js\ie6\.svn\prop-base\browser_chrome.gif.svn-base" />
+    <None Include="Content\js\ie6\.svn\prop-base\browser_firefox.gif.svn-base" />
+    <None Include="Content\js\ie6\.svn\prop-base\browser_ie.gif.svn-base" />
+    <None Include="Content\js\ie6\.svn\prop-base\browser_opera.gif.svn-base" />
+    <None Include="Content\js\ie6\.svn\prop-base\browser_safari.gif.svn-base" />
+    <None Include="Content\js\ie6\.svn\text-base\background_browser.gif.svn-base" />
+    <None Include="Content\js\ie6\.svn\text-base\browser_chrome.gif.svn-base" />
+    <None Include="Content\js\ie6\.svn\text-base\browser_firefox.gif.svn-base" />
+    <None Include="Content\js\ie6\.svn\text-base\browser_ie.gif.svn-base" />
+    <None Include="Content\js\ie6\.svn\text-base\browser_opera.gif.svn-base" />
+    <None Include="Content\js\ie6\.svn\text-base\browser_safari.gif.svn-base" />
+    <None Include="Content\js\ie6\.svn\text-base\index.html.svn-base" />
+    <None Include="Content\js\ie6\.svn\text-base\warning.js.svn-base" />
+    <None Include="Content\js\ie6\warning.js~" />
     <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.xml" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.dll" />
@@ -1306,6 +1332,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\js\ie6\.svn\props\" />
+    <Folder Include="Content\js\ie6\.svn\tmp\prop-base\" />
+    <Folder Include="Content\js\ie6\.svn\tmp\props\" />
+    <Folder Include="Content\js\ie6\.svn\tmp\text-base\" />
     <Folder Include="UserFiles\images\" />
     <Folder Include="UserFiles\image_thumb\" />
     <Folder Include="UserFiles\og_images\" />
