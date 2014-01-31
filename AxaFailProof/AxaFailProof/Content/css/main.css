@@ -350,11 +350,9 @@ select {
 	border-radius: 5px;
 	font-size: 14px;
 	color: #666;
-	width: 200px;
-	max-width: 100%;
+	max-width: 60%;
 	display: block;
 	margin-bottom: 20px;
-	width: 200px;
 	color: #036;
 	border: 1px solid #999;
 	font-family: inherit;
@@ -487,8 +485,9 @@ textarea {
 #logo img {
 	vertical-align: middle;
 	max-height: 100%;
-	width: auto;
-	max-width: 100%
+	max-width: 100%;
+	min-height:60%;
+	min-width:90%;
 }
 #main_navigation .logo {
 	max-height: 100%;

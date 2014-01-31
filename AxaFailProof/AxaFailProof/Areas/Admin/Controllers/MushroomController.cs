@@ -9,7 +9,7 @@ using AxaFailProof.Models;
 
 namespace AxaFailProof.Areas.Admin.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class MushroomController : Controller
     {
         private AxaFailProofContext db = new AxaFailProofContext();

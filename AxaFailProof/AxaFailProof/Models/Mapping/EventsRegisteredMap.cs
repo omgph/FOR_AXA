@@ -30,7 +30,6 @@ namespace AxaFailProof.Models.Mapping
             this.ToTable("EventsRegistered");
             this.Property(t => t.RegEventID).HasColumnName("RegEventID");
             this.Property(t => t.LocationID).HasColumnName("LocationID");
-            this.Property(t => t.EventDate).HasColumnName("EventDate");
             this.Property(t => t.FirstName).HasColumnName("FirstName");
             this.Property(t => t.MiddleName).HasColumnName("MiddleName");
             this.Property(t => t.LastName).HasColumnName("LastName");

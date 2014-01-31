@@ -1428,22 +1428,26 @@ a:hover.button.button_pink {
 }
 
 .btn-takethequiz {
-    margin-top: 0;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    display: block;
-    float: right;
-    height: 41px;
-    width: 183px;
+	margin-top: 0;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 10px;
+	display: block;
+	float: right;
+	height: 41px;
+	width: 300px;
 }
+
 .btn-wanttoknow {
-    margin-top: 0;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    height: 41px;
-    width: 183px;
-    display: block;
-    float: right;
+	margin-top: 0;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-bottom: 10px;
+	height: 41px;
+	width: 300px;
+	display: block;
+	float: right;
+	text-align: center;
 }
 .btn-fb {
 	margin-top: 0;

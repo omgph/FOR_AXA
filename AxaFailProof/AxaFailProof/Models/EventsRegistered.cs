@@ -8,7 +8,6 @@ namespace AxaFailProof.Models
     {
         public int RegEventID { get; set; }
         public int LocationID { get; set; }
-        public System.DateTime EventDate { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }

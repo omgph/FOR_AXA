@@ -6,30 +6,38 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script>
     function submitevent() {
+        $("#FrmEvent").submit();
+//        var location = $("#LocationID").val();
+//        // check date limit
+//        if (location) {
+//            var url = "/EventCheck";
+//            $.post(url, { locationid: location }, function (data) {
+//                if (data == 20) {
+//                    $("#ErrorDate").html('Sorry only 20pax can registered. Please choose another location/date.');
+//                } else {
+//                    $("#FrmEvent").submit();
+//                }
+//            });
+//        }
+
+    }
+
+    function showEventDetail() {
         var location = $("#LocationID").val();
-        var eventdate = $("#EventDate").val();
+        var url = "/EventDetail";
         if (location == 0) {
-            $("#ErrorLocationID").html('Please select location.');
+            $("#ErrorLocationID").html('Please choose your preferred date and location.');
         } else {
             $("#ErrorLocationID").html('');
         }
-        if (!eventdate) {
-            $("#ErrorDate").html('Please pick your preferred date.');
-        } else {
-            $("#ErrorDate").html('');
-        }
-        // check date limit
-        if (location && eventdate) {
-            var url = "/EventCheck";
-            $.post(url, { date: eventdate, locationid: location }, function (data) {
-                if (data == 20) {
-                    $("#ErrorDate").html('Sorry only 20pax can registered. Please choose another location/date.');
-                } else {
-                    $("#FrmEvent").submit();
+        if (location) {
+            $.post(url, { locationid: location }, function (data) {
+                if (data) {
+                    $("#event_detials").html(data);
+                    $("#detail_holder").show();
                 }
             });
         }
-
     }
 </script>
 <!-- Section post -->
@@ -47,37 +55,34 @@
             </div>
             
             <div class="row-fluid style2">
-        @using (Html.BeginForm("RegisterEvent", "Home", FormMethod.Post, new { enctype = "multipart/form-data", id="FrmEvent" }))
-        {
-             @Html.ValidationSummary(true)
-        <div class="span6 testimonial-grid-item">
-          <div class="inner-content">
-            <div class="joinapocketevent_text5">STEP 1:<br>
-              <span class="joinapocketevent_text4">Where are you?</span> <br><br>
-              <select name="LocationID" id="LocationID" style="width:350px; margin-bottom:5px;">
-                <option value="0">Select Location</option>
-                @foreach (var item in Model.Locations)
-                { 
-                    <option value="@item.LocationID">@item.Location1 - @item.Event</option>
-                }
-              </select>
-              <span id="ErrorLocationID" data-valmsg-replace="true" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
-              <input type="hidden" id="EventDate" name="EventDate" /><br />
-            </div>
-          </div>
-        </div>
-        }
-        <div class="span6 testimonial-grid-item">
-          <div class="inner-content">
-            <div class="joinapocketevent_text5">STEP 2:</div>
-            	<span class="joinapocketevent_text4">Pick your preferred date</span>
-                <div id="datepicker"></div>
-                <span id="ErrorDate" data-valmsg-replace="true" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
-                <br />
-                <input name="submit" type="submit" id="submit" class="button.blue img" tabindex="5" value="NEXT" onclick="submitevent();" />
-          </div>
-          </div>
-        
+                <div class="span6 testimonial-grid-item">
+                  <div class="inner-content">
+                    <div class="joinapocketevent_text5">STEP 1:<br>
+                      <span class="joinapocketevent_text4">Choose your preffered date and location?</span> <br><br>
+                        @using (Html.BeginForm("RegisterEvent", "Home", FormMethod.Post, new { enctype = "multipart/form-data", id = "FrmEvent" }))
+                        {
+                          @Html.ValidationSummary(true)
+                          <select name="LocationID" id="LocationID" style="width:350px; margin-bottom:5px;">
+                            <option value="0">Select Date and Location</option>
+                            @foreach (var item in Model.Locations)
+                            { 
+                                <option value="@item.LocationID">@item.EventDate (@item.Location1)</option>
+                            }
+                          </select>
+                          <span id="ErrorLocationID" data-valmsg-replace="true" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
+                        }
+                      <input name="submit" type="submit" id="submit" class="button.blue img" tabindex="5" value="Search" onclick="showEventDetail();" style="cursor:pointer;"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="span6 testimonial-grid-item" style="display:none;" id="detail_holder">
+                    <div class="inner-content">
+                        <div class="joinapocketevent_text5">
+                            <div id="event_detials"></div>
+                            <br ><input name="submit" type="submit" id="submit" class="button.blue img" tabindex="5" value="Next" style="margin-top:-10px; cursor:pointer;" onclick="submitevent();"  />
+                        </div>
+                    </div>
+                </div>
         </div>
       </div>
      		<div class="gap" style="height:50px"></div>

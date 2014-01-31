@@ -92,10 +92,19 @@ namespace AxaFailProof.Controllers
         }
 
         [HttpPost]
-        public string EventCheck(DateTime date,int locationid)
+        public string EventCheck(int locationid)
         {
-            var eventcheck = db.EventsRegistereds.Where(e => e.EventDate == date && e.LocationID == locationid).Count();
+            var eventcheck = db.EventsRegistereds.Where(e => e.LocationID == locationid).Count();
             return eventcheck.ToString();
+        }
+
+        [HttpPost]
+        public string EventDetail(int locationid)
+        {
+            var location = "";
+            var locationcheck = db.Locations.Find(locationid);
+            location = "<h11><h9>Title:</h9> " + locationcheck.Event + "<br ><h9>Description:</h9> " + locationcheck.EventDescription + "<br ><h9>Date:</h9> " + locationcheck.EventDate + "<br ><h9>Time:</h9> " + locationcheck.EventTime + "<br ><h9>Location:</h9> " + locationcheck.Location1 + "<br ></h11>";
+            return location;
         }
 
         public ActionResult RegisterEventStep3(int id)
@@ -717,12 +726,6 @@ namespace AxaFailProof.Controllers
             ViewBag.MetaDescription = "";
             ViewBag.OgImage = ogimagepath + "axa_og_image.png";
 
-            if (!ReCaptcha.Validate(privateKey: "6Ldg9N0SAAAAAKcadBDB7nP7vH0iBprFdJgRmZ5I"))
-            {
-                return new RedirectResult(Url.Action("RegFailProofing")+"#c");
-            }
-
-
             if (ModelState.IsValid)
             {
                 failproofing.DateCreated = DateTime.Now;
@@ -909,7 +912,7 @@ namespace AxaFailProof.Controllers
         public ActionResult ResentPosts()
         {
             AxaViewModel model = new AxaViewModel();
-            model.ResentPost = db.Stories.Where(s => s.Status == true).OrderByDescending(s => s.DateCreated).Take(8);
+            model.ResentPost = db.Stories.Where(s => s.Status == true).OrderByDescending(s => s.DateCreated).Take(3);
             return PartialView("_ResentPosts", model);
         }
 
