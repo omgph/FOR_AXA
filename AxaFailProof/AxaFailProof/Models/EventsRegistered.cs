@@ -9,8 +9,8 @@ namespace AxaFailProof.Models
         public int RegEventID { get; set; }
         public int LocationID { get; set; }
         public string FirstName { get; set; }
-        public string MiddleName { get; set; }
         public string LastName { get; set; }
+        public string LocationCity { get; set; }
         public string ContactNumber { get; set; }
         public string Email { get; set; }
         public System.DateTime BirthDate { get; set; }

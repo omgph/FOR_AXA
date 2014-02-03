@@ -52,7 +52,7 @@
 
     function validateForm() {
         var firstname = $("#EventsRegistered_FirstName").val();
-        var middlename = $("#EventsRegistered_MiddleName").val();
+        var locationcity = $("#EventsRegistered_LocationCity").val();
         var lastname = $("#EventsRegistered_LastName").val();
         var contact = $("#EventsRegistered_ContactNumber").val();
         var email = $("#EventsRegistered_Email").val();
@@ -65,10 +65,10 @@
         } else {
             $("#EventsRegistered_FirstName_Error").html("");
         }
-        if (!middlename) {
-            $("#EventsRegistered_MiddleName_Error").html("Please enter your middle initial.");
+        if (!locationcity) {
+            $("#EventsRegistered_LocationCity_Error").html("Please enter your location.");
         } else {
-            $("#EventsRegistered_MiddleName_Error").html("");
+            $("#EventsRegistered_LocationCity_Error").html("");
         }
         if (!lastname) {
             $("#EventsRegistered_LastName_Error").html("Please enter your last name.");
@@ -114,7 +114,7 @@
         if (checkdate(bday) == false) {
             bday = null;
         }
-        if (firstname && middlename && lastname && contact && email && bday && card && terms) {
+        if (firstname && locationcity && lastname && contact && email && bday && card && terms) {
             $("#frmEvent").submit();
         }
     }
@@ -158,14 +158,14 @@
                         </div>
                         <div class="span4">
                           <div class="control-wrap"> <span class="icon"><i class="icon-fixed-user"></i></span>
-                            @Html.TextBoxFor(model => model.EventsRegistered.MiddleName, new { placeholder = "Middle Initial", maxlength = "2" })
-                            <span id="EventsRegistered_MiddleName_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
+                            @Html.TextBoxFor(model => model.EventsRegistered.LastName, new { placeholder = "Last Name" })
+                            <span id="EventsRegistered_LastName_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
                           </div>
                         </div>
                         <div class="span4">
-                          <div class="control-wrap"> <span class="icon"><i class="icon-fixed-user"></i></span>
-                            @Html.TextBoxFor(model => model.EventsRegistered.LastName, new { placeholder = "Last Name" })
-                            <span id="EventsRegistered_LastName_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
+                          <div class="control-wrap"> <span class="icon"><i class="icon-fixed-world"></i></span>
+                            @Html.TextBoxFor(model => model.EventsRegistered.LocationCity, new { placeholder = "Location or City" })
+                            <span id="EventsRegistered_LocationCity_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
                           </div>
                         </div>
                         <div class="span4">

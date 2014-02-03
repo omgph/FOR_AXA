@@ -44,8 +44,8 @@
 
     function validateForm() {
         var firstname = $("#FailProofing_FirstName").val();
-        var middlename = $("#FailProofing_MiddleName").val();
         var lastname = $("#FailProofing_LastName").val();
+        var locationcity = $("#FailProofing_LocationCity").val();
         var contact = $("#FailProofing_ContactNumber").val();
         var email = $("#FailProofing_Email").val();
         var bday = $("#FailProofing_BirthDate").val();
@@ -55,10 +55,10 @@
         } else {
             $("#FailProofing_FirstName_Error").html("");
         }
-        if (!middlename) {
-            $("#FailProofing_MiddleName_Error").html("Please enter your middle initial.");
+        if (!locationcity) {
+            $("#FailProofing_LocationCity_Error").html("Please enter your location or city.");
         } else {
-            $("#FailProofing_MiddleName_Error").html("");
+            $("#FailProofing_LocationCity_Error").html("");
         }
         if (!lastname) {
             $("#FailProofing_LastName_Error").html("Please enter your last name.");
@@ -94,7 +94,7 @@
         if (checkdate(bday) == false) {
             bday = null;
         }
-        if (firstname && middlename && lastname && contact && email && bday) {
+        if (firstname && locationcity && lastname && contact && email && bday) {
             $("#frmEvent").submit();
         }
     }
@@ -131,14 +131,14 @@
                         </div>
                     <div class="span4">
                           <div class="control-wrap"> <span class="icon"><i class="icon-fixed-user"></i></span>
-                            @Html.TextBoxFor(model => model.FailProofing.MiddleName, new { placeholder = "Middle Initial", maxlength = "2" })
-                            <span id="FailProofing_MiddleName_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
+                            @Html.TextBoxFor(model => model.FailProofing.LastName, new { placeholder = "Last Name" })
+                            <span id="FailProofing_LastName_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
                           </div>
                         </div>
                     <div class="span4">
-                          <div class="control-wrap"> <span class="icon"><i class="icon-fixed-user"></i></span>
-                            @Html.TextBoxFor(model => model.FailProofing.LastName, new { placeholder = "Last Name" })
-                            <span id="FailProofing_LastName_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
+                          <div class="control-wrap"> <span class="icon"><i class="icon-fixed-world"></i></span>
+                            @Html.TextBoxFor(model => model.FailProofing.LocationCity, new { placeholder = "Location or City" })
+                            <span id="FailProofing_LocationCity_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
                           </div>
                         </div>
                     <div class="span4">

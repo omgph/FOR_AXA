@@ -24,13 +24,6 @@
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label">@Html.LabelFor(model => model.EventDate)</label>
-            <div class="controls">
-            @Html.TextBoxFor(model => model.EventDate, new { @class = "input-text", style = "width:320px;" })
-            @Html.ValidationMessageFor(model => model.EventDate)
-            </div>
-        </div>
-        <div class="control-group">
             <label class="control-label">@Html.LabelFor(model => model.FirstName)</label>
             <div class="controls">
             @Html.TextBoxFor(model => model.FirstName, new { @class = "input-text", style = "width:320px;" })
@@ -38,17 +31,17 @@
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label">@Html.LabelFor(model => model.MiddleName)</label>
-            <div class="controls">
-            @Html.TextBoxFor(model => model.MiddleName, new { @class = "input-text", style = "width:320px;" })
-            @Html.ValidationMessageFor(model => model.MiddleName)
-            </div>
-        </div>
-        <div class="control-group">
             <label class="control-label">@Html.LabelFor(model => model.LastName)</label>
             <div class="controls">
             @Html.TextBoxFor(model => model.LastName, new { @class = "input-text", style = "width:320px;" })
             @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">@Html.LabelFor(model => model.LocationCity)</label>
+            <div class="controls">
+            @Html.TextBoxFor(model => model.LocationCity, new { @class = "input-text", style = "width:320px;" })
+            @Html.ValidationMessageFor(model => model.LocationCity)
             </div>
         </div>
         <div class="control-group">

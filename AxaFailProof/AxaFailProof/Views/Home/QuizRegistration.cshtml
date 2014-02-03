@@ -43,8 +43,8 @@
 
     function validateForm() {
         var firstname = $("#Quiz_FirstName").val();
-        var middlename = $("#Quiz_MiddleName").val();
         var lastname = $("#Quiz_LastName").val();
+        var locationcity = $("#Quiz_LocationCity").val();
         var contact = $("#Quiz_ContactNumber").val();
         var email = $("#Quiz_Email").val();
         var bday = $("#Quiz_BirthDate").val();
@@ -54,10 +54,10 @@
         } else {
             $("#Quiz_FirstName_Error").html("");
         }
-        if (!middlename) {
-            $("#Quiz_MiddleName_Error").html("Please enter your middle initial.");
+        if (!locationcity) {
+            $("#Quiz_LocationCity_Error").html("Please enter your location or city.");
         } else {
-            $("#Quiz_MiddleName_Error").html("");
+            $("#Quiz_LocationCity_Error").html("");
         }
         if (!lastname) {
             $("#Quiz_LastName_Error").html("Please enter your last name.");
@@ -93,7 +93,7 @@
         if (checkdate(bday) == false) {
             bday = null;
         }
-        if (firstname && middlename && lastname && contact && email && bday) {
+        if (firstname && locationcity && lastname && contact && email && bday) {
             $("#frmEvent").submit();
         }
     }
@@ -134,14 +134,14 @@
                         </div>
                         <div class="span4">
                           <div class="control-wrap"> <span class="icon"><i class="icon-fixed-user"></i></span>
-                            @Html.TextBoxFor(model => model.Quiz.MiddleName, new { placeholder = "Middle Initial", maxlength = "2" })
-                            <span id="Quiz_MiddleName_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
+                            @Html.TextBoxFor(model => model.Quiz.LastName, new { placeholder = "Last Name" })
+                            <span id="Quiz_LastName_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
                           </div>
                         </div>
                         <div class="span4">
-                          <div class="control-wrap"> <span class="icon"><i class="icon-fixed-user"></i></span>
-                            @Html.TextBoxFor(model => model.Quiz.LastName, new { placeholder = "Last Name" })
-                            <span id="Quiz_LastName_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
+                          <div class="control-wrap"> <span class="icon"><i class="icon-fixed-world"></i></span>
+                            @Html.TextBoxFor(model => model.Quiz.LocationCity, new { placeholder = "Location or City" })
+                            <span id="Quiz_LocationCity_Error" style="color:Red; font-family:Helvetica,Arial, sans-serif; font-size:12px; font-weight:bold;"></span>
                           </div>
                         </div>
                         <div class="span4">

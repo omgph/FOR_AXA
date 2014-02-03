@@ -121,7 +121,7 @@ namespace AxaFailProof.Areas.Admin.Controllers
             foreach (var item in registerduser)
             {
                 object[] data = new Object[6];
-                data[0] = item.FirstName + " " + item.MiddleName + " " + item.LastName;
+                data[0] = item.FirstName + " " + item.LocationCity + " " + item.LastName;
                 data[1] = item.LocationID;
                 data[2] = item.ContactNumber;
                 data[3] = item.Email;
