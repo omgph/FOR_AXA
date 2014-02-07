@@ -14,6 +14,9 @@ namespace AxaFailProof.Models.Mapping
             this.Property(t => t.FirstName)
                 .HasMaxLength(200);
 
+            this.Property(t => t.MiddleName)
+                .HasMaxLength(200);
+
             this.Property(t => t.LastName)
                 .HasMaxLength(200);
 
@@ -28,8 +31,8 @@ namespace AxaFailProof.Models.Mapping
             this.Property(t => t.RegEventID).HasColumnName("RegEventID");
             this.Property(t => t.LocationID).HasColumnName("LocationID");
             this.Property(t => t.FirstName).HasColumnName("FirstName");
+            this.Property(t => t.MiddleName).HasColumnName("MiddleName");
             this.Property(t => t.LastName).HasColumnName("LastName");
-            this.Property(t => t.LocationCity).HasColumnName("LocationCity");
             this.Property(t => t.ContactNumber).HasColumnName("ContactNumber");
             this.Property(t => t.Email).HasColumnName("Email");
             this.Property(t => t.BirthDate).HasColumnName("BirthDate");

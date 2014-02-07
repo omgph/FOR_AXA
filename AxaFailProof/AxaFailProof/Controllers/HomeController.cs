@@ -912,7 +912,7 @@ namespace AxaFailProof.Controllers
         public ActionResult ResentPosts()
         {
             AxaViewModel model = new AxaViewModel();
-            model.ResentPost = db.Stories.Where(s => s.Status == true).OrderByDescending(s => s.DateCreated).Take(8);
+            model.ResentPost = db.Stories.Where(s => s.Status == true).OrderByDescending(s => s.DateCreated).Take(3);
             return PartialView("_ResentPosts", model);
         }
 
