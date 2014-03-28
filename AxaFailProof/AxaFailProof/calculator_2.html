@@ -1,0 +1,242 @@
+<!doctype html>
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<title>AXA Health Calculator</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="Content/js/omg_masked.js"></script>
+<script type="text/javascript" src="Content/js/omg_modernzr.js"></script>
+</head>
+
+<body>
+<table width="50%" border="0" cellspacing="4" cellpadding="4" style="font-size:14px; font-family:'Trebuchet MS', Arial, Helvetica, sans-serif">
+  <tr>
+    <td width="50%">Birthday</td>
+    <td width="50%">
+    <input type="text" name="bday" id="bday" placeholder="YYYY-MM-DD" value="" /></td>
+  </tr>
+  <tr>
+    <td>Sex</td>
+    <td>
+      <label>
+        <input type="radio" name="gender" value="M" id="gender" />
+        Male</label>
+      
+      <label>
+        <input type="radio" name="gender" value="F" id="gender" />
+        Female</label>
+      <br />
+    </td>
+  </tr>
+  <tr>
+    <td>Do you consider yourself a smoker?</td>
+    <td><label>
+        <input type="radio" name="smoker" value="Y" id="smoker" />
+        Yes</label>
+      
+      <label>
+        <input type="radio" name="smoker" value="N" id="smoker" />
+        No</label></td>
+  </tr>
+  <tr>
+    <td colspan="2">Please enter your weight and height:</td>
+  </tr>
+  <tr>
+    <td><em>Weight in pounds:</em></td>
+    <td><em>Height in feet and inches:</em></td>
+  </tr>
+  <tr>
+    <td><input type="text" name="pounds" id="pounds" placeholder="Pounds (lbs)" value="" maxlength="3" /></td>
+    <td><input type="text" name="feet" id="feet" placeholder="Feet (ft)" value="" size="10" maxlength="1" />
+    	<input type="text" name="inches" id="inches" placeholder="Inches (in)" value="" size="10" maxlength="1" /></td>
+  </tr>
+  <tr>
+    <td colspan="2">Have any of your parents passed away due to a cardiovascular illness, or cancer?</td>
+  </tr>
+  <tr>
+    <td colspan="2"><label>
+      <input type="radio" name="parentsillness" value="Y" id="parentsillness" />
+      Yes</label>
+      
+      <label>
+        <input type="radio" name="parentsillness" value="N" id="parentsillness" />
+    No</label></td>
+  </tr>
+  
+  <tr>
+    <td colspan="2">Have you had diabetes, cancer, or heart disease?</td>
+  </tr>
+  <tr>
+    <td colspan="2"><label>
+      <input type="radio" name="youillness" value="Y" id="youillness" />
+      Yes</label>
+      
+      <label>
+        <input type="radio" name="youillness" value="N" id="youillness" />
+    No</label></td>
+  </tr>
+  
+  <tr>
+    <td colspan="2">How many servings of alcoholic drinks do you consume in a week?</td>
+  </tr>
+  <tr>
+    <td colspan="2"><label>
+      <input type="radio" name="alcohol" value="1" id="alcohol" />
+      I don't regularly consume alcoholic beverages</label>
+      <br />
+      <label>
+        <input type="radio" name="alcohol" value="2" id="alcohol" />
+    1 to 3 drinks a week</label>
+    <br />
+    <label>
+        <input type="radio" name="alcohol" value="3" id="alcohol" />
+    4 or more drinks a week</label></td>
+  </tr>
+  
+  
+  <tr>
+    <td colspan="2">How many cups of coffee do you consume?</td>
+  </tr>
+  <tr>
+    <td colspan="2"><label>
+      <input type="radio" name="coffee" value="1" id="coffee" />
+      1 cup per month to less than 1 cup per day</label>
+      <br />
+      <label>
+        <input type="radio" name="coffee" value="2" id="coffee" />
+    1 cup per day</label>
+    <br />
+    <label>
+        <input type="radio" name="coffee" value="3" id="coffee" />
+    2 or more cups per day</label></td>
+  </tr>
+  
+  <tr>
+    <td colspan="2">Do you exercise at least five hours a week?</td>
+  </tr>
+  <tr>
+    <td colspan="2"><label>
+      <input type="radio" name="exercise" value="Y" id="exercise" />
+      Yes</label>
+      
+      <label>
+        <input type="radio" name="exercise" value="N" id="exercise" />
+    No</label></td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+    <div id="presubmit_009328"></div>
+    <input type="button" name="btnSubmit" id="btnSubmit" value="Submit and Compute" /><br />
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+// <![CDATA[
+	$(document).ready(function(){
+		/* Masked Birthday Field */
+		$("#bday").mask("9999-99-99");
+		
+		/* For Submit and Calculate */
+		$("#btnSubmit").click(function(){
+			
+			$("#presubmit_009328").html("Loading, please wait...");
+			
+			// Get all input forms
+			var bday = $("#bday").val();
+
+			var genderVal = "";
+			var genderselected = $("input[name=gender]:checked");
+			if (genderselected.length > 0) {
+				genderVal = genderselected.val();
+			}
+			
+			var smokerVal = "";
+			var smokerselected = $("input[name=smoker]:checked");
+			if (smokerselected.length > 0) {
+				smokerVal = smokerselected.val();
+			}
+			
+			var pounds = $("#pounds").val();
+			var feet = $("#feet").val();
+			var inches = $("#inches").val();
+			
+			var parentsillnessVal = "";
+			var parentsillnessselected = $("input[name=parentsillness]:checked");
+			if (parentsillnessselected.length > 0) {
+				parentsillnessVal = parentsillnessselected.val();
+			}
+			
+			var youillnessVal = "";
+			var youillnessselected = $("input[name=youillness]:checked");
+			if (youillnessselected.length > 0) {
+				youillnessVal = youillnessselected.val();
+			}
+			
+			var alcoholVal = "";
+			var alcoholselected = $("input[name=alcohol]:checked");
+			if (alcoholselected.length > 0) {
+				alcoholVal = alcoholselected.val();
+			}
+			
+			var coffeeVal = "";
+			var coffeeselected = $("input[name=coffee]:checked");
+			if (coffeeselected.length > 0) {
+				coffeeVal = coffeeselected.val();
+			}
+			
+			var exerciseVal = "";
+			var exerciseselected = $("input[name=exercise]:checked");
+			if (exerciseselected.length > 0) {
+				exerciseVal = exerciseselected.val();
+			}
+			
+			var DataToPass =
+			{
+				bday: bday,  
+				gender: genderVal,
+				smoker: smokerVal,
+				pounds: pounds,
+				feet: feet, 
+				inches: inches, 
+				parentsillness: parentsillnessVal, 
+				youillness: youillnessVal, 
+				alcohol: alcoholVal, 
+				coffee: coffeeVal, 
+				exercise: exerciseVal
+			};
+			
+			$.ajax({                 
+				url: 'http://omgph.com/apis/',
+				cache: false,
+                type: "GET",				
+				data: DataToPass,
+				dataType: 'jsonp',
+				success: function (mydata) {
+					$("#presubmit_009328").empty();
+					//console.log(mydata); // Output JSON
+					if(mydata.meta != ""){
+						 alert(mydata.meta);
+					}else{
+						 alert(mydata.error);
+					}
+				}
+             });
+			 
+			 
+			return false;
+		});
+	});
+// ]]>
+</script>
+
+</body>
+</html>

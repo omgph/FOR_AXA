@@ -19,6 +19,7 @@ using Utils;
 
 namespace AxaFailProof.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private AxaFailProofContext db = new AxaFailProofContext();
@@ -746,6 +747,21 @@ namespace AxaFailProof.Controllers
             return View();
         }
 
+        public ActionResult Calculator()
+        {
+            ViewBag.MetaTitle = "Calculator";
+            ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
+            ViewBag.MetaDescription = "";
+            ViewBag.OgImage = ogimagepath + "axa_og_image.png";
+
+            return View();
+        }
+
+        public string SaveCalculator()
+        {
+            return "ok";
+        }
+
 
         [ChildActionOnly]
         public ActionResult Navigator() 
@@ -880,6 +896,10 @@ namespace AxaFailProof.Controllers
                     model.Banner = db.Banners.Where(b => b.Position == "Quiz" && b.Status == true).Take(1);
                     ViewBag.Hselected = "current-menu-item";
                     break;
+                case "Calculator":
+                    model.Banner = db.Banners.Where(b => b.Position == "Calculator" && b.Status == true).Take(1);
+                    ViewBag.Hselected = "current-menu-item";
+                    break;
             }
 
             return PartialView("_Navigator", model);
@@ -912,7 +932,7 @@ namespace AxaFailProof.Controllers
         public ActionResult ResentPosts()
         {
             AxaViewModel model = new AxaViewModel();
-            model.ResentPost = db.Stories.Where(s => s.Status == true).OrderByDescending(s => s.DateCreated).Take(3);
+            model.ResentPost = db.Stories.Where(s => s.Status == true).OrderByDescending(s => s.DateCreated).Take(8);
             return PartialView("_ResentPosts", model);
         }
 

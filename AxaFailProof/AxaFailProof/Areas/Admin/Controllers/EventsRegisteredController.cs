@@ -111,7 +111,7 @@ namespace AxaFailProof.Areas.Admin.Controllers
         {
             var newsletter = new DataTable();
             newsletter.Columns.Add(new DataColumn("FullName", Type.GetType("System.String")));
-            newsletter.Columns.Add(new DataColumn("Location", Type.GetType("System.String")));
+            newsletter.Columns.Add(new DataColumn("Event", Type.GetType("System.String")));
             newsletter.Columns.Add(new DataColumn("ContactNumber", Type.GetType("System.String")));
             newsletter.Columns.Add(new DataColumn("Email", Type.GetType("System.String")));
             newsletter.Columns.Add(new DataColumn("CardHolder", Type.GetType("System.String")));
@@ -121,8 +121,8 @@ namespace AxaFailProof.Areas.Admin.Controllers
             foreach (var item in registerduser)
             {
                 object[] data = new Object[6];
-                data[0] = item.FirstName + " " + item.MiddleName + " " + item.LastName;
-                data[1] = item.LocationID;
+                data[0] = item.FirstName + " " + item.LastName;
+                data[1] = item.Location.Event + " / " + item.Location.Location1 + " / " + item.Location.EventDate;
                 data[2] = item.ContactNumber;
                 data[3] = item.Email;
                 data[4] = item.CardHolder;

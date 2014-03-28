@@ -80,6 +80,7 @@ div#content-inner   			{ width:70%; height:auto; background-color:#ffffff; margi
 .gr-menu-icon					{ background:url(../images/icons_sprite.png) no-repeat top left; }
 .gr-icon-dashboard				{ background-position:-15px -557px !important; }
 .gr-icon-sign-out				{ background-position:right -1728px !important; }
+.gr-icon-back                  { background-position: -13px -295px !important;}
 .icons-lib						{ display: inline-block; width: 14px; height: 14px; line-height: 14px; vertical-align: text-top; background-image: url("../images/glyphicons-halflings.png"); background-position: 14px 14px; background-repeat: no-repeat; margin-right:5px;}
 .icon-glass						{ background-position:0 0;}
 .icon-music						{ background-position:-24px 0;}

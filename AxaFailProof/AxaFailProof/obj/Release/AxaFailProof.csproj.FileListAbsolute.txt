@@ -34,6 +34,6 @@ D:\DOTNET\AxaFailProof\AxaFailProof\bin\PagedList.Mvc.dll
 D:\DOTNET\AxaFailProof\AxaFailProof\bin\EntityFramework.xml
 D:\DOTNET\AxaFailProof\AxaFailProof\bin\PagedList.xml
 D:\DOTNET\AxaFailProof\AxaFailProof\bin\PagedList.Mvc.xml
-D:\DOTNET\AxaFailProof\AxaFailProof\obj\Release\ResolveAssemblyReference.cache
 D:\DOTNET\AxaFailProof\AxaFailProof\obj\Release\AxaFailProof.dll
 D:\DOTNET\AxaFailProof\AxaFailProof\obj\Release\AxaFailProof.pdb
+D:\DOTNET\AxaFailProof\AxaFailProof\obj\Release\AxaFailProof.csprojResolveAssemblyReference.cache

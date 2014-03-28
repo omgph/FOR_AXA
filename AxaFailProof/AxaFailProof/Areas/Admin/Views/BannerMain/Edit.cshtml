@@ -28,6 +28,7 @@
                 <option value="Contact Us">Contact Us</option>
                 <option value="Event">Event</option>
                 <option value="Quiz">Quiz</option>
+                <option value="Calculator">Calculator</option>
                 <option value="Exentials">Health Exentials</option>
                 <option value="Max">Health Max</option>
                 </select>
@@ -39,6 +40,27 @@
                 <img src="/Userfiles/images/@Html.DisplayFor(model => model.Image)" alt="" width="350px;"/>
                 @FileUpload.GetHtml(initialNumberOfFiles: 1,allowMoreFilesToBeAdded: false,includeFormTag: false)
                 @Html.ValidationMessageFor(model => model.Image)
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">@Html.LabelFor(model => model.Label)</label>
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Label, new { @class = "input-text", style = "width:320px;" })<br />
+                @Html.ValidationMessageFor(model => model.Label)
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">@Html.LabelFor(model => model.Button) Name</label>
+            <div class="controls">
+                @Html.TextBoxFor(model => model.Button, new { @class = "input-text", style = "width:320px;" })<br />
+                @Html.ValidationMessageFor(model => model.Button)
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">@Html.LabelFor(model => model.Link)</label>
+            <div class="controls">
+               @Html.TextBoxFor(model => model.Link, new { @class = "input-text", style = "width:320px;" })<br />
+                @Html.ValidationMessageFor(model => model.Link)
             </div>
         </div>
     </fieldset>

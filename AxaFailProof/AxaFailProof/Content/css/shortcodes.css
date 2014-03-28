@@ -1285,6 +1285,38 @@ input[type="submit"] {
 	margin-left: auto;
 	background-color: #EB1B2B;
 }
+
+a.button,
+input[type="button"] {
+	color: #fff;
+	font-family: inherit;
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 12px;
+	-webkit-font-smoothing: subpixel-antialiased!important;
+	font-weight: 600;
+	box-shadow: 0 -3px rgba(0, 0, 0, 0.1) inset;
+	-moz-box-shadow: 0 -3px rgba(0, 0, 0, 0.1) inset;
+	-webkit-box-shadow: 0 -3px rgba(0, 0, 0, 0.1) inset;
+	-o-box-shadow: 0 -3px rgba(0, 0, 0, 0.1) inset;
+	opacity: 0.85;
+	border: none!important;
+	outline: none!important;
+	text-align: center;
+	transition: all 0.3s ease-in-out;
+	border-radius: 3px;
+	letter-spacing: 1px;
+	text-shadow: 0 1px 0px rgba(255,255,255,0.25);
+	padding-top: 15px;
+	padding-right: 25px;
+	padding-bottom: 12px;
+	padding-left: 25px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	background-color: #EB1B2B;
+}
 a.button:hover,
 input[type="submit"]:hover {
 	opacity: 1;
@@ -1344,6 +1376,13 @@ a.button_small i {
 }
 a.button_large,
 input[type="submit"] {
+	padding: 15px 40px;
+	min-width: 127px;
+	font-size: 12px;
+}
+
+a.button_large,
+input[type="button"] {
 	padding: 15px 40px;
 	min-width: 127px;
 	font-size: 12px;
