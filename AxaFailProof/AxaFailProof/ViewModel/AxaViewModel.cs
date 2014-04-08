@@ -18,6 +18,7 @@ namespace AxaFailProof.Models
         public IEnumerable<Story> FeaturedStory { get; set; }
         public IEnumerable<Story> ResentPost { get; set; }
         public IEnumerable<Story> StoryDetail { get; set; }
+        public IEnumerable<Story> HealthFacts { get; set; }
 
         public List<Location> Locations { get; set; }
         public List<Story> Stories { get; set; }

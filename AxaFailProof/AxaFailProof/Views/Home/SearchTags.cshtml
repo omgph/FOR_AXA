@@ -33,7 +33,14 @@
                     DateTime dt = DateTime.Parse(item.DateCreated.ToString());
                     string teaser = "";
                     teaser = System.Text.RegularExpressions.Regex.Replace(item.Body.Replace("&nbsp;", ""), "<.*?>", string.Empty);
-                    teaser = teaser.Substring(0, 350);
+                    if (teaser.Length > 350)
+                    {
+                        teaser = teaser.Substring(0, 350);
+                    }
+                    else
+                    {
+                        teaser = teaser.ToString();
+                    }                     
                   <div class="post post-standard clearfix">
                     <div class="post-left-container">
                       <div class="post-date-container">

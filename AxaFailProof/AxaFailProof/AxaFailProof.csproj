@@ -102,6 +102,7 @@
     <Compile Include="Areas\Admin\Controllers\EventsRegisteredController.cs" />
     <Compile Include="Areas\Admin\Controllers\FailProofingController.cs" />
     <Compile Include="Areas\Admin\Controllers\FileViewController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HealthRiskScoreController.cs" />
     <Compile Include="Areas\Admin\Controllers\LocationController.cs" />
     <Compile Include="Areas\Admin\Controllers\MembershipController.cs" />
     <Compile Include="Areas\Admin\Controllers\MushroomController.cs" />
@@ -135,7 +136,9 @@
     <Compile Include="Models\Banner.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\ContactU.cs" />
+    <Compile Include="Models\HealthRiskScore.cs" />
     <Compile Include="Models\FailProofing.cs" />
+    <Compile Include="Models\Mapping\HealthRiskScoreMap.cs" />
     <Compile Include="Models\Mapping\FailProofingMap.cs" />
     <Compile Include="Models\Mapping\QuizMap.cs" />
     <Compile Include="Models\Quiz.cs" />
@@ -1292,6 +1295,8 @@
     <Content Include="Views\Home\YahooCallBack.cshtml" />
     <Content Include="Views\Shared\_LayoutDefault.cshtml" />
     <Content Include="Views\Home\HealthDetail.cshtml" />
+    <Content Include="Areas\Admin\Views\HealthRiskScore\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout4.cshtml" />
     <None Include="Content\js\ie6\.svn\all-wcprops" />
     <None Include="Content\js\ie6\.svn\entries" />
     <None Include="Content\js\ie6\.svn\format" />
@@ -1310,7 +1315,7 @@
     <None Include="Content\js\ie6\.svn\text-base\index.html.svn-base" />
     <None Include="Content\js\ie6\.svn\text-base\warning.js.svn-base" />
     <None Include="Content\js\ie6\warning.js~" />
-    <Content Include="Views\Home\Calculator.cshtml" />
+    <Content Include="Views\Home\HealthRiskScore.cshtml" />
     <None Include="_bin_deployableAssemblies\System.Web.Mvc.dll" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.xml" />
     <None Include="_bin_deployableAssemblies\WebMatrix.WebData.dll" />

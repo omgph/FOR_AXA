@@ -534,5 +534,5 @@ Screen Stylesheet
 			}
 
 /* Custome rev slider styles for blandes */
-.rev_slider_wrapper {margin:0px auto;background-color:#E9E9E9;padding:0px;margin-top:0px;margin-bottom:0px;max-height:400px;}
-.rev_slider {display:none;max-height:400px;height:400; }
+.rev_slider_wrapper {margin:0px auto;background-color:#E9E9E9;padding:0px;margin-top:0px;margin-bottom:0px;max-height:360px;}
+.rev_slider {display:none;max-height:360px;height:360px; }

@@ -29,6 +29,7 @@ namespace AxaFailProof.Models
         public DbSet<Topic> Topics { get; set; }
         public DbSet<Quiz> Quiz { get; set; }
         public DbSet<FailProofing> FailProofing { get; set; }
+        public DbSet<HealthRiskScore> HealthRiskScore { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -45,6 +46,7 @@ namespace AxaFailProof.Models
             modelBuilder.Configurations.Add(new TopicMap());
             modelBuilder.Configurations.Add(new QuizMap());
             modelBuilder.Configurations.Add(new FailProofingMap());
+            modelBuilder.Configurations.Add(new HealthRiskScoreMap());
         }
     }
 }

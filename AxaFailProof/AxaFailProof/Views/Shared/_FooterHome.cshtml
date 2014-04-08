@@ -15,7 +15,7 @@
     <div id="recent-posts-3" class="widget widget_meta widget_recent_entries span13">
         @foreach (var item in Model.FotterBanner)
         { 
-        	<img src="@Url.Content("~/UserFiles/images/"+item.Image)" />
+        	<a href="http://www.axaion.com.ph" target="_blank" style="text-decoration:none;"><img src="@Url.Content("~/UserFiles/images/" + item.Image)" /></a>
         }
     </div>
       

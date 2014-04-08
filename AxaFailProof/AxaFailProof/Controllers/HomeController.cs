@@ -19,7 +19,7 @@ using Utils;
 
 namespace AxaFailProof.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class HomeController : Controller
     {
         private AxaFailProofContext db = new AxaFailProofContext();
@@ -33,6 +33,7 @@ namespace AxaFailProof.Controllers
             model.Mushroom1 = db.Mushrooms.Find(4);
             model.Mushroom2 = db.Mushrooms.Find(2);
             model.FeaturedStory = db.Stories.Where(s => s.Status == true && s.Featured == true).Take(1);
+            model.HealthFacts = db.Stories.Where(s => s.Status == true && s.TopicID == 11).OrderByDescending(s => s.DateCreated).Take(1);
             return View(model);
         }
 
@@ -747,9 +748,9 @@ namespace AxaFailProof.Controllers
             return View();
         }
 
-        public ActionResult Calculator()
+        public ActionResult HealthRiskScore()
         {
-            ViewBag.MetaTitle = "Calculator";
+            ViewBag.MetaTitle = "Health Risk Score";
             ViewBag.MetaKeyWords = "AXA Philippines,Life Insurance,AXA Health Solutions,It Can Happen To You,Health MaX,Health eXentials,Health Insurance,Health Plan,Health Benefits,Best Health Plan,Global Insurance Company,Critical Illness Cover,Daily Hospitalization Income,All In One Plan,All In One Health Plan,Additional Health Coverage,Additional HMO Coverage,Breast Cancer,Cancer,Lung Cancer,Cervical Cancer,Symptoms of Cancer,Health Illness,Stroke Symptoms,Heart Stroke,What Is Stroke,Cancer Chemotherapy,Symptoms Tuberculosis,Pulmonary Tuberculosis,Health Care,Philippine Health Insurance,Health Card";
             ViewBag.MetaDescription = "";
             ViewBag.OgImage = ogimagepath + "axa_og_image.png";
@@ -757,9 +758,29 @@ namespace AxaFailProof.Controllers
             return View();
         }
 
-        public string SaveCalculator()
+        public string SaveHealthRiskScore(int income, int savings, string savefor, string owned, string bday, string gender, string smoker, int pounds, int feet, int inches, string parentsillness, string youillness, int alcohol, int coffee, string exercise, string emailadd, HealthRiskScore healthriskscore)
         {
-            return "ok";
+            healthriskscore.ID = 1;
+            healthriskscore.Income = income;
+            healthriskscore.Savings = savings;
+            healthriskscore.SaveFor = savefor;
+            healthriskscore.Owned = owned;
+            healthriskscore.Bday = bday;
+            healthriskscore.Gender = gender;
+            healthriskscore.Smoker = smoker;
+            healthriskscore.Pounds = pounds;
+            healthriskscore.Feet = feet;
+            healthriskscore.Inches = inches;
+            healthriskscore.ParentsIllness = parentsillness;
+            healthriskscore.YouIllness = youillness;
+            healthriskscore.Alcohol = alcohol;
+            healthriskscore.Coffee = coffee;
+            healthriskscore.Exercise = exercise;
+            healthriskscore.Email = emailadd;
+
+            db.HealthRiskScore.Add(healthriskscore);
+            db.SaveChanges();
+            return "Save";
         }
 
 
@@ -793,11 +814,12 @@ namespace AxaFailProof.Controllers
                     ViewBag.Hselected = "current-menu-item";
                     break;
                 case "FailProofYourHealth":
-                    if (_Id.ToString() == "8") {
+                    if (_Id.ToString() == "8" || _Id.ToString() == "10" || _Id.ToString() == "11")
+                    {
                         model.Banner = db.Banners.Where(b => b.Position == "Exentials" && b.Status == true).Take(1);
                         ViewBag.Fselected = "current-menu-item";
                     }
-                    else if (_Id.ToString() == "9")
+                    else if (_Id.ToString() == "9" || _Id.ToString() == "12" || _Id.ToString() == "13")
                     {
                         model.Banner = db.Banners.Where(b => b.Position == "Max" && b.Status == true).Take(1);
                         ViewBag.Fselected = "current-menu-item";
@@ -896,8 +918,8 @@ namespace AxaFailProof.Controllers
                     model.Banner = db.Banners.Where(b => b.Position == "Quiz" && b.Status == true).Take(1);
                     ViewBag.Hselected = "current-menu-item";
                     break;
-                case "Calculator":
-                    model.Banner = db.Banners.Where(b => b.Position == "Calculator" && b.Status == true).Take(1);
+                case "HealthRiskScore":
+                    model.Banner = db.Banners.Where(b => b.Position == "HealthRiskScore" && b.Status == true).Take(1);
                     ViewBag.Hselected = "current-menu-item";
                     break;
             }
