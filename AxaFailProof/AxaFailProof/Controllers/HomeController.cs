@@ -814,12 +814,11 @@ namespace AxaFailProof.Controllers
                     ViewBag.Hselected = "current-menu-item";
                     break;
                 case "FailProofYourHealth":
-                    if (_Id.ToString() == "8" || _Id.ToString() == "10" || _Id.ToString() == "11")
-                    {
+                    if (_Id.ToString() == "8") {
                         model.Banner = db.Banners.Where(b => b.Position == "Exentials" && b.Status == true).Take(1);
                         ViewBag.Fselected = "current-menu-item";
                     }
-                    else if (_Id.ToString() == "9" || _Id.ToString() == "12" || _Id.ToString() == "13")
+                    else if (_Id.ToString() == "9")
                     {
                         model.Banner = db.Banners.Where(b => b.Position == "Max" && b.Status == true).Take(1);
                         ViewBag.Fselected = "current-menu-item";
