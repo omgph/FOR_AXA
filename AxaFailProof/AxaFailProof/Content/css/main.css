@@ -2653,9 +2653,9 @@ ul.widget-posts {
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 10px;
-	bottom: 0px;
+	margin-top: 3px;
 	font-size: 11px;
+	bottom: 0px;
 }
 #copyright a {
 	color: #999999
@@ -2680,17 +2680,17 @@ ul.widget-posts {
 	padding-right: 0;
 	padding-left: 0;
 	font-family: 'Montserrat', sans-serif;
-	position: fixed;
 	margin-right: auto;
 	margin-left: auto;
 	z-index: 90;
 	width: 100%;
 	background-color: #004663;
-	bottom: 0px;
 	border-top-width: 1px;
 	border-top-style: solid;
 	border-top-color: #FFF;
-	padding-top: 5px;
+	padding-top: 8px;
+	position: fixed;
+	bottom: 0px;
 }
 
 /*------------------------------------------------*/
@@ -3355,4 +3355,21 @@ ul.carousel-items > li {
 .check-icon {
 	text-align: right;	
 	float: right;
+}
+
+/*** ADDITIONAL 04092014 ** */
+.toggle-btn {
+	width: 150px;
+	background-color: #FFF;
+	height: 25px;
+	z-index: 100;
+	float: right;
+	border: 1px solid #036;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	margin-right: 50px;
+	position: fixed;
+	bottom: 10px;
+	margin-left: 10px;
+	display: block;
 }

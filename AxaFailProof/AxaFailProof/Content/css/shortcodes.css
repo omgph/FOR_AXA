@@ -1460,10 +1460,10 @@ a:hover.button.button_pink {
 	margin-left: 5px;
 	margin-right: 5px;
 	margin-bottom: 8px;
-	height: 41px;
-	width: 236px;
+	height: 25px;
+	width: 240px;
 	display: block;
-	float: left;
+	float: right;
 }
 
 .btn-takethequiz {
@@ -1473,8 +1473,8 @@ a:hover.button.button_pink {
 	margin-bottom: 10px;
 	display: block;
 	float: right;
-	height: 41px;
-	width: 320px;
+	height: 25px;
+	width: 240px;
 }
 
 .btn-wanttoknow {
@@ -1482,8 +1482,8 @@ a:hover.button.button_pink {
 	margin-right: 5px;
 	margin-left: 5px;
 	margin-bottom: 10px;
-	height: 41px;
-	width: 320px;
+	height: 25px;
+	width: 240px;
 	display: block;
 	float: right;
 	text-align: center;
