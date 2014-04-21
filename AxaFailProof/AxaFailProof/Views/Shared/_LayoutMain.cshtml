@@ -118,12 +118,19 @@
         }
         return "";
     }
+
+    $(document).ready(function () {
+        $("button").click(function () {
+            $("#stripwithbtns").toggle();
+        });
+    });
 </script>
 </head>
 <!--[if lte IE 6]><script src="@Url.Content("~/Content/js/ie6/warning.js")"></script><script>window.onload=function(){e("@Url.Content("~/Content/js/ie6/")")}</script><![endif]-->
 <!--[if lte IE 7]><script src="@Url.Content("~/Content/js/ie6/warning.js")"></script><script>window.onload=function(){e("@Url.Content("~/Content/js/ie6/")")}</script><![endif]-->
 <!--[if lte IE 8]><script src="@Url.Content("~/Content/js/ie6/warning.js")"></script><script>window.onload=function(){e("@Url.Content("~/Content/js/ie6/")")}</script><![endif]-->
 <body class="responsive">
+<a name="screen1"></a><a name="screen2"></a>
 <div id="fb-root"></div>
 @Html.Action("Navigator", "Home")
 @RenderBody()

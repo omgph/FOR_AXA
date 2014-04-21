@@ -1455,38 +1455,38 @@ a:hover.button.button_pink {
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 	color: #692b4b;
 }
-.btn-buyinsurance {
-	margin-top: 0;
-	margin-left: 5px;
-	margin-right: 5px;
-	margin-bottom: 8px;
-	height: 25px;
-	width: 240px;
-	display: block;
-	float: right;
-}
+ .btn-buyinsurance {
+margin-top: 0;
+margin-left: 5px;
+margin-right: 5px;
+margin-bottom: 8px;
+height: 30px;
+width: 173px;
+display: block;
+float: right;
 
+}
 .btn-takethequiz {
-	margin-top: 0;
-	margin-right: 5px;
-	margin-left: 5px;
-	margin-bottom: 10px;
-	display: block;
-	float: right;
-	height: 25px;
-	width: 240px;
+margin-top: 0;
+margin-right: 5px;
+margin-left: 5px;
+margin-bottom: 10px;
+display: block;
+float: right;
+height: 30px;
+width: 240px;
 }
 
 .btn-wanttoknow {
-	margin-top: 0;
-	margin-right: 5px;
-	margin-left: 5px;
-	margin-bottom: 10px;
-	height: 25px;
-	width: 240px;
-	display: block;
-	float: right;
-	text-align: center;
+margin-top: 0;
+margin-right: 5px;
+margin-left: 5px;
+margin-bottom: 10px;
+height: 30px;
+width: 240px;
+display: block;
+float: right;
+text-align: center;
 }
 .btn-fb {
 	margin-top: 0;
