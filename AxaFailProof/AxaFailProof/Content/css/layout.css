@@ -126,10 +126,13 @@ table {
     width: 65%;
 }
 .row-fluid .span14 {
-	width: 100%;
+	max-width: 100%;
+	min-width: 420px;
 	margin-right: auto;
 	margin-left: auto;
 	display: block;
+	padding-right: 20%;
+	padding-left: 15%;
 }
 .row-fluid .span15 {
 	width: 20%;

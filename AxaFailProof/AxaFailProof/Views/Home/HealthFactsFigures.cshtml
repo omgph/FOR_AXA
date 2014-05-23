@@ -41,6 +41,7 @@
                     {
                         teaser = teaser.ToString();
                     }
+
                   <div class="post post-standard clearfix">
                     <div class="post-left-container">
                       <div class="post-date-container">
@@ -59,7 +60,7 @@
                       <div class="post-info-container">
                         <h2>@item.Title</h2>
                         <p>@teaser [...]</p>
-                        <a href="@Url.Action("HealthDetail", "Home", new { id = item.StoryID })" class="readmore"> Read More<i class="icon-arrow-right8"></i> </a> </div>
+                        <a href="@Url.Action("HealthDetail", "Home", new { id = item.StoryID, title = item.Title.Replace(" ", "-") })" class="readmore"> Read More<i class="icon-arrow-right8"></i> </a> </div>
                     </div>
                   </div>
                 }

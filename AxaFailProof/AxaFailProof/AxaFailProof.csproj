@@ -1168,6 +1168,7 @@
     <Content Include="Content\js\jquery.themepunch.revolution.min.js" />
     <Content Include="Content\js\main.js" />
     <Content Include="Content\js\plugins.js" />
+    <Content Include="Content\js\yui-login.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\revslider\assets\arrowleft.png" />
     <Content Include="Content\revslider\assets\arrowright.png" />
@@ -1525,7 +1526,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>3450</DevelopmentServerPort>
+          <DevelopmentServerPort>10551</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

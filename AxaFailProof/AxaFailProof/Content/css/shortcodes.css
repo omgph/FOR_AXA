@@ -1457,14 +1457,13 @@ a:hover.button.button_pink {
 }
  .btn-buyinsurance {
 margin-top: 0;
-margin-left: 5px;
-margin-right: 5px;
-margin-bottom: 8px;
-height: 30px;
-width: 173px;
-display: block;
-float: right;
-
+	margin-left: 10px;
+	margin-right: 5px;
+	margin-bottom: 8px;
+	height: 30px;
+	width: 173px;
+	display: block;
+	float: left;
 }
 .btn-takethequiz {
 margin-top: 0;
@@ -1899,7 +1898,7 @@ background-color: #f2f2f2 border-bottom: 0
 	width: 100%
 }
 .pricing-table .pricing-column .title-box {
-	background-color: #39393d;
+	background-color: #004663;
 	color: #fff;
 	padding: 25px 10px;
 	display: block;
@@ -1907,7 +1906,7 @@ background-color: #f2f2f2 border-bottom: 0
 	margin-bottom: 4px;
 	border-top-width: 3px;
 	border-top-style: solid;
-	border-top-color: #0066CC;
+	border-top-color: #FB424F;
 }
 /*------------------------------------------------*/
 /* Pricing Tables

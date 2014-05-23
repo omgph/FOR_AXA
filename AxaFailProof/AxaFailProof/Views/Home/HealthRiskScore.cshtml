@@ -146,9 +146,9 @@
               <div style="float: left; width: 90%;  margin-bottom: 20px;">
                 <select name="alcohol" id="alcohol" style="width:90%; height: 35px">
                   <option value="">Choose one</option>
-                  <option value="1">I don't regularly consume alcoholic beverages</option>
-                  <option value="2">1 to 3 drinks a week</option>
-                  <option value="3">4 or more drinks a week</option>
+                  <option value="1">I don't regularly consume alcohol</option>
+                  <option value="2">1-7 Drinks</option>
+                  <option value="3">8 drinks or more</option>
                 </select>
               </div>
               <br />
@@ -162,9 +162,9 @@
               <div style="float: left; width: 90%;  margin-bottom: 20px;">
                 <select name="coffee" id="coffee" style="width:90%; height: 35px">
                   <option value="">Choose one</option>
-                  <option value="1">1 cup per month to less than 1 cup per day</option>
-                  <option value="2">1 cup per day</option>
-                  <option value="3">2 or more cups per day</option>
+                  <option value="1">Less than one cup per day</option>
+                  <option value="2">1-3 cups per day</option>
+                  <option value="3">4 cups a day or more</option>
                 </select>
               </div>
               <br />
@@ -193,6 +193,10 @@
               <br />
             </div>
             <!-- Number 10 -->
+
+			<h10 class="header-center"><input type="checkbox" name="shareonfb" id="shareonfb" value="Y"> Share results on Facebook<h10>
+        	<br /><br />
+
             <div id="presubmit_009328"></div>
             <input type="button" name="btnSubmit" id="btnSubmit" class="button.blue img" tabindex="5" value="Submit" />
           </form>
@@ -219,19 +223,29 @@
             <!-- Number 1 -->
         
             <div id="financialstatus-icon"><img src="@Url.Content("~/Content/images/icon-number1.png")"></div>
-            <div id="financialstatus-question">What is your estimated gross monthly income?</div>
+            <div id="financialstatus-question">What is your gross monthly income?</div>
             <div id="php-text">Php</div>
-            <input type="text" name="income" id="income" size="27" tabindex="3" value="">
-            <br >
+
+			<select name="income" id="income" style="width:33%; height: 35px">
+			<option value="0">Choose one</option>
+			<option value="1">Below P60K</option>
+			<option value="2">P60,000 and above, but no more than P140,000</option>
+			<option value="3">P140,000 and above</option>
+			</select>
+			<br >
         
             <!-- Number 1 --> 
         
             <!-- Number 2 -->
         
             <div id="financialstatus-icon"><img src="@Url.Content("~/Content/images/icon-number2.png")"></div>
-            <div id="financialstatus-question">How much do you currently have in savings?</div>
+            <div id="financialstatus-question">How much do you currently have in savings?<br >(cash or funds)</div>
             <div id="php-text">Php</div>
-            <input type="text" name="savings" id="savings" size="27" tabindex="3" value="">
+            <select name="savings" id="savings" style="width:33%; height: 35px">
+			<option value="0">Choose one</option>
+			<option value="1">Less than P1 Million</option>
+			<option value="2">P1 Million and above</option>
+			</select>
             <br >
         
             <!-- Number 2 --> 
@@ -239,12 +253,34 @@
             <!-- Number 3 -->
         
             <div id="financialstatus-icon"><img src="@Url.Content("~/Content/images/icon-number3.png")"></div>
-            <div style="width: 70%; font-family: 'Montserrat', Verdana, Arial, sans-serif; font-size: 13px;">What are you saving for? Kindly list them below:<br>
-              <h12>(Please use commas to separate your answers)</h12>
+            <div style="width: 70%; font-family: 'Montserrat', Verdana, Arial, sans-serif; font-size: 13px;">What are you saving for?<br>
+              <h12>Kindly check all that applies.</h12>
             </div>
             <div id="financialstatus-textbox">
-              <textarea name="savefor" id="savefor" cols="300" ></textarea>
-              <br >
+              <p class="savings-group">
+				<label>
+				  <input type="checkbox" name="s_car" id="s_car" value="s_car">
+				  Car/s</label>
+				<br>
+				<label>
+				  <input type="checkbox" name="s_estate" id="s_estate" value="s_estate">
+				Real Estate</label>
+				<br>
+				<label>
+				  <input type="checkbox" name="s_trip" id="s_trip" value="s_trip">
+				  Trip</label>
+				<br>
+				<label>
+				  <input type="checkbox" name="s_retire" value="s_retire" id="s_retire">
+				  Retirement</label>
+				<br>
+				<label>
+				  <input type="checkbox" name="s_educ" value="s_educ" id="s_educ">
+				  Kid's Education</label>
+				<br>
+				Others - Please specify:<input type="text" name="txtsavingsfor" id="txtsavingsfor" size="70" placeholder="Enumerate here">
+				<br>
+			  </p>
             </div>
         
             <!-- Number 3 --> 
@@ -252,28 +288,45 @@
             <!-- Number 4 -->
         
             <div id="financialstatus-icon"><img src="@Url.Content("~/Content/images/icon-number4.png")"></div>
-            <div style="width: 70%; font-family: 'Montserrat', Verdana, Arial, sans-serif; font-size: 13px;">What assets do you currently own? Kindly list them below:<br>
-              <h12>(Please use commas to separate your answers)</h12>
+            <div style="width: 70%; font-family: 'Montserrat', Verdana, Arial, sans-serif; font-size: 13px;">What assets do you currently own?<br>
+              <h12>Kindly check all that applies.</h12>
             </div>
             <div id="financialstatus-textbox">
-              <textarea name="owned" id="owned" cols="300" ></textarea>
-              <br>
+              <p class="savings-group">
+				<label>
+				  <input type="checkbox" name="a_car" value="a_car" id="a_car">
+				  Car/s</label>
+				<br>
+				<label>
+				  <input type="checkbox" name="a_estate" value="a_estate" id="a_estate">
+				  Real Estate</label>
+				<br>
+				<label>
+				  <input type="checkbox" name="a_jewel" value="a_jewel" id="a_jewel">
+				  Jewelry</label>
+				<br>
+				<label>
+				  <input type="checkbox" name="a_cash" value="a_cash" id="a_cash">
+				 Cash/Investment Funds</label>
+				<br>
+				  Others - Please specify: <input type="text" name="txtassets" id="txtassets" size="70" placeholder="Enumerate here">
+				<br>
+			  </p>
             </div>
-            <h10 class="header-center">
-            <input name="chkagree" id="chkagree" type="checkbox" value="1">
-            I agree to the site's <a style="text-decoration:none; cursor:pointer;" onclick="$('#terms').toggle();">Terms and Conditions</a>
-            <h10>
-
-            <!-- Number 4 -->
-            <div id="terms" style="display:none; font-style:italic; text-align:justify;" >The contents, medical information and results of the "What's Your Health Score" Quiz on this FailProof site is for information purposes only, and is not to be used or relied upon for any diagnostic or treatment purposes. The information and any opinions herein are based upon sources believed to be reliable, but AXA Philippines, its officers and directors make no representations or warranty, express or implied, with respect to the correctness, completeness of the information and opinions in this site, and should not be used as a substitute for professional diagnosis and treatment.<br /><br />
+			
+			<div style="width: 100%; float: left; align: center">
+        	<h10 class="header-center"><input name="chkagree" id="chkagree" type="checkbox" value="1">I agree to the site's <a style="text-decoration:none; cursor:pointer;" onclick="$('#terms').toggle();">Terms and Conditions</a><h10>
+            <br>
+			
+			<div id="terms" style="display:none; font-style:italic; text-align:justify;" >The contents, medical information and results of the "What's Your Health Score" Quiz on this FailProof site is for information purposes only, and is not to be used or relied upon for any diagnostic or treatment purposes. The information and any opinions herein are based upon sources believed to be reliable, but AXA Philippines, its officers and directors make no representations or warranty, express or implied, with respect to the correctness, completeness of the information and opinions in this site, and should not be used as a substitute for professional diagnosis and treatment.<br /><br />
             You should consult your health care provider for guidance about a specific medical condition or before making any healthcare decisions. AXA Philippines expressly disclaims responsibility, and shall have no liability, for any damages, loss, injury, or liability whatsoever suffered as a result of your reliance on the information contained in this site. AXA Philippines does not endorse specifically any test, treatment, or procedure mentioned on the site.<br /><br />
             By visiting the FailProof site you agree to the foregoing terms and conditions, which may from time to time be changed or supplemented by AXA Philippines. If you do not agree to the foregoing terms and conditions, you should not enter this site.
             </div>
-
-            <div style="text-align:center">
-                <div id="presubmit_87162537"></div>
-              <input type="button" name="btnSubmit2" id="btnSubmit2" class="button.blue img" tabindex="5" value="Submit" />
-            </div>
+			
+            <div id="presubmit_87162537"></div>
+            <input type="button" name="btnSubmit2" id="btnSubmit2" class="button.blue img" tabindex="5" value="Submit" />
+			  
+        	</div>
           </form>
         </div>
     </div>
@@ -286,7 +339,7 @@
         <span class="dropcap-text">Your health risk score is<br >
         </span><span id="r1_percent"></span></h7>
       <div id="resulst-bluebox1">You have a <span id="r1_percent2"></span> chance of getting a critical illness, being disabled, <br>
-        or even dying before you reach 55.</div>
+        or even dying before you reach <span id="r1_agefact"></span>.</div>
       <br />
       <h11 class="header-center">Two major factors contribute to the probability of developing a critical illness: <br />
         <h15 class="header-center">heredity and lifestyle.</h15>
@@ -304,12 +357,12 @@
       <h23 class="header-center">BUT WHAT IF HAPPENS TO YOU?</h23>
       <br />
       <h11 class="header-center">We all know someone who seemed to be at the peak of his health, but suddenly had his life changed, <br >
-        or even lost, due to a critical illness, <a href="@Url.Content("~/Content/pdf-camille.pdf")"  target="_blank">just like Camille Prats, who, at a very young age, <br >
+        or even lost, due to a critical illness, <a href="@Url.Content("~/Content/pdf-camille.pdf")"  download>just like Camille Prats, who, at a very young age, <br >
         had to endure losing her husband to cancer. </a></h11>
       <div id="results-bluebox2">
         <div id="results-icon"><img src="@Url.Content("~/Content/images/icon_coins.png")"></div>
         Treating a critical illness can cost as much as <span class="results-text2">P1 million, </span><br >
-        <span class="results-text1">and unfortunately, your savings of </span><span class="results-text3" id="r1_txtsavings"> P200,000</span> <span class="results-text1">is not enough to cover this.</span></div>
+        <span class="results-text1">and unfortunately, your savings is not enough to cover this.</span></div>
       <div id="results-bluebox3">
         <div id="results-icon"><img src="@Url.Content("~/Content/images/icon_illness.png")"></div>
         When funds are not enough and a <span class="results-text2">critical illness strikes, </span><br >
@@ -324,7 +377,10 @@
         treatment, and still live normally when you get better? This way, you wouldn't <br >
         have to sacrifice the funds you are setting aside for your future goals:<br >
         <span class="results-text3" id="r1_txtsavingfor">travel, new car</span></div>
-        <br/><h14 class="header-center"><a href="/FailProofYourHealth/8"><img src="@Url.Content("~/UserFiles/images/btn-healthriskscore-result.png")" border="0" ></a></h14>
+        <br/><h14 class="header-center"><a href="/Health-Exentials"><img src="@Url.Content("~/UserFiles/images/btn-healthriskscore-result.png")" border="0" ></a>
+		<br/>
+	   <a href="javascript:void(0)"><img src="@Url.Content("~/UserFiles/images/btn-fbshare.png")" ><a href="javascript:void(0)"><img src="@Url.Content("~/UserFiles/images/btn-twittershare.png")" style="margin-left: 5px;"></a>
+		</h14>
       <!-- End of Content -->     
     </div>
     <!-- RESULT 1 END HERE -->
@@ -336,7 +392,7 @@
         <span class="dropcap-text">Your health risk score is<br >
         </span><span id="r2_percent"></span></h7>
       <div id="resulst-bluebox1">You have a <span id="r2_percent2"></span> chance of getting a critical illness, being disabled, <br>
-        or even dying before you reach 55.</div>
+        or even dying before you reach <span id="r2_agefact"></span>.</div>
       <br />
       <h11 class="header-center">Two major factors contribute to the probability of developing a critical illness: <br />
         <h15 class="header-center">heredity and lifestyle.</h15>
@@ -355,17 +411,20 @@
       <h23 class="header-center">BUT WHAT IF HAPPENS TO YOU?</h23>
       <br />
       <h11 class="header-center">We all know someone who seemed to be at the peak of his health, but suddenly had his life changed, <br >
-        or even lost, due to a critical illness, <a href="@Url.Content("~/Content/pdf-camille.pdf")" target="_blank">just like Camille Prats, who, at a very young age, <br >
+        or even lost, due to a critical illness, <a href="@Url.Content("~/Content/pdf-camille.pdf")" download>just like Camille Prats, who, at a very young age, <br >
         had to endure losing her husband to cancer. </a></h11>
       <div id="results-bluebox2">
         <div id="results-icon"><img src="@Url.Content("~/Content/images/icon_coins.png")"></div>
         Treating a critical illness can cost as much as <span class="results-text2">P1 million, </span><br >
-        <span class="results-text1">and fortunately, your savings of </span><span class="results-text3" id="r2_txtsavings"> PHP 1,200,000 </span> <span class="results-text1">is enough to cover this.</span></div>
+        <span class="results-text1">and fortunately, your savings is enough to cover this.</span></div>
       <div id="results-bluebox3">
         <div id="results-icon"><img src="@Url.Content("~/Content/images/icon_assets.png")"></div>
         When you undergo treatment for a <span class="results-text2">critical illness </span>though, <br >
         <span class="results-text1">your ability to earn income is compromised. At one point, you will either have to dip into the fund your are setting aside for your future goals </span><span class="results-text4" id="r2_txtsavingfor">(travel, new car), </span> or give up what you own <span class="results-text4" id="r2_txtowned">(house, car, jewelry, gadgets). </span></div>
-      <br/><h14 class="header-center"><a href="/FailProofYourHealth/9"><img src="@Url.Content("~/UserFiles/images/btn-healthriskscore-result-2.png")" border="0" ></a></h14>
+       <br/><h14 class="header-center"><a href="/Health-Max"><img src="@Url.Content("~/UserFiles/images/btn-healthriskscore-result-2.png")" border="0" ></a>
+	   <br/>
+	   <a href="javascript:void(0)"><img src="@Url.Content("~/UserFiles/images/btn-fbshare.png")" ><a href="javascript:void(0)"><img src="@Url.Content("~/UserFiles/images/btn-twittershare.png")" style="margin-left: 5px;"></a>
+	   </h14>
       <!-- End of Content -->
       </div>
     <!-- RESULT 2 END HERE -->
@@ -385,8 +444,6 @@
         $("#pounds").numeric();
         $("#feet").numeric();
         $("#inches").numeric();
-        $("#income").numeric();
-        $("#savings").numeric();
 
         /* HIDE AND SHOW */
         $("#page1").show();
@@ -425,7 +482,8 @@
             var alcoholVal = $("#alcohol").val();
             var coffeeVal = $("#coffee").val();
             var exerciseVal = $("#exercise").val();
-
+			var shareonfbval = $('#shareonfb').is(":checked");
+			
             var DataToPass =
 			{
 			    page: "page1",
@@ -440,8 +498,10 @@
 			    alcohol: alcoholVal,
 			    coffee: coffeeVal,
 			    exercise: exerciseVal,
-			    emailadd: emailadd
+			    emailadd: emailadd,
+				shareonfbval: shareonfbval
 			};
+			
             $.ajax({
                 url: 'http://omgph.com/apis/index.php',
                 cache: false,
@@ -471,9 +531,21 @@
             // Get all input forms
             var income = $("#income").val();
             var savings = $("#savings").val();
-            var savefor = $("#savefor").val();
-            var owned = $("#owned").val();
-            var boxes = $('#chkagree').is(":checked")
+			
+			var s_car = $('#s_car').is(":checked");
+			var s_estate = $('#s_estate').is(":checked");
+			var s_trip = $('#s_trip').is(":checked");
+			var s_retire = $('#s_retire').is(":checked");
+			var s_educ = $('#s_educ').is(":checked");
+			var txtsavingsfor = $("#txtsavingsfor").val();
+			
+			var a_car = $('#a_car').is(":checked");
+			var a_estate = $('#a_estate').is(":checked");
+			var a_jewel = $('#a_jewel').is(":checked");
+			var a_cash = $('#a_cash').is(":checked");
+			var txtassets = $("#txtassets").val();
+			
+            var boxes = $('#chkagree').is(":checked");
 
             var monpicker = $("#monpicker").val();
             var daypicker = $("#daypicker").val();
@@ -494,14 +566,24 @@
             var alcoholVal = $("#alcohol").val();
             var coffeeVal = $("#coffee").val();
             var exerciseVal = $("#exercise").val();
-
+			var shareonfbval = $('#shareonfb').is(":checked");
+			
             var DataToPass2 =
 			{
 			    page: "page2",
 			    income: income,
 			    savings: savings,
-			    savefor: savefor,
-			    owned: owned,
+				s_car: s_car,
+				s_estate: s_estate,
+				s_trip: s_trip,
+				s_retire: s_retire,
+				s_educ: s_educ,
+				txtsavingsfor: txtsavingsfor,
+				a_car: a_car,
+				a_estate: a_estate,
+				a_jewel: a_jewel,
+				a_cash: a_cash,
+				txtassets: txtassets,
 			    boxes: boxes,
 			    bday: bday,
 			    gender: genderVal,
@@ -514,7 +596,8 @@
 			    alcohol: alcoholVal,
 			    coffee: coffeeVal,
 			    exercise: exerciseVal,
-			    emailadd: emailadd
+			    emailadd: emailadd,
+				shareonfbval: shareonfbval
 			};
             $.ajax({
                 url: 'http://omgph.com/apis/index.php',
@@ -529,25 +612,23 @@
                         alert(mydata.error);
                     } else {
                         // saving to database process
-                        $.post('/SaveHealthRiskScore', { income: income, savings: savings, savefor: savefor, owned: owned, bday: bday, gender: genderVal, smoker: smokerVal, pounds: pounds, feet: feet, inches: inches, parentsillness: parentsillnessVal, youillness: youillnessVal, alcohol: alcoholVal, coffee: coffeeVal, exercise: exerciseVal, emailadd: emailadd }, function (data) {
-                            if (mydata.product == "HEALTHEXEN") {
-                                $("#r1_percent").html(mydata.meta + '%');
-                                $("#r1_percent2").html(mydata.meta + '%');
-                                $("#r1_txtsavings").html("Php " + mydata.textsavings);
-                                $("#r1_txtowned").html(mydata.textowned);
-                                $("#r1_txtsavingfor").html(mydata.textsavingfor);
-                                $("#page2").hide();
-                                $("#result1").show();
-                            } else if (mydata.product == "HEALTHMAX") {
-                                $("#r2_percent").html(mydata.meta + '%');
-                                $("#r2_percent2").html(mydata.meta + '%');
-                                $("#r2_txtsavings").html("Php " + mydata.textsavings);
-                                $("#r2_txtowned").html(mydata.textowned);
-                                $("#r2_txtsavingfor").html(mydata.textsavingfor);
-                                $("#page2").hide();
-                                $("#result2").show();
-                            }
-                        });
+                       if (mydata.product == "HEALTHEXEN") {
+							$("#r1_percent").html(mydata.meta + '%');
+							$("#r1_percent2").html(mydata.meta + '%');
+							$("#r1_agefact").html(mydata.agefact);
+							$("#r1_txtowned").html("(" + mydata.textowned + ")");
+							$("#r1_txtsavingfor").html("(" + mydata.textsavingfor + ")");
+							$("#page2").hide();
+							$("#result1").show();
+						} else if (mydata.product == "HEALTHMAX") {
+							$("#r2_percent").html(mydata.meta + '%');
+							$("#r2_percent2").html(mydata.meta + '%');
+							$("#r2_agefact").html(mydata.agefact);
+							$("#r2_txtowned").html("(" + mydata.textowned + ")");
+							$("#r2_txtsavingfor").html("(" + mydata.textsavingfor + ")");
+							$("#page2").hide();
+							$("#result2").show();
+						}
                     }
                 }
             });

@@ -33,14 +33,21 @@
 <script type="text/javascript" src="@Url.Content("~/Content/js/main.js")"></script>
 <!-- Icon -->
 <link rel="shortcut icon" href="@Url.Content("~/Content/images/ico.png")">
-
 <script>
-    $(document).ready(function () {
-        $("button").click(function () {
-            $("#stripwithbtns").toggle();
-        });
-    });
+$(document).ready(function(){
+  $("button").on("click", function(){
+    if($(this).text()=="X")
+    {
+        $(this).text("Show");
+    } else {
+        $(this).text("X");
+    }
+    $("#stripwithbtns").toggle(); 
+    return false;
+  });
+});
 </script>
+
 </head>
 <!--[if lte IE 6]><script src="@Url.Content("~/Content/js/ie6/warning.js")"></script><script>window.onload=function(){e("@Url.Content("~/Content/js/ie6/")")}</script><![endif]-->
 <!--[if lte IE 7]><script src="@Url.Content("~/Content/js/ie6/warning.js")"></script><script>window.onload=function(){e("@Url.Content("~/Content/js/ie6/")")}</script><![endif]-->

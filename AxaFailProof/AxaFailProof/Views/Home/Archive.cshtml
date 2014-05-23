@@ -51,7 +51,7 @@
                 </div>
                 </a>
                 <div class="post-text-bottom">
-                  <div><a href="@Url.Action("Story", "Home", new { id = item.StoryID })" class="readmore">Read More<i class="icon-arrow-right8"></i></a> <a href="#" class="comments-info"><i class="icon-fixed-bubble"></i>@item.CommnetsCount</a></div>
+                  <div><a href="@Url.Action("Story", "Home", new { id = item.StoryID, title = item.Title.Replace(" ","-") })" class="readmore">Read More<i class="icon-arrow-right8"></i></a> <a href="#" class="comments-info"><i class="icon-fixed-bubble"></i>@item.CommnetsCount</a></div>
                 </div>
               </div>
             </div>

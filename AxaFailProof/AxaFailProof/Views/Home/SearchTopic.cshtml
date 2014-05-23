@@ -59,7 +59,7 @@
                       <div class="post-info-container">
                         <h2>@item.Title</h2>
                         <p>@teaser [...]</p>
-                        <a href="@Url.Action("Story", "Home", new { id = item.StoryID })" class="readmore"> Read More<i class="icon-arrow-right8"></i> </a> </div>
+                        <a href="@Url.Action("Story", "Home", new { id = item.StoryID, title = item.Title.Replace(" ", "-") })" class="readmore"> Read More<i class="icon-arrow-right8"></i> </a> </div>
                     </div>
                   </div>
                 }
