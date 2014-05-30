@@ -94,13 +94,13 @@
             <div id="healthstatus-icon"><img src="@Url.Content("~/Content/images/icon-number4.png")"></div>
             <div id="healthstatus-field">
               <div style="float: left; width: 193px; margin-right: -70px;" >
-                <input type="text" name="feet" id="feet" size="27" tabindex="3" maxlength="1" value="Feet (ft)">
+                <input type="text" name="feet" id="feet" size="27" maxlength="1" value="Feet (ft)">
               </div>
               <div style="float: left; width: 183px; margin-right: -65px; margin-bottom: 20px;" >
-                <input type="text" name="inches" id="inches" size="27" tabindex="3" maxlength="2" value="Inches (in)">
+                <input type="text" name="inches" id="inches" size="27" maxlength="2" value="Inches (in)">
               </div>
               <div style="float: left; width: 183px; margin-right: -60px; margin-bottom: 20px;" >
-                <input type="text" name="pounds" id="pounds" size="27" tabindex="3" maxlength="3" value="Weight (lbs)">
+                <input type="text" name="pounds" id="pounds" size="27" maxlength="3" value="Weight (lbs)">
               </div>
               <br >
             </div>
@@ -189,13 +189,19 @@
             <div id="healthstatus-question">Your email address </div>
             <div id="healthstatus-icon"><img src="@Url.Content("~/Content/images/icon-number10.png")"></div>
             <div id="healthstatus-field">
-              <input type="text" name="emailadd" id="emailadd" size="27" tabindex="3" value="">
+              <input type="text" name="emailadd" id="emailadd" size="27" value="">
               <br />
             </div>
             <!-- Number 10 -->
-
-			<h10 class="header-center"><input type="checkbox" name="shareonfb" id="shareonfb" value="Y"> Share results on Facebook<h10>
-        	<br /><br />
+			
+			<!-- Number 11 -->
+            <div id="healthstatus-question">Full Name </div>
+            <div id="healthstatus-icon"><img src="@Url.Content("~/Content/images/icon-number11.png")"></div>
+            <div id="healthstatus-field">
+              <input type="text" name="fullname" id="fullname" size="27" value="">
+              <br />
+            </div>
+            <!-- Number 11 -->
 
             <div id="presubmit_009328"></div>
             <input type="button" name="btnSubmit" id="btnSubmit" class="button.blue img" tabindex="5" value="Submit" />
@@ -357,7 +363,7 @@
       <h23 class="header-center">BUT WHAT IF HAPPENS TO YOU?</h23>
       <br />
       <h11 class="header-center">We all know someone who seemed to be at the peak of his health, but suddenly had his life changed, <br >
-        or even lost, due to a critical illness, <a href="@Url.Content("~/Content/pdf-camille.pdf")"  download>just like Camille Prats, who, at a very young age, <br >
+        or even lost, due to a critical illness, <a href="@Url.Content("~/Content/pdf-camille.compressed.pdf")" target="_blank">just like Camille Prats, who, at a very young age, <br >
         had to endure losing her husband to cancer. </a></h11>
       <div id="results-bluebox2">
         <div id="results-icon"><img src="@Url.Content("~/Content/images/icon_coins.png")"></div>
@@ -379,8 +385,9 @@
         <span class="results-text3" id="r1_txtsavingfor">travel, new car</span></div>
         <br/><h14 class="header-center"><a href="/Health-Exentials"><img src="@Url.Content("~/UserFiles/images/btn-healthriskscore-result.png")" border="0" ></a>
 		<br/>
-	   <a href="javascript:void(0)"><img src="@Url.Content("~/UserFiles/images/btn-fbshare.png")" ><a href="javascript:void(0)"><img src="@Url.Content("~/UserFiles/images/btn-twittershare.png")" style="margin-left: 5px;"></a>
-		</h14>
+	   <a href="javascript:fbshare()"><img src="@Url.Content("~/UserFiles/images/btn-fbshare.png")" /></a>
+       <a href="javascript:tweet()"><img src="@Url.Content("~/UserFiles/images/btn-twittershare.png")" style="margin-left: 5px;"></a>
+	   </h14>
       <!-- End of Content -->     
     </div>
     <!-- RESULT 1 END HERE -->
@@ -411,7 +418,7 @@
       <h23 class="header-center">BUT WHAT IF HAPPENS TO YOU?</h23>
       <br />
       <h11 class="header-center">We all know someone who seemed to be at the peak of his health, but suddenly had his life changed, <br >
-        or even lost, due to a critical illness, <a href="@Url.Content("~/Content/pdf-camille.pdf")" download>just like Camille Prats, who, at a very young age, <br >
+        or even lost, due to a critical illness, <a href="@Url.Content("~/Content/pdf-camille.compressed.pdf")" target="_blank">just like Camille Prats, who, at a very young age, <br >
         had to endure losing her husband to cancer. </a></h11>
       <div id="results-bluebox2">
         <div id="results-icon"><img src="@Url.Content("~/Content/images/icon_coins.png")"></div>
@@ -423,12 +430,15 @@
         <span class="results-text1">your ability to earn income is compromised. At one point, you will either have to dip into the fund your are setting aside for your future goals </span><span class="results-text4" id="r2_txtsavingfor">(travel, new car), </span> or give up what you own <span class="results-text4" id="r2_txtowned">(house, car, jewelry, gadgets). </span></div>
        <br/><h14 class="header-center"><a href="/Health-Max"><img src="@Url.Content("~/UserFiles/images/btn-healthriskscore-result-2.png")" border="0" ></a>
 	   <br/>
-	   <a href="javascript:void(0)"><img src="@Url.Content("~/UserFiles/images/btn-fbshare.png")" ><a href="javascript:void(0)"><img src="@Url.Content("~/UserFiles/images/btn-twittershare.png")" style="margin-left: 5px;"></a>
+	   <a href="javascript:fbshare()"><img src="@Url.Content("~/UserFiles/images/btn-fbshare.png")" /></a>
+       <a href="javascript:tweet()"><img src="@Url.Content("~/UserFiles/images/btn-twittershare.png")" style="margin-left: 5px;"></a>
 	   </h14>
       <!-- End of Content -->
       </div>
     <!-- RESULT 2 END HERE -->
   </div>
+  <input type="hidden" id="perleft" value="">
+  <input type="hidden" id="ageleft" value="">
 </section>
 <script type="text/javascript">
 // <![CDATA[
@@ -482,7 +492,7 @@
             var alcoholVal = $("#alcohol").val();
             var coffeeVal = $("#coffee").val();
             var exerciseVal = $("#exercise").val();
-			var shareonfbval = $('#shareonfb').is(":checked");
+			var fullnameVal = $("#fullname").val();
 			
             var DataToPass =
 			{
@@ -499,7 +509,7 @@
 			    coffee: coffeeVal,
 			    exercise: exerciseVal,
 			    emailadd: emailadd,
-				shareonfbval: shareonfbval
+				fullname: fullnameVal
 			};
 			
             $.ajax({
@@ -531,22 +541,18 @@
             // Get all input forms
             var income = $("#income").val();
             var savings = $("#savings").val();
-			
 			var s_car = $('#s_car').is(":checked");
 			var s_estate = $('#s_estate').is(":checked");
 			var s_trip = $('#s_trip').is(":checked");
 			var s_retire = $('#s_retire').is(":checked");
 			var s_educ = $('#s_educ').is(":checked");
 			var txtsavingsfor = $("#txtsavingsfor").val();
-			
 			var a_car = $('#a_car').is(":checked");
 			var a_estate = $('#a_estate').is(":checked");
 			var a_jewel = $('#a_jewel').is(":checked");
 			var a_cash = $('#a_cash').is(":checked");
 			var txtassets = $("#txtassets").val();
-			
             var boxes = $('#chkagree').is(":checked");
-
             var monpicker = $("#monpicker").val();
             var daypicker = $("#daypicker").val();
             var yearpicker = $("#yearpicker").val();
@@ -566,7 +572,7 @@
             var alcoholVal = $("#alcohol").val();
             var coffeeVal = $("#coffee").val();
             var exerciseVal = $("#exercise").val();
-			var shareonfbval = $('#shareonfb').is(":checked");
+			var fullnameVal = $("#fullname").val();
 			
             var DataToPass2 =
 			{
@@ -597,7 +603,7 @@
 			    coffee: coffeeVal,
 			    exercise: exerciseVal,
 			    emailadd: emailadd,
-				shareonfbval: shareonfbval
+				fullname: fullnameVal
 			};
             $.ajax({
                 url: 'http://omgph.com/apis/index.php',
@@ -618,24 +624,63 @@
 							$("#r1_agefact").html(mydata.agefact);
 							$("#r1_txtowned").html("(" + mydata.textowned + ")");
 							$("#r1_txtsavingfor").html("(" + mydata.textsavingfor + ")");
+							$("#ageleft").val(mydata.agefact);
+							$("#perleft").val(mydata.bmi + '%');
 							$("#page2").hide();
 							$("#result1").show();
+							location.hash = "#screen1";
 						} else if (mydata.product == "HEALTHMAX") {
 							$("#r2_percent").html(mydata.meta + '%');
 							$("#r2_percent2").html(mydata.meta + '%');
 							$("#r2_agefact").html(mydata.agefact);
 							$("#r2_txtowned").html("(" + mydata.textowned + ")");
 							$("#r2_txtsavingfor").html("(" + mydata.textsavingfor + ")");
+							$("#ageleft").val(mydata.agefact);
+							$("#perleft").val(mydata.bmi + '%');
 							$("#page2").hide();
 							$("#result2").show();
+							location.hash = "#screen1";
 						}
                     }
                 }
             });
-
             return false;
         });
 
     });
+// ]]>
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+
+	function opener(sharer) {
+		window.open(sharer, 'sharer', 'width=625,height=300,left=350,top=200');
+	}
+
+	function tweet(){
+		var perper = $("#perleft").val();
+		var ageage = $("#ageleft").val();
+		var title = 'I have '+perper+' chance of staying healthy until I reach '+ageage+'. Take the "What\'s your health risk score?" quiz now!';
+		var sharer = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(title);
+		opener(sharer);
+	}
+	
+	function fbshare(){
+		var perper = $("#perleft").val();
+		var ageage = $("#ageleft").val();
+		var perperreplace = perper.replace('%', '');
+		
+		FB.init({ appId: '623303864417444', cookie: true, xfbml: true, oauth: true});
+        FB.ui({
+            method: 'feed',
+			name: 'What\'s your health risk score?',
+			link: 'http://omgph.net/HealthRiskScore',
+			picture: 'http://omgph.net/Content/ogimage/'+perperreplace+'.OG-Image.png',
+			caption:  '',
+			description: 'I have '+perper+' chance of staying healthy until I reach '+ageage+'. Take the "What\'s your health risk score?" quiz now!'
+        });
+	}
+	
 // ]]>
 </script>
