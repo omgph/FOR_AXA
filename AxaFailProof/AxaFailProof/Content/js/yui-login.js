@@ -101,7 +101,7 @@ YUI.add('login', function (Y) {
             throw new Error('Y.login.renderLoginButton - No DOM element with id "' + id + '" found');
         }
 
-        html = html || '<img name="submit" type="image" class="btn-yahoo" value="Submit" style="cursor:pointer" src="Content/images/btn_yahoo.png"/>';
+        html = html || '<img name="submit" type="image" class="btn-yahoo" value="Submit" style="cursor:pointer" src="/Content/images/btn_yahoo.png"/>';
 
         button.set('innerHTML', html);
 

@@ -4,7 +4,7 @@
 }
 <!-- Place this asynchronous JavaScript just before your </body> tag -->
 <script type="text/javascript">
-
+    /******* GMAIL LOGIN *******/
     var profile, email;
 
     (function () {
@@ -25,10 +25,6 @@
         });
     }
 
-    /*
-    * Triggered when the user accepts the sign in, cancels, or closes the
-    * authorization dialog.
-    */
     function loginFinishedCallback(authResult) {
         if (authResult) {
             if (authResult['error'] == undefined) {
@@ -41,39 +37,32 @@
         } //end if (authResult)
     } //end function loginFinishedCallback(authResult)
 
-    /**
-    * Uses the JavaScript API to request the user's profile, which includes
-    * their basic information. When the plus.profile.emails.read scope is
-    * requested, the response will also include the user's primary email address
-    * and any other email addresses that the user made public.
-    */
     function loadProfile() {
         var request = gapi.client.plus.people.get({ 'userId': 'me' });
         request.execute(loadProfileCallback);
     }
 
-    /**
-    * Callback for the asynchronous request to the people.get method. The profile
-    * and email are set to global variables. Triggers the user's basic profile
-    * to display when called.
-    */
     function loadProfileCallback(obj) {
         profile = obj;
-        // Filter the emails object to find the user's primary account, which might
-        // not always be the first in the array. The filter() method supports IE9+.
         email = obj['emails'].filter(function (v) {
             return v.type === 'account'; // Filter out the primary email
         })[0].value; // get the email from the filtered results, should always be defined.
         displayProfile(profile);
     }
 
-    /**
-    * Display the user's basic profile information from the profile object.
-    */
     function displayProfile(profile) {
         saveUserDetails(profile['id'], profile['displayName'], email,"Google");
     }
+    /****** END GMAIL LOGIN ******/
 
+
+    /****** YAHOO LOGIN ******/
+    YUI().use('login', function (Y) {
+        Y.login.renderLoginButton('ylogin');
+    });
+    /****** END GMAIL LOGIN ******/
+
+    /****** SAVING USER INFO ******/
     function saveUserDetails(id, uname, uemail, socialmedia) {
         $.post('/SaveSocialMedia', { userid: id, name: uname, email: uemail, mediatype: socialmedia }, function (data) {
             if (data == "Save" || data == "Exist") {
@@ -82,10 +71,8 @@
             }
         });
     } //end function saveUserDetails(id,name,email)
+    /****** END SAVING USER INFO ******/
 
-    YUI().use('login', function (Y) {
-        Y.login.renderLoginButton('ylogin');
-    });    
 </script>
 
 <section id="titlebar" class="titlebar">
@@ -138,6 +125,7 @@
         location = '/SubmitStory';
     }
 
+    /**** FACEBOOK LOGIN ****/
     function fblogin() {
         FB.login(function (response) {
             if (response.authResponse) {
@@ -150,5 +138,6 @@
             }
         });
     }
+    /**** END FACEBOOK LOGIN ****/
 
 </script>
